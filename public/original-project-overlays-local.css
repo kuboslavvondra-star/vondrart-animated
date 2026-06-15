@@ -1,0 +1,113 @@
+/* Integration layer for the original project overlays inside the local hash router. */
+.project-overlay-original {
+  padding: 0 !important;
+  background: transparent !important;
+  overflow: hidden !important;
+}
+
+.project-overlay-original:not(:target) > [id$="-vondrart-overlay"] {
+  display: none !important;
+}
+
+.project-overlay-original:target > [id$="-vondrart-overlay"] {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+.project-overlay-original [id$="-vondrart-overlay"] img {
+  max-width: 100%;
+}
+
+.project-overlay-original [class$="-sheet"],
+.project-overlay-original .bng-wrap {
+  overflow-x: hidden !important;
+}
+
+.project-overlay-original [class$="-close"] {
+  text-decoration: none !important;
+}
+
+#bonghemia-vondrart-overlay.is-open,
+.project-overlay-original:target #bonghemia-vondrart-overlay {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+#bonghemia-vondrart-overlay.is-open .bng-wrap {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  #dopamine-vondrart-overlay,
+  #syndikat-vondrart-overlay,
+  #dvorek-vondrart-overlay,
+  #houby-vondrart-overlay,
+  #olbracht-vondrart-overlay,
+  #cotyploty-vondrart-overlay,
+  #bonghemia-vondrart-overlay,
+  #dopamine-vondrart-overlay *,
+  #syndikat-vondrart-overlay *,
+  #dvorek-vondrart-overlay *,
+  #houby-vondrart-overlay *,
+  #olbracht-vondrart-overlay *,
+  #cotyploty-vondrart-overlay *,
+  #bonghemia-vondrart-overlay * {
+    cursor: none !important;
+  }
+
+  .project-overlay-original:target ~ .cursor,
+  body:has(.project-overlay-original:target) .cursor {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  #dopamine-vondrart-overlay,
+  #syndikat-vondrart-overlay,
+  #dvorek-vondrart-overlay,
+  #houby-vondrart-overlay,
+  #olbracht-vondrart-overlay,
+  #cotyploty-vondrart-overlay,
+  #bonghemia-vondrart-overlay,
+  #dopamine-vondrart-overlay *,
+  #syndikat-vondrart-overlay *,
+  #dvorek-vondrart-overlay *,
+  #houby-vondrart-overlay *,
+  #olbracht-vondrart-overlay *,
+  #cotyploty-vondrart-overlay *,
+  #bonghemia-vondrart-overlay * {
+    cursor: auto !important;
+  }
+}
+
+@media (max-width: 920px) {
+  .project-overlay-original:target > [id$="-vondrart-overlay"],
+  .project-overlay-original:target [class$="-sheet"],
+  .project-overlay-original:target .bng-wrap {
+    max-width: 100vw !important;
+  }
+
+  .project-overlay-original:target [id$="-vondrart-overlay"] {
+    overflow-x: hidden !important;
+  }
+
+  #dvorek-vondrart-overlay .dv-closing {
+    display: block !important;
+  }
+
+  #dvorek-vondrart-overlay .dv-closing img {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-top: 24px !important;
+  }
+
+  #dvorek-vondrart-overlay .dv-closing h3 {
+    font-size: clamp(32px, 8.5vw, 34px) !important;
+    letter-spacing: -0.04em !important;
+  }
+}
