@@ -773,3 +773,120 @@
 .project-dopamine-tour .project-card-image {
   object-position: center center !important;
 }
+
+/* Final QA pass: stable project cards, no faded hover swaps. */
+.project-card {
+  display: flex !important;
+  min-width: 0 !important;
+  height: 100% !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+}
+
+.project-media {
+  flex: 0 0 auto !important;
+  margin-bottom: clamp(14px, 1.1vw, 20px) !important;
+}
+
+.project-meta {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  align-items: start !important;
+  min-height: auto !important;
+  margin: 0 18px 12px !important;
+  gap: 12px !important;
+  line-height: 1.2 !important;
+}
+
+.project-meta span {
+  min-width: 0 !important;
+}
+
+.project-meta span:first-child {
+  overflow-wrap: anywhere !important;
+}
+
+.project-card h3 {
+  display: block !important;
+  min-height: 0 !important;
+  margin: 0 18px 8px !important;
+  line-height: 0.96 !important;
+  white-space: nowrap !important;
+}
+
+.project-card p {
+  min-height: 22px !important;
+  margin: 0 18px 18px !important;
+  line-height: 1.35 !important;
+}
+
+.project-card .tag-row {
+  margin-top: auto !important;
+  padding-top: 0 !important;
+}
+
+.project-card .project-card-image {
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+  transition: filter 160ms ease !important;
+  will-change: auto !important;
+}
+
+.project-card:hover .project-card-image {
+  opacity: 1 !important;
+  transform: none !important;
+  filter: blur(2px) saturate(0.96) !important;
+  will-change: filter !important;
+}
+
+.project-bonghemia .project-card-image,
+.project-bonghemia:hover .project-card-image,
+.project-cotyploty .project-card-image,
+.project-cotyploty:hover .project-card-image {
+  opacity: 0 !important;
+}
+
+.project-bonghemia .project-logo,
+.project-cotyploty .project-logo {
+  opacity: 0.88 !important;
+  filter: brightness(0) invert(1) !important;
+  transition: filter 160ms ease !important;
+}
+
+.project-bonghemia:hover .project-logo,
+.project-cotyploty:hover .project-logo {
+  opacity: 0.88 !important;
+  transform: none !important;
+  filter: brightness(0) invert(1) blur(2px) saturate(0.96) !important;
+}
+
+.project-card:not(.project-bonghemia):not(.project-cotyploty) .project-logo,
+.project-card:not(.project-bonghemia):not(.project-cotyploty):hover .project-logo {
+  opacity: 0 !important;
+}
+
+.project-syndikat-legal .project-card-image {
+  object-position: center center !important;
+}
+
+@media (max-width: 760px) {
+  .project-media {
+    margin-bottom: 12px !important;
+  }
+
+  .project-meta {
+    margin: 0 16px 10px !important;
+    gap: 10px !important;
+    font-size: 0.66rem !important;
+  }
+
+  .project-card h3 {
+    margin: 0 16px 7px !important;
+    font-size: clamp(1.15rem, 6.2vw, 1.8rem) !important;
+  }
+
+  .project-card p {
+    margin: 0 16px 16px !important;
+  }
+}

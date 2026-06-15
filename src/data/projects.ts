@@ -152,7 +152,7 @@ export const projects: Project[] = [
     services: ["Brand Identity", "Logo System", "Visual System", "Social Media", "Brand Applications"],
     logo: "/images/syndikat-legal-logo.png",
     hero: "/images/syndikat-legal-desky.webp",
-    cardImage: "/images/syndikat-legal-pravni-jistota.webp",
+    cardImage: "/images/syndikat-legal-desky.webp",
     palette: ["#072924", "#b9dcc6", "#eef5f1"],
     gallery: [
       {
@@ -194,7 +194,7 @@ export const projects: Project[] = [
     services: ["Brand Identity", "Illustration", "Social Media"],
     logo: "/images/dvorek-logo.png",
     hero: "/images/dvorek-brand.webp",
-    cardImage: "/images/dvorek-menu.webp",
+    cardImage: "/images/dvorek-card.webp",
     palette: ["#d2360f", "#fff4df", "#1d1d1b"],
     gallery: [
       {
@@ -241,7 +241,7 @@ export const projects: Project[] = [
     services: ["Brand Identity", "Product Design", "Photography", "Collage", "Campaigns", "Social Media"],
     logo: "/images/houby-space-logo.png",
     hero: "/images/houby-space-lifestyle.webp",
-    cardImage: "/images/houby-space-palm.webp",
+    cardImage: "/images/houby-space-card.webp",
     palette: ["#4a6c5d", "#febc30", "#f4ecc4", "#f48dad"],
     gallery: [
       {
@@ -293,7 +293,7 @@ export const projects: Project[] = [
     services: ["Brand Identity", "Illustration", "Social Media"],
     logo: "/images/cafe-olbracht-logo.png",
     hero: "/images/cafe-olbracht-main.webp",
-    cardImage: "/images/cafe-olbracht-cup.webp",
+    cardImage: "/images/cafe-olbracht-card.webp",
     palette: ["#fdf1d3", "#6a5652", "#cfdfbc", "#181818"],
     gallery: [
       {

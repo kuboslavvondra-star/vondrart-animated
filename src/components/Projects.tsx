@@ -126,6 +126,7 @@ export function Projects() {
       <div className="project-grid">
         {projects.map((project, index) => {
           const isFirstRow = index < 3;
+          const isLogoOnlyTile = project.id === "bonghemia" || project.id === "cotyploty";
 
           return (
             <a
@@ -135,21 +136,23 @@ export function Projects() {
               style={cssVars(project)}
             >
               <figure className="project-media">
-                <img
-                  className="project-card-image"
-                  src={project.cardImage}
-                  alt=""
-                  decoding="async"
-                  loading={isFirstRow ? "eager" : "lazy"}
-                  fetchPriority={isFirstRow ? "high" : "auto"}
-                />
+                {!isLogoOnlyTile ? (
+                  <img
+                    className="project-card-image"
+                    src={project.cardImage}
+                    alt=""
+                    decoding="async"
+                    loading={isFirstRow ? "eager" : "lazy"}
+                    fetchPriority={isFirstRow ? "high" : "auto"}
+                  />
+                ) : null}
                 <img
                   className="project-logo"
                   src={project.logo}
                   alt={`${project.name} logo`}
                   decoding="async"
                   loading={isFirstRow ? "eager" : "lazy"}
-                  fetchPriority="low"
+                  fetchPriority={isFirstRow && isLogoOnlyTile ? "high" : "low"}
                 />
               </figure>
               <div className="project-meta">
