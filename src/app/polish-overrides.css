@@ -1568,3 +1568,51 @@ main {
     display: none !important;
   }
 }
+
+/* Main homepage headings must match the bold ILUSTRACE treatment. */
+.projects-section .section-head h2,
+.services-section .section-head h2,
+.collabs-section .section-head h2,
+.ill-title,
+.about-section h2,
+.contact-section h2 {
+  max-width: 100%;
+  margin-top: 0;
+  font-family: "New Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: clamp(64px, 10vw, 176px);
+  font-weight: 800;
+  line-height: 0.82;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  text-wrap: balance;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+.section-head-stacked h2 span {
+  text-transform: uppercase;
+}
+
+.ill-title-row {
+  align-items: flex-start;
+}
+
+@media (max-width: 760px) {
+  .projects-section .section-head h2,
+  .services-section .section-head h2,
+  .collabs-section .section-head h2,
+  .ill-title,
+  .about-section h2,
+  .contact-section h2 {
+    font-size: clamp(58px, 18vw, 118px);
+    line-height: 0.82;
+  }
+
+  .ill-title-row {
+    align-items: flex-start;
+  }
+
+  .ill-controls {
+    align-self: flex-end;
+  }
+}

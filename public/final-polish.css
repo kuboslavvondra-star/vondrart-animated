@@ -1047,3 +1047,26 @@
     align-self: flex-end !important;
   }
 }
+
+/* Exact homepage heading match: first sections use the same treatment as ILUSTRACE. */
+.projects-section .section-head h2,
+.services-section .section-head h2,
+.collabs-section .section-head h2,
+.ill-title {
+  font-family: "New Black", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-size: clamp(64px, 10vw, 176px) !important;
+  font-weight: 800 !important;
+  line-height: 0.82 !important;
+  letter-spacing: 0 !important;
+  text-transform: uppercase !important;
+}
+
+@media (max-width: 760px) {
+  .projects-section .section-head h2,
+  .services-section .section-head h2,
+  .collabs-section .section-head h2,
+  .ill-title {
+    font-size: clamp(58px, 18vw, 118px) !important;
+    line-height: 0.82 !important;
+  }
+}
