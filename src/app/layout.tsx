@@ -19,7 +19,7 @@ export default function RootLayout({
       <head>
         <link rel="preload" href="/fonts/NewBlack-800.otf" as="font" type="font/otf" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/NewBlack-400.otf" as="font" type="font/otf" crossOrigin="anonymous" />
-        <link rel="stylesheet" href="/final-polish.css?v=20260616c" />
+        <link rel="stylesheet" href="/final-polish.css?v=20260616e" />
         <link rel="stylesheet" href="/original-project-overlays.css?v=20260616c" />
         <link rel="stylesheet" href="/original-project-overlays-local.css?v=20260615g" />
       </head>

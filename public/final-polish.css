@@ -982,3 +982,68 @@
     flex-basis: min(82vw, 330px) !important;
   }
 }
+
+/* Homepage headline unification: same bold cut as ILUSTRACE, with stable wrapping. */
+.projects-section .section-head h2,
+.services-section .section-head h2,
+.collabs-section .section-head h2,
+.ill-title,
+.about-section h2,
+.contact-section h2 {
+  max-width: 100% !important;
+  margin-top: 0 !important;
+  font-family: "New Black", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-weight: 800 !important;
+  line-height: 0.84 !important;
+  letter-spacing: 0 !important;
+  text-transform: uppercase !important;
+  text-wrap: balance !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+}
+
+.projects-section .section-head h2,
+.services-section .section-head h2,
+.collabs-section .section-head h2 {
+  font-size: clamp(58px, 7vw, 128px) !important;
+}
+
+.ill-title {
+  font-size: clamp(64px, 10vw, 176px) !important;
+}
+
+.about-section h2,
+.contact-section h2 {
+  width: min(1180px, 100%) !important;
+  font-size: clamp(58px, 7.4vw, 140px) !important;
+}
+
+.section-head-stacked h2 span {
+  text-transform: uppercase !important;
+}
+
+@media (max-width: 760px) {
+  .projects-section .section-head h2,
+  .services-section .section-head h2,
+  .collabs-section .section-head h2,
+  .ill-title,
+  .about-section h2,
+  .contact-section h2 {
+    font-size: clamp(44px, 14vw, 76px) !important;
+    line-height: 0.86 !important;
+  }
+
+  .projects-section .section-head,
+  .services-section .section-head,
+  .collabs-section .section-head {
+    align-items: start !important;
+  }
+
+  .ill-title-row {
+    align-items: flex-start !important;
+  }
+
+  .ill-controls {
+    align-self: flex-end !important;
+  }
+}
