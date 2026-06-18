@@ -80,19 +80,32 @@ html.scroll-fx-ready .fx-tilt {
   transform-style: preserve-3d;
 }
 
-/* ------------------ HERO „smart" BEZ BLIKÁNÍ ------------------ */
-/* Původní animace nechávala „sm" přes půlku cyklu úplně zmizet
-   (průhledná výplň i obrys) → „smart" četl jako „art". Necháme ho
-   staticky a čitelně obtažené — stylový kontrast, ale beze ztráty slova. */
+/* ------------------ HERO „art" ⇄ „smart" BLINK ------------------ */
+/* Záměrná hříčka: „sm" a „," blikají SPOLEČNĚ, takže titulek čte vždy
+   čistě buď „creative art" nebo „creative, smart" (ne rozsypaný mezistav).
+   Řešeno přes opacity (kompozitor) + steps → krok bez plynulého fade,
+   takže to NEzatěžuje scroll a nekoliduje s reveal animacemi. */
 .blink-sm {
-  animation: none !important;
   color: transparent !important;
   -webkit-text-stroke: 1.2px var(--ink, #111110) !important;
+  animation: heroWordBlink 4.6s steps(1, end) infinite !important;
 }
 
 .blink-comma {
-  animation: none !important;
-  opacity: 1 !important;
+  animation: heroWordBlink 4.6s steps(1, end) infinite !important;
+}
+
+@keyframes heroWordBlink {
+  0% {
+    opacity: 1;
+  } /* smart */
+  72% {
+    opacity: 0;
+  } /* art */
+  90%,
+  100% {
+    opacity: 1;
+  } /* smart */
 }
 
 /* --------------------- ÚVODNÍ OPONA ------------------------ */
@@ -147,6 +160,13 @@ html.scroll-fx-ready .fx-tilt {
 
   html.scroll-fx-ready .fx-magnetic {
     transition: none !important;
+  }
+
+  /* bez pohybu = ustálené čitelné „smart" (žádný blik) */
+  .blink-sm,
+  .blink-comma {
+    animation: none !important;
+    opacity: 1 !important;
   }
 
   .hero-mesh,
