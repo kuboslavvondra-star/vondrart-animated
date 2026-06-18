@@ -57,21 +57,18 @@ export function ScrollFX() {
     const groups: Array<[string, string]> = [
       [".project-grid", ":scope > *"],
       [".services-grid", ".service-item"],
-      [".collabs-grid", ".collab-item"],
-      [".ill-track", ".ill-card"]
-    ];
-    // Obrázky s clip-path wipe (scale jen tam, kde transform není zamčený !important).
-    const imageReveals: Array<[string, string]> = [
-      [".project-card-image", "clip"],
-      [".ill-card img", "clip-scale"]
+      [".collabs-grid", ".collab-item"]
+      // .ill-card NEpozorujeme jednotlivě — je to horizontální carousel a karty
+      // mimo pravý okraj by IO neprotnul (zůstaly by skryté). Ilustrace odhalíme
+      // hromadně, jakmile se carousel dostane do záběru (viz níže).
     ];
 
     const revealEls: Element[] = [];
-    const tag = (el: Element, variant: string, index = 0) => {
+    const tag = (el: Element, variant: string, index = 0, observe = true) => {
       if (el.hasAttribute("data-reveal")) return;
       el.setAttribute("data-reveal", variant);
       if (index) (el as HTMLElement).style.setProperty("--rv-i", String(index));
-      revealEls.push(el);
+      if (observe) revealEls.push(el);
     };
 
     singles.forEach(([selector, variant]) => {
@@ -82,11 +79,22 @@ export function ScrollFX() {
         container.querySelectorAll(childSel).forEach((child, i) => tag(child, "up", i % 8));
       });
     });
-    imageReveals.forEach(([selector, variant]) => {
-      document.querySelectorAll(selector).forEach((el) => tag(el, variant, 1));
-    });
+    // Obrázky tagujeme (kvůli skrytému stavu), ale NEpozorujeme přímo —
+    // IntersectionObserver nefiruje spolehlivě pro position:absolute obrázky
+    // uvnitř karet. Odhalí se kaskádou, jakmile se reveal-ne jejich rodič.
+    document.querySelectorAll(".project-card-image").forEach((el) => tag(el, "clip", 1, false));
+    document.querySelectorAll(".ill-card img").forEach((el, i) => tag(el, "clip-scale", i % 6, false));
 
-    const reveal = (el: Element) => el.classList.add("is-revealed");
+    // Trigger pro ilustrace: kontejner carouselu se pozoruje (sám se neschovává),
+    // a jeho reveal kaskádou odhalí VŠECHNY obrázky uvnitř — i ty mimo viewport
+    // (DOM kaskáda nezávisí na horizontální pozici v carouselu).
+    document.querySelectorAll(".ill-carousel").forEach((el) => revealEls.push(el));
+
+    const reveal = (el: Element) => {
+      el.classList.add("is-revealed");
+      // kaskáda na vnořené obrázkové reveal targety (clip / clip-scale)
+      el.querySelectorAll?.("[data-reveal]:not(.is-revealed)").forEach((c) => c.classList.add("is-revealed"));
+    };
     const inViewport = (el: Element) => {
       const r = el.getBoundingClientRect();
       return r.top < window.innerHeight && r.bottom > 0;
