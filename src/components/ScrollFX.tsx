@@ -43,6 +43,10 @@ export function ScrollFX() {
     }
 
     /* ------------------------------- REVEAL -------------------------------- */
+    // Jednotná, ucelená animace: prvek najede jako JEDEN celek (fade + jemný
+    // nájezd zdola). Karty navíc lehce „dosednou" měřítkem (scale-settle).
+    // Žádné clip-wipe ani dělení obrázku/textu — vše se hýbe pohromadě.
+    // Čistě opacity + transform → běží na kompozitoru, takže to neseká.
     const singles: Array<[string, string]> = [
       [".hero-label", "fade"],
       [".hero-title .title-line", "up"],
@@ -54,12 +58,11 @@ export function ScrollFX() {
       [".ill-top", "up"],
       [".ill-title-row", "up"]
     ];
-    const groups: Array<[string, string]> = [
-      [".services-grid", ".service-item"],
-      [".collabs-grid", ".collab-item"]
-      // .project-grid řešíme zvlášť (choreografie obrázek → text uvnitř karty).
-      // .ill-card NEpozorujeme jednotlivě — je to horizontální carousel; ilustrace
-      // odhalíme hromadně, jakmile se carousel dostane do záběru (viz níže).
+    // [container, child, variant]
+    const groups: Array<[string, string, string]> = [
+      [".project-grid", ":scope > *", "card"],
+      [".services-grid", ".service-item", "up"],
+      [".collabs-grid", ".collab-item", "card"]
     ];
 
     const revealEls: Element[] = [];
@@ -73,40 +76,21 @@ export function ScrollFX() {
     singles.forEach(([selector, variant]) => {
       document.querySelectorAll(selector).forEach((el) => tag(el, variant));
     });
-    groups.forEach(([containerSel, childSel]) => {
+    groups.forEach(([containerSel, childSel, variant]) => {
       document.querySelectorAll(containerSel).forEach((container) => {
-        container.querySelectorAll(childSel).forEach((child, i) => tag(child, "up", i % 8));
-      });
-    });
-    // PROJEKTOVÉ KARTY — editorial choreografie:
-    // karta je jen trigger (sama se neschovává); obrázek se odkryje mask wipe
-    // (zdola nahoru) + jemný zoom, pak POSTUPNĚ naběhnou řádky textu.
-    // Obrázky nepozorujeme přímo (IO nefiruje pro position:absolute uvnitř karet)
-    // — vše se odhalí kaskádou přes reveal(card). Sloupcový offset dělá L→R domino.
-    document.querySelectorAll<HTMLElement>(".project-card").forEach((card, idx) => {
-      revealEls.push(card); // trigger (bez data-reveal → karta zůstává viditelná)
-      const col = (idx % 3) * 2; // mírný posun mezi sloupci v řadě
-      const img = card.querySelector(".project-card-image");
-      if (img) tag(img, "mask", col, false);
-      const rows = [
-        card.querySelector(".project-meta"),
-        card.querySelector("h3"),
-        card.querySelector("p"),
-        card.querySelector(".tag-row")
-      ];
-      rows.forEach((el, i) => {
-        if (el) tag(el, "up", col + 3 + i, false);
+        container.querySelectorAll(childSel).forEach((child, i) => tag(child, variant, i % 6));
       });
     });
 
-    // ILUSTRACE — stejný mask styl; odhalí se hromadně se staggerem, jakmile se
-    // carousel dostane do záběru (DOM kaskáda nezávisí na horizontální pozici).
-    document.querySelectorAll(".ill-card img").forEach((el, i) => tag(el, "mask", i % 6, false));
+    // ILUSTRACE — celá karta jako jeden celek; odhalí se hromadně se staggerem,
+    // jakmile se carousel dostane do záběru (DOM kaskáda nezávisí na horizontální
+    // pozici, takže se zobrazí i karty mimo pravý okraj viewportu).
+    document.querySelectorAll(".ill-card").forEach((el, i) => tag(el, "card", i % 6, false));
     document.querySelectorAll(".ill-carousel").forEach((el) => revealEls.push(el));
 
     const reveal = (el: Element) => {
       el.classList.add("is-revealed");
-      // kaskáda na vnořené obrázkové reveal targety (clip / clip-scale)
+      // kaskáda na vnořené reveal targety (např. ilustrační karty v carouselu)
       el.querySelectorAll?.("[data-reveal]:not(.is-revealed)").forEach((c) => c.classList.add("is-revealed"));
     };
     const inViewport = (el: Element) => {

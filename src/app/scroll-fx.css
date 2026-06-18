@@ -23,48 +23,34 @@ html.lenis body {
 }
 
 /* ------------------------- REVEAL ------------------------- */
-/* Klidnější, „dražší" tempo + výrazný stagger (--rv-i krok 85ms). */
+/* Jednotná, ucelená animace. Plynulý decelerující easing (expo-out),
+   jemný stagger (--rv-i krok 80ms). Vše opacity + transform (kompozitor). */
 html.scroll-fx-ready [data-reveal] {
   opacity: 0;
   transition:
-    opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.95s cubic-bezier(0.16, 1, 0.3, 1);
-  transition-delay: calc(var(--rv-i, 0) * 85ms);
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--rv-i, 0) * 80ms);
 }
 
+/* text / sekce — jemný nájezd zdola */
 html.scroll-fx-ready [data-reveal="up"] {
-  transform: translate3d(0, 18px, 0);
+  transform: translate3d(0, 26px, 0);
+}
+
+/* karty / dlaždice — nájezd zdola + lehké „dosednutí" měřítkem */
+html.scroll-fx-ready [data-reveal="card"] {
+  transform: translate3d(0, 32px, 0) scale(0.965);
 }
 
 html.scroll-fx-ready [data-reveal="fade"] {
   transform: none;
 }
 
-/* Obrázky: mask wipe ZDOLA nahoru + jemný zoom (Ken Burns). */
-html.scroll-fx-ready [data-reveal="mask"] {
-  clip-path: inset(100% 0 0 0);
-  transform: scale(1.12);
-  transition:
-    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 1.25s cubic-bezier(0.16, 1, 0.3, 1),
-    clip-path 1.1s cubic-bezier(0.16, 1, 0.3, 1);
-  transition-delay: calc(var(--rv-i, 0) * 85ms);
-}
-
-/* Cílový (odhalený) stav */
+/* Cílový (odhalený) stav — vše dosedne pohromadě */
 html.scroll-fx-ready [data-reveal].is-revealed {
   opacity: 1;
   transform: none;
-  clip-path: inset(0 0 0 0);
-}
-
-/* Obrázky projektů mají transform zamčený !important (final-polish.css) —
-   zoom u mask varianty proto přebíjíme vlastním pravidlem s vyšší specificitou. */
-html.scroll-fx-ready .project-card .project-card-image[data-reveal="mask"] {
-  transform: scale(1.12) !important;
-}
-html.scroll-fx-ready .project-card .project-card-image[data-reveal="mask"].is-revealed {
-  transform: scale(1) !important;
 }
 
 /* ----------------- SCROLL-VELOCITY MARQUEE ----------------- */
@@ -157,11 +143,9 @@ html.scroll-fx-ready .fx-tilt {
 
 /* --------------------- REDUCED MOTION --------------------- */
 @media (prefers-reduced-motion: reduce) {
-  html.scroll-fx-ready [data-reveal],
-  html.scroll-fx-ready .project-card .project-card-image[data-reveal="mask"] {
+  html.scroll-fx-ready [data-reveal] {
     opacity: 1 !important;
     transform: none !important;
-    clip-path: none !important;
     transition: none !important;
   }
 
