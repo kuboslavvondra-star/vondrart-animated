@@ -3,6 +3,8 @@ import Script from "next/script";
 import "./globals.css";
 import "./detail-overrides.css";
 import "./polish-overrides.css";
+import "./scroll-fx.css";
+import { ScrollFX } from "@/components/ScrollFX";
 
 export const metadata: Metadata = {
   title: "vondrart - brand studio",
@@ -24,6 +26,7 @@ export default function RootLayout({
         <link rel="stylesheet" href="/original-project-overlays-local.css?v=20260615g" />
       </head>
       <body>
+        <ScrollFX />
         {children}
         <Script src="/site-interactions.js?v=20260615l" strategy="afterInteractive" />
       </body>
