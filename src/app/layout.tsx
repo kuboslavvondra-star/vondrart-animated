@@ -26,6 +26,11 @@ export default function RootLayout({
         <link rel="stylesheet" href="/original-project-overlays-local.css?v=20260615g" />
       </head>
       <body>
+        <div className="intro-curtain" aria-hidden="true">
+          <span className="intro-brand">
+            <span>vond</span>rart
+          </span>
+        </div>
         <ScrollFX />
         {children}
         <Script src="/site-interactions.js?v=20260615l" strategy="afterInteractive" />

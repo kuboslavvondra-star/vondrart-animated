@@ -1,5 +1,5 @@
 /* ============================================================
-   scroll-fx.css — scroll reveal + smooth scroll vrstva
+   scroll-fx.css — scroll reveal + smooth scroll + wow vrstva
    Progressive enhancement: skrytý výchozí stav platí JEN pod
    html.scroll-fx-ready, takže bez JS je vše plně viditelné.
    ============================================================ */
@@ -40,15 +40,87 @@ html.scroll-fx-ready [data-reveal="fade"] {
   transform: none;
 }
 
+/* Obrázky: clip-path wipe (+ Ken Burns scale tam, kde transform není zamčený) */
+html.scroll-fx-ready [data-reveal="clip"],
+html.scroll-fx-ready [data-reveal="clip-scale"] {
+  clip-path: inset(0 0 100% 0);
+  transition:
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1s cubic-bezier(0.16, 1, 0.3, 1),
+    clip-path 1s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--rv-i, 0) * 80ms);
+}
+
+html.scroll-fx-ready [data-reveal="clip-scale"] {
+  transform: scale(1.18);
+}
+
 /* Cílový (odhalený) stav */
 html.scroll-fx-ready [data-reveal].is-revealed {
   opacity: 1;
   transform: none;
+  clip-path: inset(0 0 0 0);
+  will-change: auto;
 }
 
-/* Po dokončení reveal uvolnit will-change (perf) */
-html.scroll-fx-ready [data-reveal].is-revealed {
-  will-change: auto;
+/* ----------------- SCROLL-VELOCITY MARQUEE ----------------- */
+/* Track přebírá JS (rychlost + skew dle scrollu); pruh .marquee zůstává rovný. */
+html.scroll-fx-ready .marquee-track.fx-marquee-js {
+  animation: none !important;
+  will-change: transform;
+  transform-origin: center center;
+}
+
+/* -------------------- MAGNET & 3D TILT --------------------- */
+html.scroll-fx-ready .fx-magnetic {
+  display: inline-block;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+html.scroll-fx-ready .fx-tilt {
+  transform-style: preserve-3d;
+}
+
+/* --------------------- ÚVODNÍ OPONA ------------------------ */
+.intro-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  display: grid;
+  place-items: center;
+  background: var(--ink, #111110);
+  transform: translateY(0);
+  animation: curtainUp 0.9s cubic-bezier(0.76, 0, 0.24, 1) 0.95s forwards;
+}
+
+.intro-curtain .intro-brand {
+  font-family: "New Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.4rem, 9vw, 6rem);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--paper, #f4f1eb);
+  opacity: 0;
+  transform: translateY(16px);
+  animation: introBrand 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.12s forwards;
+}
+
+.intro-curtain .intro-brand span {
+  color: var(--orange, #ff5a1f);
+}
+
+@keyframes introBrand {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes curtainUp {
+  to {
+    transform: translateY(-100%);
+  }
 }
 
 /* --------------------- REDUCED MOTION --------------------- */
@@ -56,13 +128,23 @@ html.scroll-fx-ready [data-reveal].is-revealed {
   html.scroll-fx-ready [data-reveal] {
     opacity: 1 !important;
     transform: none !important;
+    clip-path: none !important;
     transition: none !important;
   }
 
-  /* Parallax prvky nikdy neposouvat */
+  html.scroll-fx-ready .fx-magnetic {
+    transition: none !important;
+  }
+
   .hero-mesh,
-  .project-media img,
+  .dot-grid,
+  .hero-side-label,
+  .project-card,
   .ill-card img {
     transform: none !important;
+  }
+
+  .intro-curtain {
+    display: none !important;
   }
 }
