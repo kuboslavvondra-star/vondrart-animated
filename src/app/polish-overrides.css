@@ -80,7 +80,7 @@
     #ff4500 60%,
     rgba(255, 69, 0, 0) 75%
   );
-  filter: blur(60px);
+  filter: blur(46px);
   opacity: 0.88;
   animation: floatA 18s ease-in-out infinite;
 }
@@ -91,7 +91,7 @@
   width: min(572px, 40vw);
   height: min(572px, 40vw);
   background: radial-gradient(circle, #6d28d9 0%, #4c1d95 50%, rgba(76, 29, 149, 0) 70%);
-  filter: blur(70px);
+  filter: blur(52px);
   opacity: 0.38;
   animation: floatB 24s ease-in-out infinite;
 }
@@ -102,7 +102,7 @@
   width: min(350px, 28vw);
   height: min(350px, 28vw);
   background: radial-gradient(circle, #fb7185 0%, #e11d48 60%, rgba(225, 29, 72, 0) 70%);
-  filter: blur(48px);
+  filter: blur(36px);
   opacity: 0.28;
   animation: floatC 21s ease-in-out infinite;
 }

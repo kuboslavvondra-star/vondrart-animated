@@ -148,60 +148,79 @@ export function ScrollFX() {
     document.addEventListener("click", onAnchorClick);
 
     /* ----------------- SCROLL-VELOCITY MARQUEE + PARALLAX ------------------ */
+    // Výkon: žádné čtení layoutu v rAF smyčce. Offsety se cachují (měří se jen
+    // při initu / resize / load), v každém framu se jen ZAPISUJÍ transformy.
     const track = document.querySelector<HTMLElement>(".marquee-track");
     let trackHalf = 0;
     let marqueeX = 0;
-    let velocity = 0;
-    const measure = () => {
-      if (track) trackHalf = track.scrollWidth / 2;
-    };
+    let marqueeBase = 0;
+    let marqueeH = 0;
     if (track) track.classList.add("fx-marquee-js"); // přebírá řízení od CSS tickeru
-    measure();
-    window.addEventListener("resize", measure, { passive: true });
-    cleanups.push(() => window.removeEventListener("resize", measure));
 
-    type PItem = { el: HTMLElement; speed: number };
+    type PItem = { el: HTMLElement; speed: number; base: number };
     const parallaxItems: PItem[] = [];
     const collect = (selector: string, speed: number) => {
       document.querySelectorAll<HTMLElement>(selector).forEach((el) => {
         el.style.willChange = "transform";
-        parallaxItems.push({ el, speed });
+        parallaxItems.push({ el, speed, base: 0 });
       });
     };
-    collect(".hero-mesh", 0.18);
+    // .hero-mesh NEparalaxujeme — jsou to velké rozmazané aurora bloby a posouvat
+    // blur každý frame je drahé (re-raster). Necháme je na jejich vlastní CSS animaci.
     collect(".dot-grid", 0.08);
     collect(".hero-side-label", 0.12);
-    // .ill-card img NEparalaxujeme — je to clip-scale reveal target (kolize transformu).
 
-    const applyParallax = () => {
-      const vh = window.innerHeight;
-      for (const { el, speed } of parallaxItems) {
-        const rect = el.getBoundingClientRect();
-        if (rect.bottom < -240 || rect.top > vh + 240) continue;
-        const offset = (rect.top + rect.height / 2 - vh / 2) * speed;
-        el.style.transform = `translate3d(0, ${(-offset).toFixed(2)}px, 0)`;
+    const measure = () => {
+      const sy = window.scrollY;
+      // transformy dočasně vynulovat, ať se neměří posunutá pozice
+      for (const it of parallaxItems) it.el.style.transform = "";
+      for (const it of parallaxItems) {
+        const r = it.el.getBoundingClientRect();
+        it.base = r.top + sy + r.height / 2;
+      }
+      if (track) {
+        trackHalf = track.scrollWidth / 2;
+        const r = track.getBoundingClientRect();
+        marqueeBase = r.top + sy;
+        marqueeH = r.height;
       }
     };
-
-    lenis.on("scroll", (e: { velocity: number }) => {
-      velocity = e.velocity;
-      applyParallax();
+    measure();
+    window.addEventListener("resize", measure, { passive: true });
+    window.addEventListener("load", measure);
+    cleanups.push(() => {
+      window.removeEventListener("resize", measure);
+      window.removeEventListener("load", measure);
     });
-    applyParallax();
 
     const BASE_MARQUEE = 0.55; // px/frame klidový pohyb
     let rafId = 0;
     const loop = (time: number) => {
       lenis.raf(time);
-      if (track && trackHalf > 0) {
-        const dir = velocity >= 0 ? 1 : -1;
-        marqueeX -= BASE_MARQUEE + Math.abs(velocity) * 0.6 * dir;
-        if (marqueeX <= -trackHalf) marqueeX += trackHalf;
-        if (marqueeX > 0) marqueeX -= trackHalf;
-        const skew = Math.max(-5, Math.min(5, velocity * 0.35));
-        track.style.transform = `translate3d(${marqueeX.toFixed(2)}px,0,0) skewX(${skew.toFixed(2)}deg)`;
+      const sy = lenis.scroll;
+      const velocity = lenis.velocity;
+      const vh = window.innerHeight;
+
+      // parallax — jen prvky blízko viewportu, čistě zápis transformu
+      for (const it of parallaxItems) {
+        const rel = it.base - sy;
+        if (rel < -vh || rel > vh * 2) continue;
+        const offset = (sy + vh / 2 - it.base) * it.speed;
+        it.el.style.transform = `translate3d(0, ${(-offset).toFixed(2)}px, 0)`;
       }
-      velocity *= 0.9; // doznění skewu po zastavení scrollu
+
+      // marquee — jen když je blízko viewportu
+      if (track && trackHalf > 0) {
+        const rel = marqueeBase - sy;
+        if (rel > -marqueeH - 120 && rel < vh + 120) {
+          const dir = velocity >= 0 ? 1 : -1;
+          marqueeX -= BASE_MARQUEE + Math.abs(velocity) * 0.55 * dir;
+          if (marqueeX <= -trackHalf) marqueeX += trackHalf;
+          if (marqueeX > 0) marqueeX -= trackHalf;
+          const skew = Math.max(-4, Math.min(4, velocity * 0.3));
+          track.style.transform = `translate3d(${marqueeX.toFixed(2)}px,0,0) skewX(${skew.toFixed(2)}deg)`;
+        }
+      }
       rafId = window.requestAnimationFrame(loop);
     };
     rafId = window.requestAnimationFrame(loop);

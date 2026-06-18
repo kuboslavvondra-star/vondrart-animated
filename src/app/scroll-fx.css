@@ -25,7 +25,6 @@ html.lenis body {
 /* ------------------------- REVEAL ------------------------- */
 html.scroll-fx-ready [data-reveal] {
   opacity: 0;
-  will-change: opacity, transform;
   transition:
     opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
@@ -52,7 +51,7 @@ html.scroll-fx-ready [data-reveal="clip-scale"] {
 }
 
 html.scroll-fx-ready [data-reveal="clip-scale"] {
-  transform: scale(1.18);
+  transform: scale(1.1);
 }
 
 /* Cílový (odhalený) stav */
@@ -60,7 +59,6 @@ html.scroll-fx-ready [data-reveal].is-revealed {
   opacity: 1;
   transform: none;
   clip-path: inset(0 0 0 0);
-  will-change: auto;
 }
 
 /* ----------------- SCROLL-VELOCITY MARQUEE ----------------- */
@@ -80,6 +78,21 @@ html.scroll-fx-ready .fx-magnetic {
 
 html.scroll-fx-ready .fx-tilt {
   transform-style: preserve-3d;
+}
+
+/* ------------------ HERO „smart" BEZ BLIKÁNÍ ------------------ */
+/* Původní animace nechávala „sm" přes půlku cyklu úplně zmizet
+   (průhledná výplň i obrys) → „smart" četl jako „art". Necháme ho
+   staticky a čitelně obtažené — stylový kontrast, ale beze ztráty slova. */
+.blink-sm {
+  animation: none !important;
+  color: transparent !important;
+  -webkit-text-stroke: 1.2px var(--ink, #111110) !important;
+}
+
+.blink-comma {
+  animation: none !important;
+  opacity: 1 !important;
 }
 
 /* --------------------- ÚVODNÍ OPONA ------------------------ */
