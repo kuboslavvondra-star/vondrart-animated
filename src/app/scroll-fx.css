@@ -69,6 +69,44 @@ html.scroll-fx-ready .hero-mesh {
   transform-origin: 70% 30%;
 }
 
+/* ============================================================
+   PRO „BALÍČEK" — vlastní scrollbar + výběr textu v duchu značky.
+   ============================================================ */
+/* Firefox */
+html.scroll-fx-ready {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(17, 17, 16, 0.3) transparent;
+}
+/* Chromium / Edge / Safari — tenký „plovoucí" pill scrollbar */
+html.scroll-fx-ready ::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+html.scroll-fx-ready ::-webkit-scrollbar-track {
+  background: transparent;
+}
+html.scroll-fx-ready ::-webkit-scrollbar-thumb {
+  background: rgba(17, 17, 16, 0.34);
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background-clip: padding-box;
+  transition: background-color 200ms ease;
+}
+html.scroll-fx-ready ::-webkit-scrollbar-thumb:hover {
+  background: rgba(17, 17, 16, 0.58);
+  background-clip: padding-box;
+}
+/* horizontální carousel ilustrací zůstává bez scrollbaru */
+html.scroll-fx-ready .ill-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Výběr textu — brandová oranžová */
+html.scroll-fx-ready ::selection {
+  background: #ff5a1f;
+  color: #fff;
+}
+
 /* ---------------- COLLAB LOGA (reálné SVG/PNG) ---------------- */
 /* Reálná loga nahrazují stylizovaný text — zrušíme falešné rámečky/pill
    a sjednotíme velikost. Wordmarky níž, symboly (tlak/crosskeys) vyšší. */
