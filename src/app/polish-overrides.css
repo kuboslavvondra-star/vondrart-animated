@@ -74,14 +74,16 @@
   width: min(1048px, 68vw);
   height: min(1048px, 68vw);
   background: radial-gradient(
-    circle at 40% 45%,
+    circle at 42% 44%,
     #ffe066 0%,
-    #ff8c00 35%,
-    #ff4500 60%,
-    rgba(255, 69, 0, 0) 75%
+    #ff9a24 28%,
+    #ff6a1f 46%,
+    rgba(255, 74, 20, 0.52) 60%,
+    rgba(255, 74, 20, 0.2) 72%,
+    rgba(255, 69, 0, 0) 84%
   );
-  filter: blur(46px);
-  opacity: 0.88;
+  filter: blur(6px);
+  opacity: 0.92;
   animation: floatA 22s ease-in-out infinite;
 }
 
@@ -90,9 +92,15 @@
   right: 106px;
   width: min(572px, 40vw);
   height: min(572px, 40vw);
-  background: radial-gradient(circle, #6d28d9 0%, #4c1d95 50%, rgba(76, 29, 149, 0) 70%);
-  filter: blur(52px);
-  opacity: 0.38;
+  background: radial-gradient(
+    circle,
+    rgba(124, 58, 237, 0.95) 0%,
+    rgba(91, 33, 182, 0.6) 38%,
+    rgba(76, 29, 149, 0.22) 60%,
+    rgba(76, 29, 149, 0) 78%
+  );
+  filter: blur(6px);
+  opacity: 0.4;
   animation: floatB 28s ease-in-out infinite;
 }
 
@@ -101,9 +109,15 @@
   right: -55px;
   width: min(350px, 28vw);
   height: min(350px, 28vw);
-  background: radial-gradient(circle, #fb7185 0%, #e11d48 60%, rgba(225, 29, 72, 0) 70%);
-  filter: blur(36px);
-  opacity: 0.28;
+  background: radial-gradient(
+    circle,
+    rgba(251, 113, 133, 0.9) 0%,
+    rgba(225, 29, 72, 0.42) 46%,
+    rgba(225, 29, 72, 0.14) 64%,
+    rgba(225, 29, 72, 0) 80%
+  );
+  filter: blur(6px);
+  opacity: 0.3;
   animation: floatC 25s ease-in-out infinite;
 }
 

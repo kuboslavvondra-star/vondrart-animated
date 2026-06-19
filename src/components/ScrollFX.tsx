@@ -151,11 +151,11 @@ export function ScrollFX() {
         parallaxItems.push({ el, speed, base: 0 });
       });
     };
-    // Celý abstrakt (aurora) jede se scrollem — výrazný parallax. Translate-only
-    // (žádný scale/rotate) → GPU posune hotovou vrstvu, blur se nepřerasteruje.
-    collect(".hero-mesh", 0.26);
     collect(".dot-grid", 0.08);
     collect(".hero-side-label", 0.12);
+
+    // AURORA jako fixní pozadí — jede dolů, nafukuje se a zjemňuje (řízeno scrollem).
+    const aurora = document.querySelector<HTMLElement>(".hero-mesh");
 
     const measure = () => {
       const sy = window.scrollY;
@@ -181,6 +181,20 @@ export function ScrollFX() {
         if (rel < -vh || rel > vh * 2) continue;
         const offset = (sy + vh / 2 - it.base) * it.speed;
         it.el.style.transform = `translate3d(0, ${(-offset).toFixed(2)}px, 0)`;
+      }
+
+      // Aurora (fixní pozadí): jak scrolluješ dolů, kruh jede dolů, nafukuje se
+      // a zjemní se (ať nepřebíjí obsah), ale zůstává furt vidět v pozadí.
+      if (aurora) {
+        const max = Math.max(1, document.documentElement.scrollHeight - vh);
+        const p = Math.min(1, Math.max(0, sy / max)); // 0..1 průběh scrollu
+        const ty = (p * vh * 0.55).toFixed(1); // jede dolů s tebou
+        const sc = (1 + p * 0.7).toFixed(3); // nafukuje se (až ~1.7×)
+        aurora.style.transform = `translate3d(0, ${ty}px, 0) scale(${sc})`;
+        // V hero plná, ale jakmile vyjedeš ze sekce, rychle ztlumit na jemný
+        // ambientní nádech (vidět v pozadí, ale nepřebíjí obsah).
+        const dim = Math.min(1, Math.max(0, (sy - vh * 0.4) / (vh * 0.7)));
+        aurora.style.opacity = (1 - dim * 0.8).toFixed(3); // 1 → ~0.2
       }
     };
     let ticking = false;

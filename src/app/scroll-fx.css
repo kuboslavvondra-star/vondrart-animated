@@ -26,6 +26,30 @@ body :not(.project-overlay):not(.project-overlay *) {
   font-family: var(--font-neue-haas) !important;
 }
 
+/* ============================================================
+   AURORA JAKO FIXNÍ POZADÍ — barevný kruh jede se scrollem dolů,
+   nafukuje se a je vidět v pozadí celého webu.
+   html drží papír vespod, sekce zprůhledníme, aby aurora prosvítala.
+   Tmavé bloky (marquee, kontakt) zůstávají kryté (čitelnost).
+   ============================================================ */
+html {
+  background: var(--paper);
+}
+html.scroll-fx-ready body {
+  background: transparent;
+}
+html.scroll-fx-ready .section,
+html.scroll-fx-ready .about-section {
+  background: transparent;
+}
+html.scroll-fx-ready .hero-mesh {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  will-change: transform, opacity;
+  transform-origin: 70% 30%;
+}
+
 /* ------------------------- REVEAL ------------------------- */
 /* Jednotná, ucelená animace. Plynulý decelerující easing (expo-out),
    jemný stagger (--rv-i krok 80ms). Vše opacity + transform (kompozitor). */
