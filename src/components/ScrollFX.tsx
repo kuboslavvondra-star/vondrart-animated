@@ -191,10 +191,10 @@ export function ScrollFX() {
         const ty = (p * vh * 0.55).toFixed(1); // jede dolů s tebou
         const sc = (1 + p * 0.7).toFixed(3); // nafukuje se (až ~1.7×)
         aurora.style.transform = `translate3d(0, ${ty}px, 0) scale(${sc})`;
-        // V hero plná, ale jakmile vyjedeš ze sekce, rychle ztlumit na jemný
-        // ambientní nádech (vidět v pozadí, ale nepřebíjí obsah).
+        // V hero plná, v obsahu výraznější ambientní glow (vidět v pozadí, ale
+        // pořád čitelný obsah).
         const dim = Math.min(1, Math.max(0, (sy - vh * 0.4) / (vh * 0.7)));
-        aurora.style.opacity = (1 - dim * 0.8).toFixed(3); // 1 → ~0.2
+        aurora.style.opacity = (1 - dim * 0.62).toFixed(3); // 1 → ~0.38
       }
     };
     let ticking = false;
