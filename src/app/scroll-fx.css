@@ -69,6 +69,36 @@ html.scroll-fx-ready .hero-mesh {
   transform-origin: 70% 30%;
 }
 
+/* ---------------- COLLAB LOGA (reálné SVG/PNG) ---------------- */
+/* Reálná loga nahrazují stylizovaný text — zrušíme falešné rámečky/pill
+   a sjednotíme velikost. Wordmarky níž, symboly (tlak/crosskeys) vyšší. */
+.collabs-grid .collab-logo.has-logo {
+  min-height: 88px;
+  max-width: none;
+  padding: 0;
+  border: 0;
+  justify-content: flex-start;
+}
+.collab-logo-img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 180px;
+  max-height: 46px;
+  object-fit: contain;
+}
+.collab-tlak .collab-logo-img {
+  max-width: 110px;
+  max-height: 78px;
+}
+.collab-crosskeys .collab-logo-img {
+  max-width: 96px;
+  max-height: 84px;
+}
+.collab-spolek .collab-logo-img {
+  max-height: 40px;
+}
+
 /* ------------------------- REVEAL ------------------------- */
 /* Jednotná, ucelená animace. Plynulý decelerující easing (expo-out),
    jemný stagger (--rv-i krok 80ms). Vše opacity + transform (kompozitor). */

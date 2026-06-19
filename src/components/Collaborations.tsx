@@ -1,9 +1,9 @@
 const collaborations = [
-  { name: "TEDx Brno", label: "TEDxBrno", scope: "Marketing · Event", variant: "tedx" },
-  { name: "Festival Tlak", label: "Festival Tlak", scope: "Social Media", variant: "tlak" },
-  { name: "Crosskeys Towing", label: "Crosskeys", scope: "Redesign loga · USA", variant: "crosskeys" },
-  { name: "Kavárna Spolek", label: "Spolek", scope: "Socials · Grafika", variant: "spolek" },
-  { name: "Mascotte", label: "Mascotte", scope: "Foto služby", variant: "mascotte" }
+  { name: "TEDx Brno", scope: "Marketing · Event", variant: "tedx", logo: "/images/collab-tedx.svg" },
+  { name: "Festival Tlak", scope: "Social Media", variant: "tlak", logo: "/images/collab-tlak.svg" },
+  { name: "Crosskeys Towing", scope: "Redesign loga · USA", variant: "crosskeys", logo: "/images/collab-crosskeys.png" },
+  { name: "Kavárna Spolek", scope: "Socials · Grafika", variant: "spolek", logo: "/images/collab-spolek.svg" },
+  { name: "Mascotte", scope: "Foto služby", variant: "mascotte", logo: "/images/collab-mascotte.svg" }
 ];
 
 export function Collaborations() {
@@ -18,8 +18,14 @@ export function Collaborations() {
       <div className="collabs-grid">
         {collaborations.map((collaboration) => (
           <article className={`collab-item collab-${collaboration.variant}`} key={collaboration.name}>
-            <div className="collab-logo" aria-label={collaboration.name}>
-              {collaboration.label}
+            <div className="collab-logo has-logo" aria-label={collaboration.name}>
+              <img
+                className="collab-logo-img"
+                src={collaboration.logo}
+                alt={`${collaboration.name} logo`}
+                loading="lazy"
+                decoding="async"
+              />
             </div>
             <div>
               <h3>{collaboration.name}</h3>
