@@ -27,7 +27,8 @@ export default function RootLayout({
         <div className="intro-curtain" aria-hidden="true">
           <div className="intro-orb" />
           <span className="intro-brand">
-            vondrart <em>studio</em>
+            <span>vondrart</span>
+            <em>.studio</em>
           </span>
         </div>
         <ScrollFX />
