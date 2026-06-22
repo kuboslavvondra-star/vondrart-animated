@@ -19,16 +19,29 @@ export default function RootLayout({
   return (
     <html lang="cs">
       <head>
-        <link rel="preload" href="/fonts/NewBlack-800.otf" as="font" type="font/otf" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/NewBlack-400.otf" as="font" type="font/otf" crossOrigin="anonymous" />
+        <link
+          rel="preload"
+          href="/fonts/nortica/NorticaTypeface-Regular.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/nortica/NorticaTypeface-SemiBold.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
         <link rel="stylesheet" href="/final-polish.css?v=20260616g" />
         <link rel="stylesheet" href="/original-project-overlays.css?v=20260616c" />
         <link rel="stylesheet" href="/original-project-overlays-local.css?v=20260615g" />
       </head>
       <body>
         <div className="intro-curtain" aria-hidden="true">
+          <div className="intro-orb" />
           <span className="intro-brand">
-            <span>vond</span>rart
+            vondrart <em>studio</em>
           </span>
         </div>
         <ScrollFX />

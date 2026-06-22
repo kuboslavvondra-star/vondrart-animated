@@ -18,10 +18,12 @@ html.scroll-fx-ready {
    přidá Adobe Fonts kit / lokální soubory, web je automaticky použije.
    ============================================================ */
 :root {
-  --font-neue-haas: "Neue Haas Grotesk Display Pro", "Neue Haas Grotesk Text Pro",
+  --font-neue-haas: "Nortica", "Neue Haas Grotesk Display Pro", "Neue Haas Grotesk Text Pro",
     "NeueHaasGrotesk", "Neue Haas Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-body,
+/* `html body` (specificita 0,0,2) přebije i externí leaknutá `body !important`
+   pravidla z public CSS (např. bng overlay), aby i dědičný font byl Nortica. */
+html body,
 body :not(.project-overlay):not(.project-overlay *) {
   font-family: var(--font-neue-haas) !important;
 }
@@ -207,44 +209,99 @@ html.scroll-fx-ready .fx-tilt {
   } /* smart */
 }
 
-/* --------------------- ÚVODNÍ OPONA ------------------------ */
+/* --------------------- ÚVODNÍ INTRO ------------------------
+   Krémové pozadí → nálet oranžové koule + „vondrart studio",
+   poté koule odletí do pozadí (splyne s hero aurorou) a intro
+   se odhalí. JS úklid poslouchá keyframe `introOut`.
+   ----------------------------------------------------------- */
 .intro-curtain {
   position: fixed;
   inset: 0;
   z-index: 100000;
-  display: grid;
-  place-items: center;
-  background: var(--ink, #111110);
-  transform: translateY(0);
-  animation: curtainUp 0.9s cubic-bezier(0.76, 0, 0.24, 1) 0.95s forwards;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.4rem, 3.5vw, 2.6rem);
+  background: var(--paper, #f4f1eb);
+  animation: introOut 0.75s cubic-bezier(0.76, 0, 0.24, 1) 1.55s forwards;
+}
+
+/* Oranžová koule — stejný gradient jako hero aurora (.blob-a) */
+.intro-curtain .intro-orb {
+  width: min(360px, 56vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 42% 44%,
+    #ffe066 0%,
+    #ff9a24 28%,
+    #ff6a1f 46%,
+    rgba(255, 74, 20, 0.52) 60%,
+    rgba(255, 74, 20, 0.2) 72%,
+    rgba(255, 69, 0, 0) 84%
+  );
+  filter: blur(6px);
+  opacity: 0;
+  transform: scale(0.6);
+  will-change: transform, opacity;
+  animation:
+    introOrbIn 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both,
+    introOrbToBg 0.95s cubic-bezier(0.76, 0, 0.24, 1) 1.35s forwards;
 }
 
 .intro-curtain .intro-brand {
-  font-family: "New Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 800;
-  font-size: clamp(2.4rem, 9vw, 6rem);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 8.5vw, 5.4rem);
   letter-spacing: -0.02em;
   line-height: 1;
-  color: var(--paper, #f4f1eb);
+  color: var(--ink, #111110);
   opacity: 0;
   transform: translateY(16px);
-  animation: introBrand 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.12s forwards;
+  will-change: transform, opacity;
+  animation:
+    introBrandIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both,
+    introBrandOut 0.55s cubic-bezier(0.76, 0, 0.24, 1) 1.35s forwards;
 }
 
-.intro-curtain .intro-brand span {
+.intro-curtain .intro-brand em {
+  font-style: normal;
   color: var(--orange, #ff5a1f);
 }
 
-@keyframes introBrand {
+@keyframes introOrbIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Koule se „hodí do pozadí": odletí nahoru-doprava k počátku hero
+   aurory (origin ~70% 30%), nafoukne se a prosvítne. */
+@keyframes introOrbToBg {
+  to {
+    opacity: 0;
+    transform: translate(38vw, -40vh) scale(2.8);
+  }
+}
+
+@keyframes introBrandIn {
   to {
     opacity: 1;
     transform: none;
   }
 }
 
-@keyframes curtainUp {
+@keyframes introBrandOut {
   to {
-    transform: translateY(-100%);
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes introOut {
+  to {
+    opacity: 0;
   }
 }
 

@@ -34,9 +34,9 @@ export function ScrollFX() {
       } else {
         const remove = () => curtain.remove();
         curtain.addEventListener("animationend", (e) => {
-          if ((e as AnimationEvent).animationName.toLowerCase().includes("curtainup")) remove();
+          if ((e as AnimationEvent).animationName.toLowerCase().includes("introout")) remove();
         });
-        const safety = window.setTimeout(remove, 2800);
+        const safety = window.setTimeout(remove, 3200);
         cleanups.push(() => window.clearTimeout(safety));
       }
     }
@@ -183,32 +183,74 @@ export function ScrollFX() {
         it.el.style.transform = `translate3d(0, ${(-offset).toFixed(2)}px, 0)`;
       }
 
-      // Aurora (fixní pozadí): jak scrolluješ dolů, kruh jede dolů, nafukuje se
-      // a zjemní se (ať nepřebíjí obsah), ale zůstává furt vidět v pozadí.
-      if (aurora) {
-        const max = Math.max(1, document.documentElement.scrollHeight - vh);
-        const p = Math.min(1, Math.max(0, sy / max)); // 0..1 průběh scrollu
-        const ty = (p * vh * 0.55).toFixed(1); // jede dolů s tebou
-        const sc = (1 + p * 0.7).toFixed(3); // nafukuje se (až ~1.7×)
-        aurora.style.transform = `translate3d(0, ${ty}px, 0) scale(${sc})`;
-        // V hero plná, v obsahu výraznější ambientní glow (vidět v pozadí, ale
-        // pořád čitelný obsah).
-        const dim = Math.min(1, Math.max(0, (sy - vh * 0.4) / (vh * 0.7)));
-        aurora.style.opacity = (1 - dim * 0.62).toFixed(3); // 1 → ~0.38
-      }
     };
+
+    // AURORA (fixní pozadí) — plynulé houpání zleva↔doprava + výrazné
+    // opakované nafukování/vyfukování, řízené scrollem. Cílové hodnoty
+    // dotahujeme lerpem v samostatném rAF loopu → hedvábný pohyb i při
+    // rychlém scrollu. Loop se po ustálení sám zastaví.
+    const auroraTarget = { tx: 0, ty: 0, sc: 1, op: 1 };
+    const auroraCurr = { tx: 0, ty: 0, sc: 1, op: 1 };
+    let auroraRAF = 0;
+    const computeAuroraTarget = () => {
+      if (!aurora) return;
+      const sy = window.scrollY;
+      const vh = window.innerHeight;
+      const vw = window.innerWidth;
+      const max = Math.max(1, document.documentElement.scrollHeight - vh);
+      const p = Math.min(1, Math.max(0, sy / max)); // 0..1 průběh scrollu
+      auroraTarget.tx = Math.sin(p * Math.PI * 3) * (vw * 0.1); // houpání L↔R
+      auroraTarget.ty = p * vh * 0.4; // jemný drift dolů s obsahem
+      auroraTarget.sc = 1.1 + Math.sin(p * Math.PI * 4) * 0.4; // tep ~0.7–1.5×
+      const dim = Math.min(1, Math.max(0, (sy - vh * 0.4) / (vh * 0.7)));
+      auroraTarget.op = 1 - dim * 0.62; // 1 → ~0.38 (čitelnost obsahu)
+    };
+    const auroraTick = () => {
+      if (!aurora) return;
+      const e = 0.08; // lerp faktor → hedvábné dotahování k cíli
+      auroraCurr.tx += (auroraTarget.tx - auroraCurr.tx) * e;
+      auroraCurr.ty += (auroraTarget.ty - auroraCurr.ty) * e;
+      auroraCurr.sc += (auroraTarget.sc - auroraCurr.sc) * e;
+      auroraCurr.op += (auroraTarget.op - auroraCurr.op) * e;
+      aurora.style.transform = `translate3d(${auroraCurr.tx.toFixed(2)}px, ${auroraCurr.ty.toFixed(
+        2
+      )}px, 0) scale(${auroraCurr.sc.toFixed(4)})`;
+      aurora.style.opacity = auroraCurr.op.toFixed(3);
+      const settled =
+        Math.abs(auroraTarget.tx - auroraCurr.tx) < 0.1 &&
+        Math.abs(auroraTarget.ty - auroraCurr.ty) < 0.1 &&
+        Math.abs(auroraTarget.sc - auroraCurr.sc) < 0.001 &&
+        Math.abs(auroraTarget.op - auroraCurr.op) < 0.002;
+      auroraRAF = settled ? 0 : window.requestAnimationFrame(auroraTick);
+    };
+    const kickAurora = () => {
+      if (!aurora || reduceMotion) return;
+      computeAuroraTarget();
+      if (!auroraRAF) auroraRAF = window.requestAnimationFrame(auroraTick);
+    };
+    if (aurora && !reduceMotion) {
+      const onAuroraResize = () => kickAurora();
+      window.addEventListener("resize", onAuroraResize, { passive: true });
+      cleanups.push(() => {
+        window.removeEventListener("resize", onAuroraResize);
+        if (auroraRAF) window.cancelAnimationFrame(auroraRAF);
+      });
+    }
+
     let ticking = false;
     const onScroll = () => {
       if (ticking) return;
       ticking = true;
       window.requestAnimationFrame(() => {
         applyParallax();
+        kickAurora();
         ticking = false;
       });
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     cleanups.push(() => window.removeEventListener("scroll", onScroll));
     applyParallax();
+    kickAurora();
 
     /* --------------------- KURZOR: MAGNET + 3D TILT ------------------------ */
     document
