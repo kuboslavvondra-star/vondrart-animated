@@ -47,7 +47,11 @@ export function ScrollFX() {
           curtain.style.display = "none";
         };
         const merge = () => {
-          // FLIP: spočítej přesný posun + zvětšení koule na pozici/velikost aurory.
+          // FLIP: koule se PŘESNĚ přesune + zvětší na pozici/velikost aurory a
+          // ZŮSTÁVÁ plně viditelná po celou dobu přesunu. (Base .intro-orb má
+          // opacity:0 + scale(0.6); po vypnutí animace je proto musíme ručně
+          // přebít, jinak koule zmizí dřív, než doletí.)
+          let moved = false;
           if (orb && blob) {
             const o = orb.getBoundingClientRect();
             const b = blob.getBoundingClientRect();
@@ -56,24 +60,30 @@ export function ScrollFX() {
               const dx = b.left + b.width / 2 - (o.left + o.width / 2);
               const dy = b.top + b.height / 2 - (o.top + o.height / 2);
               orb.style.animation = "none";
-              orb.style.transform = "none"; // přebij base scale(0.6), drž scale(1)
+              orb.style.opacity = "1"; // DRŽ viditelnost
+              orb.style.transform = "none"; // přebij base scale(0.6)
               void orb.offsetWidth; // reflow, ať transition naváže plynule
-              orb.style.transition = "transform 1.05s cubic-bezier(0.65, 0, 0.35, 1)";
+              orb.style.transition = "transform 1s cubic-bezier(0.65, 0, 0.35, 1)";
               orb.style.transform = `translate(${dx}px, ${dy}px) scale(${scale})`;
+              moved = true;
             }
           }
           if (brand) {
             brand.style.animation = "none";
-            brand.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+            brand.style.opacity = "1";
+            void brand.offsetWidth;
+            brand.style.transition = "opacity 0.45s ease, transform 0.45s ease";
             brand.style.opacity = "0";
             brand.style.transform = "translateY(-12px)";
           }
-          // Prolnutí krémové opony pryč → odhalí identickou auroru pod koulí.
+          // Až koule DOSEDNE na auroru, teprve pak prolnout krémovou oponu pryč
+          // → bezešvý přechod koule → identická aurora pod ní.
+          const fadeDelay = moved ? 1000 : 350;
           window.setTimeout(() => {
-            curtain.style.transition = "opacity 0.75s ease";
+            curtain.style.transition = "opacity 0.6s ease";
             curtain.style.opacity = "0";
-          }, 600);
-          window.setTimeout(finish, 1500);
+          }, fadeDelay);
+          window.setTimeout(finish, fadeDelay + 750);
         };
         const start = window.setTimeout(merge, 1250); // po náletu koule + textu
         const safety = window.setTimeout(finish, 4200);
@@ -244,7 +254,7 @@ export function ScrollFX() {
       const p = Math.min(1, Math.max(0, sy / max)); // 0..1 průběh scrollu
       // Pomalé, klidné houpání L↔R (1 cyklus přes celý web) + výrazné, pomalé
       // a dobře viditelné nafukování/vyfukování (dýchání).
-      auroraTarget.tx = Math.sin(p * Math.PI * 2) * (vw * 0.2); // houpání ±20vw, pomalu
+      auroraTarget.tx = -Math.sin(p * Math.PI * 2) * (vw * 0.2); // houpání ±20vw, nejdřív doleva
       auroraTarget.ty = p * vh * 0.35; // jemný drift dolů s obsahem
       auroraTarget.sc = 1.18 + Math.sin(p * Math.PI * 3) * 0.34; // tep ~0.84–1.52×, pomalu
       const dim = Math.min(1, Math.max(0, (sy - vh * 0.4) / (vh * 0.7)));
