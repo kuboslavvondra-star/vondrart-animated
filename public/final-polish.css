@@ -1066,7 +1066,8 @@
   .services-section .section-head h2,
   .collabs-section .section-head h2,
   .ill-title {
-    font-size: clamp(58px, 18vw, 118px) !important;
-    line-height: 0.82 !important;
+    /* 18vw přetékalo dlouhá slova (např. „SPOLUPRÁCE") přes okraj na mobilu */
+    font-size: clamp(40px, 13vw, 96px) !important;
+    line-height: 0.86 !important;
   }
 }
