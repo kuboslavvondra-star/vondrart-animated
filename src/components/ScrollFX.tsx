@@ -199,7 +199,7 @@ export function ScrollFX() {
       const vw = window.innerWidth;
       const max = Math.max(1, document.documentElement.scrollHeight - vh);
       const p = Math.min(1, Math.max(0, sy / max)); // 0..1 průběh scrollu
-      auroraTarget.tx = Math.sin(p * Math.PI * 3) * (vw * 0.1); // houpání L↔R
+      auroraTarget.tx = Math.sin(p * Math.PI * 3) * (vw * 0.42); // houpání L↔R přes celou šířku
       auroraTarget.ty = p * vh * 0.4; // jemný drift dolů s obsahem
       auroraTarget.sc = 1.1 + Math.sin(p * Math.PI * 4) * 0.4; // tep ~0.7–1.5×
       const dim = Math.min(1, Math.max(0, (sy - vh * 0.4) / (vh * 0.7)));

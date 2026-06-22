@@ -312,7 +312,7 @@ img {
 .hero-desc {
   width: min(580px, 100%);
   margin: 78px 0 0;
-  color: rgba(17, 17, 16, 0.58);
+  color: rgba(17, 17, 16, 0.88);
   font-size: 1.32rem;
   line-height: 1.55;
 }
