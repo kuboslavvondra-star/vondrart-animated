@@ -26,18 +26,59 @@ export function ScrollFX() {
     root.classList.add("scroll-fx-ready");
     const cleanups: Array<() => void> = [];
 
-    /* ----------------------------- INTRO OPONA ----------------------------- */
-    const curtain = document.querySelector(".intro-curtain");
+    /* ----------------------------- INTRO ----------------------------- */
+    // Koule + „vondrart studio" → koule PŘESNĚ dosedne na homepage auroru
+    // (.blob-a) technikou FLIP a celé intro se s ní plynule prolne (crossfade),
+    // takže přechod je bezešvý — koule vypadá identicky jako ta na webu.
+    const curtain = document.querySelector<HTMLElement>(".intro-curtain");
     if (curtain) {
       if (reduceMotion) {
         curtain.remove();
       } else {
-        const remove = () => curtain.remove();
-        curtain.addEventListener("animationend", (e) => {
-          if ((e as AnimationEvent).animationName.toLowerCase().includes("introout")) remove();
+        const orb = curtain.querySelector<HTMLElement>(".intro-orb");
+        const brand = curtain.querySelector<HTMLElement>(".intro-brand");
+        const blob = document.querySelector<HTMLElement>(".blob-a");
+        let done = false;
+        const finish = () => {
+          if (done) return;
+          done = true;
+          curtain.remove();
+        };
+        const merge = () => {
+          // FLIP: spočítej přesný posun + zvětšení koule na pozici/velikost aurory.
+          if (orb && blob) {
+            const o = orb.getBoundingClientRect();
+            const b = blob.getBoundingClientRect();
+            if (o.width > 0 && b.width > 0) {
+              const scale = b.width / o.width;
+              const dx = b.left + b.width / 2 - (o.left + o.width / 2);
+              const dy = b.top + b.height / 2 - (o.top + o.height / 2);
+              orb.style.animation = "none";
+              orb.style.transform = "none"; // přebij base scale(0.6), drž scale(1)
+              void orb.offsetWidth; // reflow, ať transition naváže plynule
+              orb.style.transition = "transform 1.05s cubic-bezier(0.65, 0, 0.35, 1)";
+              orb.style.transform = `translate(${dx}px, ${dy}px) scale(${scale})`;
+            }
+          }
+          if (brand) {
+            brand.style.animation = "none";
+            brand.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+            brand.style.opacity = "0";
+            brand.style.transform = "translateY(-12px)";
+          }
+          // Prolnutí krémové opony pryč → odhalí identickou auroru pod koulí.
+          window.setTimeout(() => {
+            curtain.style.transition = "opacity 0.75s ease";
+            curtain.style.opacity = "0";
+          }, 600);
+          window.setTimeout(finish, 1500);
+        };
+        const start = window.setTimeout(merge, 1250); // po náletu koule + textu
+        const safety = window.setTimeout(finish, 4200);
+        cleanups.push(() => {
+          window.clearTimeout(start);
+          window.clearTimeout(safety);
         });
-        const safety = window.setTimeout(remove, 3200);
-        cleanups.push(() => window.clearTimeout(safety));
       }
     }
 
@@ -199,9 +240,11 @@ export function ScrollFX() {
       const vw = window.innerWidth;
       const max = Math.max(1, document.documentElement.scrollHeight - vh);
       const p = Math.min(1, Math.max(0, sy / max)); // 0..1 průběh scrollu
-      auroraTarget.tx = Math.sin(p * Math.PI * 3) * (vw * 0.42); // houpání L↔R přes celou šířku
-      auroraTarget.ty = p * vh * 0.4; // jemný drift dolů s obsahem
-      auroraTarget.sc = 1.1 + Math.sin(p * Math.PI * 4) * 0.4; // tep ~0.7–1.5×
+      // Pomalé, klidné houpání L↔R (1 cyklus přes celý web) + výrazné, pomalé
+      // a dobře viditelné nafukování/vyfukování (dýchání).
+      auroraTarget.tx = Math.sin(p * Math.PI * 2) * (vw * 0.2); // houpání ±20vw, pomalu
+      auroraTarget.ty = p * vh * 0.35; // jemný drift dolů s obsahem
+      auroraTarget.sc = 1.18 + Math.sin(p * Math.PI * 3) * 0.34; // tep ~0.84–1.52×, pomalu
       const dim = Math.min(1, Math.max(0, (sy - vh * 0.4) / (vh * 0.7)));
       auroraTarget.op = 1 - dim * 0.62; // 1 → ~0.38 (čitelnost obsahu)
     };

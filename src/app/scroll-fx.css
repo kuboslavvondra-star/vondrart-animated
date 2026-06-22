@@ -210,9 +210,9 @@ html.scroll-fx-ready .fx-tilt {
 }
 
 /* --------------------- ÚVODNÍ INTRO ------------------------
-   Krémové pozadí → nálet oranžové koule + „vondrart studio",
-   poté koule odletí do pozadí (splyne s hero aurorou) a intro
-   se odhalí. JS úklid poslouchá keyframe `introOut`.
+   Krémové pozadí → nálet oranžové koule + „vondrart studio".
+   Dosednutí koule PŘESNĚ na homepage auroru (.blob-a) a prolnutí
+   celé opony řídí JS (FLIP) v ScrollFX.tsx — bezešvý přechod.
    ----------------------------------------------------------- */
 .intro-curtain {
   position: fixed;
@@ -224,7 +224,6 @@ html.scroll-fx-ready .fx-tilt {
   justify-content: center;
   gap: clamp(1.4rem, 3.5vw, 2.6rem);
   background: var(--paper, #f4f1eb);
-  animation: introOut 0.75s cubic-bezier(0.76, 0, 0.24, 1) 1.55s forwards;
 }
 
 /* Oranžová koule — stejný gradient jako hero aurora (.blob-a) */
@@ -245,9 +244,7 @@ html.scroll-fx-ready .fx-tilt {
   opacity: 0;
   transform: scale(0.6);
   will-change: transform, opacity;
-  animation:
-    introOrbIn 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both,
-    introOrbToBg 0.95s cubic-bezier(0.76, 0, 0.24, 1) 1.35s forwards;
+  animation: introOrbIn 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
 }
 
 .intro-curtain .intro-brand {
@@ -259,9 +256,7 @@ html.scroll-fx-ready .fx-tilt {
   opacity: 0;
   transform: translateY(16px);
   will-change: transform, opacity;
-  animation:
-    introBrandIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both,
-    introBrandOut 0.55s cubic-bezier(0.76, 0, 0.24, 1) 1.35s forwards;
+  animation: introBrandIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
 }
 
 .intro-curtain .intro-brand em {
@@ -276,32 +271,10 @@ html.scroll-fx-ready .fx-tilt {
   }
 }
 
-/* Koule se „hodí do pozadí": odletí nahoru-doprava k počátku hero
-   aurory (origin ~70% 30%), nafoukne se a prosvítne. */
-@keyframes introOrbToBg {
-  to {
-    opacity: 0;
-    transform: translate(38vw, -40vh) scale(2.8);
-  }
-}
-
 @keyframes introBrandIn {
   to {
     opacity: 1;
     transform: none;
-  }
-}
-
-@keyframes introBrandOut {
-  to {
-    opacity: 0;
-    transform: translateY(-12px);
-  }
-}
-
-@keyframes introOut {
-  to {
-    opacity: 0;
   }
 }
 
