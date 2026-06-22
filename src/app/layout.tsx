@@ -19,21 +19,7 @@ export default function RootLayout({
   return (
     <html lang="cs">
       <head>
-        <link
-          rel="preload"
-          href="/fonts/nortica/NorticaTypeface-Regular.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/fonts/nortica/NorticaTypeface-SemiBold.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link rel="stylesheet" href="/final-polish.css?v=20260622b" />
+        <link rel="stylesheet" href="/final-polish.css?v=20260622c" />
         <link rel="stylesheet" href="/original-project-overlays.css?v=20260616c" />
         <link rel="stylesheet" href="/original-project-overlays-local.css?v=20260615g" />
       </head>

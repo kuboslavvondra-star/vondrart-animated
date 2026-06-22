@@ -1,15 +1,15 @@
 const serviceGroups = [
   {
-    title: "Brand Identity & Identita",
-    items: ["Brand Strategy", "360° Brand Identity", "Logo Design", "Typografie & barvy", "Brand manuál", "Art Direction"]
+    title: "Brand Identity",
+    items: ["Logo & visual system", "Typography & color", "Illustration", "Packaging", "Brand guidelines"]
   },
   {
-    title: "Brand Concept",
-    items: ["Positioning", "Naming", "Tone of Voice", "Brand Direction", "Storytelling", "Brand Management"]
+    title: "Brand Strategy",
+    items: ["Positioning", "Naming", "Tone of voice", "Storytelling", "Creative direction"]
   },
   {
-    title: "Marketing & Social",
-    items: ["Social Media", "Content Creation", "Grafické podklady", "Kampaně", "Fotografie", "Packaging Design"]
+    title: "Creative Production",
+    items: ["Social media", "Campaigns", "Photography", "Content creation", "Copywriting"]
   }
 ];
 

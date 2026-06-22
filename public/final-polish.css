@@ -812,6 +812,7 @@
   margin: 0 18px 8px !important;
   line-height: 0.96 !important;
   white-space: nowrap !important;
+  font-weight: 400 !important;
 }
 
 .project-card p {
@@ -944,8 +945,8 @@
 }
 
 .about-section h2 {
-  font-family: "New Black", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-  font-weight: 400 !important;
+  font-family: "Neue Haas Grotesk Display Pro", "Neue Haas Grotesk Text Pro", "Neue Haas Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-weight: 300 !important;
   line-height: 0.9 !important;
   letter-spacing: 0 !important;
 }
@@ -992,9 +993,9 @@
 .contact-section h2 {
   max-width: 100% !important;
   margin-top: 0 !important;
-  font-family: "New Black", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-  font-weight: 400 !important;
-  line-height: 0.84 !important;
+  font-family: "Neue Haas Grotesk Display Pro", "Neue Haas Grotesk Text Pro", "Neue Haas Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-weight: 300 !important;
+  line-height: 1 !important;
   letter-spacing: 0 !important;
   text-transform: uppercase !important;
   text-wrap: balance !important;
@@ -1030,7 +1031,7 @@
   .about-section h2,
   .contact-section h2 {
     font-size: clamp(44px, 14vw, 76px) !important;
-    line-height: 0.86 !important;
+    line-height: 0.92 !important;
   }
 
   .projects-section .section-head,
@@ -1053,10 +1054,10 @@
 .services-section .section-head h2,
 .collabs-section .section-head h2,
 .ill-title {
-  font-family: "New Black", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-family: "Neue Haas Grotesk Display Pro", "Neue Haas Grotesk Text Pro", "Neue Haas Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   font-size: clamp(64px, 10vw, 176px) !important;
-  font-weight: 400 !important;
-  line-height: 0.82 !important;
+  font-weight: 300 !important;
+  line-height: 0.92 !important;
   letter-spacing: 0 !important;
   text-transform: uppercase !important;
 }
@@ -1068,6 +1069,6 @@
   .ill-title {
     /* 18vw přetékalo dlouhá slova (např. „SPOLUPRÁCE") přes okraj na mobilu */
     font-size: clamp(40px, 13vw, 96px) !important;
-    line-height: 0.86 !important;
+    line-height: 0.92 !important;
   }
 }

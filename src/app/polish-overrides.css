@@ -3,10 +3,12 @@
   top: 0;
   width: 20px;
   height: 20px;
-  border: 1.5px solid #111110;
-  background: rgba(17, 17, 16, 0.08);
-  box-shadow: 0 0 0 1px rgba(244, 241, 235, 0.36);
-  mix-blend-mode: normal;
+  border: 1.5px solid #fff;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: none;
+  /* difference → kurzor je invertovaný vůči pozadí, takže je vidět na světlé
+     i tmavé ploše (marquee, kontakt, footer, overlaye). */
+  mix-blend-mode: difference;
   transform: translate3d(50vw, 50vh, 0) translate(-50%, -50%);
   transition:
     width 170ms ease,
@@ -27,9 +29,9 @@
 .cursor.is-active {
   width: 72px;
   height: 72px;
-  border-color: #111110;
-  background: #111110;
-  box-shadow: 0 10px 34px rgba(17, 17, 16, 0.24);
+  border-color: #fff;
+  background: #fff;
+  box-shadow: none;
 }
 
 .hero-aurora {
@@ -140,7 +142,7 @@
   margin: 0 0 clamp(48px, 5.8vw, 92px);
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: clamp(72px, 10.6vw, 168px);
-  font-weight: 500;
+  font-weight: 300;
   letter-spacing: 0;
   line-height: 0.93;
 }
@@ -288,9 +290,9 @@
 .ill-title {
   margin: 0;
   color: var(--ink);
-  font-family: "New Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Neue Haas Grotesk Display Pro", "Neue Haas Grotesk Text Pro", "Neue Haas Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: clamp(62px, 10vw, 176px);
-  font-weight: 800;
+  font-weight: 300;
   line-height: 0.82;
   text-transform: uppercase;
 }
@@ -659,9 +661,10 @@ main {
   width: 8px;
   height: 8px;
   border: 0;
-  background: #111110;
+  background: #fff;
   box-shadow: none;
-  mix-blend-mode: normal;
+  /* difference → bílá tečka se invertuje vůči pozadí, je vidět na světlé i tmavé */
+  mix-blend-mode: difference;
   transition: background 140ms ease, opacity 140ms ease;
 }
 
@@ -1619,9 +1622,9 @@ main {
 .contact-section h2 {
   max-width: 100%;
   margin-top: 0;
-  font-family: "New Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Neue Haas Grotesk Display Pro", "Neue Haas Grotesk Text Pro", "Neue Haas Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: clamp(64px, 10vw, 176px);
-  font-weight: 800;
+  font-weight: 300;
   line-height: 0.82;
   letter-spacing: 0;
   text-transform: uppercase;

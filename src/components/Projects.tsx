@@ -231,7 +231,7 @@ function DopamineDetail() {
               </div>
               <div>
                 <span>Rok</span>
-                <strong>2025</strong>
+                <strong>2026</strong>
               </div>
               <div>
                 <span>Kategorie</span>
@@ -387,7 +387,7 @@ function SyndikatDetail() {
               </div>
               <div>
                 <span>Rok</span>
-                <strong>2025</strong>
+                <strong>2026</strong>
               </div>
               <div>
                 <span>Kategorie</span>
@@ -511,7 +511,7 @@ function DvorekDetail() {
               </div>
               <div>
                 <span>Rok</span>
-                <strong>2024</strong>
+                <strong>2026</strong>
               </div>
               <div>
                 <span>Kategorie</span>
@@ -793,6 +793,10 @@ function OlbrachtDetail() {
                 <strong>vondrart</strong>
               </div>
               <div>
+                <span>Rok</span>
+                <strong>2024</strong>
+              </div>
+              <div>
                 <span>Kategorie</span>
                 <strong>Kavárna</strong>
               </div>
@@ -919,6 +923,10 @@ function CotyplotyDetail() {
                 <strong>vondrart</strong>
               </div>
               <div>
+                <span>Rok</span>
+                <strong>2025</strong>
+              </div>
+              <div>
                 <span>Kategorie</span>
                 <strong>Rodinná firma</strong>
               </div>
@@ -1009,7 +1017,7 @@ function BonghemiaDetail() {
       <div className="bng-wrap">
         <div className="bng-top">
           <span>vondrart studio</span>
-          <span>Bonghemia.cz / 2019—now</span>
+          <span>Bonghemia.cz / since 2018</span>
         </div>
         <section className="bng-hero">
           <div>

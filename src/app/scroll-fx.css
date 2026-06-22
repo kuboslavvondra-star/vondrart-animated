@@ -18,11 +18,11 @@ html.scroll-fx-ready {
    přidá Adobe Fonts kit / lokální soubory, web je automaticky použije.
    ============================================================ */
 :root {
-  --font-neue-haas: "Nortica", "Neue Haas Grotesk Display Pro", "Neue Haas Grotesk Text Pro",
+  --font-neue-haas: "Neue Haas Grotesk Display Pro", "Neue Haas Grotesk Text Pro",
     "NeueHaasGrotesk", "Neue Haas Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 /* `html body` (specificita 0,0,2) přebije i externí leaknutá `body !important`
-   pravidla z public CSS (např. bng overlay), aby i dědičný font byl Nortica. */
+   pravidla z public CSS (např. bng overlay), aby i dědičný font byl Neue Haas. */
 html body,
 body :not(.project-overlay):not(.project-overlay *) {
   font-family: var(--font-neue-haas) !important;

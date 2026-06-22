@@ -26,7 +26,7 @@ export const projects: Project[] = [
     overlayId: "bonghemia-vondrart-overlay",
     name: "Bonghemia",
     displayName: "Bonghemia",
-    year: "2023-24",
+    year: "since 2018",
     category: "Branding · Creative Direction",
     description: "cannabis 420 life-style brand",
     intro: [
@@ -85,7 +85,7 @@ export const projects: Project[] = [
     overlayId: "dopamine-vondrart-overlay",
     name: "Dopamine Tour",
     displayName: "Dopamine Tour",
-    year: "2024",
+    year: "2026",
     category: "Branding · Social Media",
     description: "city tour for fast minds",
     intro: [
@@ -142,7 +142,7 @@ export const projects: Project[] = [
     overlayId: "syndikat-vondrart-overlay",
     name: "syndikat.legal",
     displayName: "syndikat.legal",
-    year: "2025",
+    year: "2026",
     category: "Branding · Social Media",
     description: "advokátní kancelář",
     intro: [
@@ -184,7 +184,7 @@ export const projects: Project[] = [
     overlayId: "dvorek-vondrart-overlay",
     name: "Dvorek",
     displayName: "Dvorek",
-    year: "2024",
+    year: "2026",
     category: "Branding · Illustration",
     description: "lokální café & bistro brand",
     intro: [
@@ -283,7 +283,7 @@ export const projects: Project[] = [
     overlayId: "olbracht-vondrart-overlay",
     name: "Café Olbracht",
     displayName: "Café Olbracht",
-    year: "2025",
+    year: "2024",
     category: "Branding · Illustration",
     description: "kavárna",
     intro: [
@@ -325,7 +325,7 @@ export const projects: Project[] = [
     overlayId: "cotyploty-vondrart-overlay",
     name: "Co ty ploty",
     displayName: "Co ty ploty",
-    year: "2024",
+    year: "2025",
     category: "Branding · Campaigns",
     description: "montáž plotů",
     intro: [

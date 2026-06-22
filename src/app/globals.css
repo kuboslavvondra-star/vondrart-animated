@@ -1,68 +1,7 @@
-/* „New Black" je nově ALIAS na Norticu — celý web (vč. nadpisů, které jsou
-   napříč CSS natvrdo přes !important na „New Black") tak vykreslí Norticu,
-   aniž bychom museli přepisovat desítky pravidel a bojovat se specificitou.
-   Brandové fonty case-study overlayů mají vlastní názvy → zůstávají nedotčené. */
-@font-face {
-  font-family: "New Black";
-  src: url("/fonts/nortica/NorticaTypeface-Bold.woff2") format("woff2"),
-    url("/fonts/nortica/NorticaTypeface-Bold.woff") format("woff");
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "New Black";
-  src: url("/fonts/nortica/NorticaTypeface-Regular.woff2") format("woff2"),
-    url("/fonts/nortica/NorticaTypeface-Regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
 @font-face {
   font-family: "CASaygon";
   src: url("/fonts/CASaygon-300.otf") format("opentype");
   font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* ============================================================
-   NORTICA TYPEFACE — hlavní font celého webu (text i nadpisy).
-   ============================================================ */
-@font-face {
-  font-family: "Nortica";
-  src: url("/fonts/nortica/NorticaTypeface-Regular.woff2") format("woff2"),
-    url("/fonts/nortica/NorticaTypeface-Regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Nortica";
-  src: url("/fonts/nortica/NorticaTypeface-Medium.woff2") format("woff2"),
-    url("/fonts/nortica/NorticaTypeface-Medium.woff") format("woff");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Nortica";
-  src: url("/fonts/nortica/NorticaTypeface-SemiBold.woff2") format("woff2"),
-    url("/fonts/nortica/NorticaTypeface-SemiBold.woff") format("woff");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Nortica";
-  src: url("/fonts/nortica/NorticaTypeface-Bold.woff2") format("woff2"),
-    url("/fonts/nortica/NorticaTypeface-Bold.woff") format("woff");
-  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
@@ -93,7 +32,8 @@ body {
   background: var(--paper);
   color: var(--ink);
   cursor: none;
-  font-family: "Nortica", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Neue Haas Grotesk Display Pro", "Neue Haas Grotesk Text Pro", "Neue Haas Grotesk",
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   text-rendering: geometricPrecision;
 }
@@ -187,7 +127,7 @@ img {
 .brand-mark,
 .site-footer > span:first-child {
   justify-self: start;
-  font-family: "New Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Neue Haas Grotesk Display Pro", "Neue Haas Grotesk Text Pro", "Neue Haas Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1.08rem;
   font-weight: 800;
   line-height: 1;
@@ -289,9 +229,9 @@ img {
 
 .hero-title {
   margin: 0;
-  font-family: "New Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Neue Haas Grotesk Display Pro", "Neue Haas Grotesk Text Pro", "Neue Haas Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 8.48rem;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 0.93;
 }
 
@@ -365,9 +305,9 @@ img {
 
 .marquee span {
   padding: 20px 30px 22px;
-  font-family: "New Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Neue Haas Grotesk Display Pro", "Neue Haas Grotesk Text Pro", "Neue Haas Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1.35rem;
-  font-weight: 800;
+  font-weight: 400;
   white-space: nowrap;
 }
 
@@ -391,7 +331,7 @@ img {
 .about-section h2,
 .contact-section h2 {
   margin: 0;
-  font-family: "New Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Neue Haas Grotesk Display Pro", "Neue Haas Grotesk Text Pro", "Neue Haas Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 3.6rem;
   font-weight: 400;
   line-height: 0.95;
@@ -520,9 +460,9 @@ img {
 
 .project-card h3 {
   margin: 0 18px 8px;
-  font-family: "New Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Neue Haas Grotesk Display Pro", "Neue Haas Grotesk Text Pro", "Neue Haas Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1.28rem;
-  font-weight: 800;
+  font-weight: 400;
   line-height: 1;
   text-transform: uppercase;
 }
@@ -651,7 +591,7 @@ img {
 
 .case-brand-block h2 {
   margin: 0;
-  font-family: "New Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Neue Haas Grotesk Display Pro", "Neue Haas Grotesk Text Pro", "Neue Haas Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 5.4rem;
   font-weight: 800;
   line-height: 0.92;
@@ -708,7 +648,7 @@ img {
 
 .case-story h3 {
   margin: 0 0 28px;
-  font-family: "New Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Neue Haas Grotesk Display Pro", "Neue Haas Grotesk Text Pro", "Neue Haas Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 4.4rem;
   font-weight: 400;
   line-height: 0.94;
@@ -850,7 +790,7 @@ img {
 .detail-story h3,
 .detail-gallery-section h3 {
   margin: 0;
-  font-family: "New Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Neue Haas Grotesk Display Pro", "Neue Haas Grotesk Text Pro", "Neue Haas Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 800;
   line-height: 0.9;
   text-transform: uppercase;
@@ -995,7 +935,7 @@ img {
 .detail-palette strong {
   display: block;
   margin-top: 18px;
-  font-family: "New Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Neue Haas Grotesk Display Pro", "Neue Haas Grotesk Text Pro", "Neue Haas Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1.05rem;
   text-transform: uppercase;
 }
@@ -1109,9 +1049,9 @@ img {
 
 .service-item h3 {
   margin: 62px 0 70px;
-  font-family: "New Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Neue Haas Grotesk Display Pro", "Neue Haas Grotesk Text Pro", "Neue Haas Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 3.9rem;
-  font-weight: 800;
+  font-weight: 400;
   line-height: 0.9;
   text-transform: uppercase;
 }
@@ -1175,9 +1115,9 @@ img {
   display: flex;
   align-items: center;
   color: var(--ink);
-  font-family: "New Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Neue Haas Grotesk Display Pro", "Neue Haas Grotesk Text Pro", "Neue Haas Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 2.1rem;
-  font-weight: 800;
+  font-weight: 400;
   line-height: 0.9;
 }
 
@@ -1217,9 +1157,9 @@ img {
 .collab-item h3,
 .illustration-item h3 {
   margin: 0 0 10px;
-  font-family: "New Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Neue Haas Grotesk Display Pro", "Neue Haas Grotesk Text Pro", "Neue Haas Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 0.82rem;
-  font-weight: 800;
+  font-weight: 400;
   text-transform: uppercase;
 }
 
@@ -1240,7 +1180,7 @@ img {
 
 .illustrations-section .section-head h2 {
   font-size: 8rem;
-  font-weight: 800;
+  font-weight: 400;
   text-transform: none;
 }
 
@@ -1323,7 +1263,7 @@ img {
   border-radius: 999px;
   background: var(--paper);
   color: var(--ink);
-  font-weight: 800;
+  font-weight: 400;
 }
 
 .contact-actions span {

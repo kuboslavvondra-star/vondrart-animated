@@ -54,7 +54,7 @@
 .detail-story h3,
 .detail-gallery-section h3 {
   margin: 0;
-  font-family: "New Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Neue Haas Grotesk Display Pro", "Neue Haas Grotesk Text Pro", "Neue Haas Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 800;
   line-height: 0.9;
   text-transform: uppercase;
@@ -192,7 +192,7 @@
 .detail-palette strong {
   display: block;
   margin-top: 18px;
-  font-family: "New Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Neue Haas Grotesk Display Pro", "Neue Haas Grotesk Text Pro", "Neue Haas Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1.05rem;
   text-transform: uppercase;
 }
