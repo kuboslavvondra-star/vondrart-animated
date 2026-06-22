@@ -278,6 +278,20 @@ html.scroll-fx-ready .fx-tilt {
   }
 }
 
+/* Fallback bez JS: pokud se `scroll-fx-ready` nikdy nepřidá (JS vypnutý/selhal),
+   intro se i tak po chvíli samo skryje, ať nepřekrývá obsah. S JS se třída
+   přidá hned na mountu → toto pravidlo přestane platit a o intro se postará JS. */
+html:not(.scroll-fx-ready) .intro-curtain {
+  animation: introNoJsHide 0.4s ease 2.6s forwards;
+}
+
+@keyframes introNoJsHide {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
 /* --------------------- REDUCED MOTION --------------------- */
 @media (prefers-reduced-motion: reduce) {
   html.scroll-fx-ready [data-reveal] {

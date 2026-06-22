@@ -33,7 +33,7 @@ export function ScrollFX() {
     const curtain = document.querySelector<HTMLElement>(".intro-curtain");
     if (curtain) {
       if (reduceMotion) {
-        curtain.remove();
+        curtain.style.display = "none"; // skrýt, NE remove (uzel renderuje React)
       } else {
         const orb = curtain.querySelector<HTMLElement>(".intro-orb");
         const brand = curtain.querySelector<HTMLElement>(".intro-brand");
@@ -42,7 +42,9 @@ export function ScrollFX() {
         const finish = () => {
           if (done) return;
           done = true;
-          curtain.remove();
+          // NEodstraňovat z DOM — uzel renderuje React, remove() způsobí
+          // insertBefore/NotFoundError při reconcile. Jen skrýt.
+          curtain.style.display = "none";
         };
         const merge = () => {
           // FLIP: spočítej přesný posun + zvětšení koule na pozici/velikost aurory.
