@@ -189,20 +189,20 @@ html.scroll-fx-ready .fx-tilt {
 .blink-sm {
   color: transparent !important;
   -webkit-text-stroke: 1.2px var(--ink, #111110) !important;
-  animation: heroWordBlink 6s steps(1, end) infinite !important;
+  animation: heroWordBlink 3s steps(1, end) infinite !important;
 }
 
 .blink-comma {
-  animation: heroWordBlink 6s steps(1, end) infinite !important;
+  animation: heroWordBlink 3s steps(1, end) infinite !important;
 }
 
 @keyframes heroWordBlink {
   0% {
     opacity: 1;
-  } /* „creative, smart" — 3 s */
+  } /* „creative, smart" — 1,5 s */
   50% {
     opacity: 0;
-  } /* „creative art" — 3 s */
+  } /* „creative art" — 1,5 s */
   100% {
     opacity: 1;
   }
