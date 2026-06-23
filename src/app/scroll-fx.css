@@ -239,7 +239,9 @@ html.scroll-fx-ready .fx-tilt {
     rgba(255, 74, 20, 0.2) 72%,
     rgba(255, 69, 0, 0) 84%
   );
-  filter: blur(6px);
+  /* Stejný posun odstínu jako bloby aurory → intro koule má barvu „top" stavu
+     (růžová) a FLIP přechod do .blob-a zůstane bezešvý. */
+  filter: blur(6px) hue-rotate(var(--blob-hue, 0deg));
   opacity: 0;
   transform: scale(0.6);
   will-change: transform, opacity;

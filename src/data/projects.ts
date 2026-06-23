@@ -241,7 +241,7 @@ export const projects: Project[] = [
     services: ["Brand Identity", "Product Design", "Photography", "Collage", "Campaigns", "Social Media"],
     logo: "/images/houby-space-logo-v2.svg",
     hero: "/images/houby-space-lifestyle.webp",
-    cardImage: "/images/houby-space-card.webp",
+    cardImage: "/images/houby-space-lifestyle.webp",
     palette: ["#4a6c5d", "#febc30", "#f4ecc4", "#f48dad"],
     gallery: [
       {

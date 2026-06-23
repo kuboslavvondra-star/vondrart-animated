@@ -33,7 +33,7 @@ export default function RootLayout({
         </div>
         <ScrollFX />
         {children}
-        <Script src="/site-interactions.js?v=20260615l" strategy="afterInteractive" />
+        <Script src="/site-interactions.js?v=20260623a" strategy="afterInteractive" />
       </body>
     </html>
   );

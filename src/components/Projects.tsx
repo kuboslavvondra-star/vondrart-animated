@@ -134,6 +134,7 @@ export function Projects() {
               className={`project-card project-${project.id}`}
               href={`#${project.id}`}
               style={cssVars(project)}
+              data-cursor-image={project.logo}
             >
               <figure className="project-media">
                 {!isLogoOnlyTile ? (

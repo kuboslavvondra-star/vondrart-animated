@@ -242,8 +242,21 @@ export function ScrollFX() {
     // opakované nafukování/vyfukování, řízené scrollem. Cílové hodnoty
     // dotahujeme lerpem v samostatném rAF loopu → hedvábný pohyb i při
     // rychlém scrollu. Loop se po ustálení sám zastaví.
-    const auroraTarget = { tx: 0, ty: 0, sc: 1, op: 1 };
-    const auroraCurr = { tx: 0, ty: 0, sc: 1, op: 1 };
+    // BARVA KOULE PODLE SCROLLU — růžová (nahoře) → oranžová (střed) → modrá (dole),
+    // „po barevném spektru". Aplikuje se jako hue-rotate (CSS var --blob-hue) na bloby
+    // aurory i intro kouli; base gradient je oranžová ~25°. Rotace roste monotónně, takže
+    // meziodstíny jdou přes červenou/žlutou/zelenou = logický spektrální přechod.
+    // Hodnoty lze ladit (klient si může barvy doladit).
+    const HUE_TOP = 305; //  p=0   → růžová / magenta
+    const HUE_MID = 360; //  p=0.5 → oranžová (≡ 0°, bez posunu)
+    const HUE_BOTTOM = 550; // p=1  → modrá (přes žlutou/zelenou/azurovou)
+    const scrollHue = (p: number) =>
+      p <= 0.5
+        ? HUE_TOP + (p / 0.5) * (HUE_MID - HUE_TOP)
+        : HUE_MID + ((p - 0.5) / 0.5) * (HUE_BOTTOM - HUE_MID);
+
+    const auroraTarget = { tx: 0, ty: 0, sc: 1, op: 1, hue: HUE_TOP };
+    const auroraCurr = { tx: 0, ty: 0, sc: 1, op: 1, hue: HUE_TOP };
     let auroraRAF = 0;
     const computeAuroraTarget = () => {
       if (!aurora) return;
@@ -259,6 +272,7 @@ export function ScrollFX() {
       auroraTarget.sc = 1.18 + Math.sin(p * Math.PI * 3) * 0.34; // tep ~0.84–1.52×, pomalu
       const dim = Math.min(1, Math.max(0, (sy - vh * 0.4) / (vh * 0.7)));
       auroraTarget.op = 1 - dim * 0.62; // 1 → ~0.38 (čitelnost obsahu)
+      auroraTarget.hue = scrollHue(p); // barva koule dle scrollu
     };
     const auroraTick = () => {
       if (!aurora) return;
@@ -267,15 +281,19 @@ export function ScrollFX() {
       auroraCurr.ty += (auroraTarget.ty - auroraCurr.ty) * e;
       auroraCurr.sc += (auroraTarget.sc - auroraCurr.sc) * e;
       auroraCurr.op += (auroraTarget.op - auroraCurr.op) * e;
+      auroraCurr.hue += (auroraTarget.hue - auroraCurr.hue) * e;
       aurora.style.transform = `translate3d(${auroraCurr.tx.toFixed(2)}px, ${auroraCurr.ty.toFixed(
         2
       )}px, 0) scale(${auroraCurr.sc.toFixed(4)})`;
       aurora.style.opacity = auroraCurr.op.toFixed(3);
+      // sdílíme na :root → čte ho aurora (.blob-*) i intro koule (.intro-orb)
+      root.style.setProperty("--blob-hue", `${auroraCurr.hue.toFixed(1)}deg`);
       const settled =
         Math.abs(auroraTarget.tx - auroraCurr.tx) < 0.1 &&
         Math.abs(auroraTarget.ty - auroraCurr.ty) < 0.1 &&
         Math.abs(auroraTarget.sc - auroraCurr.sc) < 0.001 &&
-        Math.abs(auroraTarget.op - auroraCurr.op) < 0.002;
+        Math.abs(auroraTarget.op - auroraCurr.op) < 0.002 &&
+        Math.abs(auroraTarget.hue - auroraCurr.hue) < 0.1;
       auroraRAF = settled ? 0 : window.requestAnimationFrame(auroraTick);
     };
     const kickAurora = () => {

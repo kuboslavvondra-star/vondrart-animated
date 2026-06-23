@@ -19,8 +19,8 @@ export default function Home() {
         <Marquee />
         <Projects />
         <Services />
-        <Collaborations />
         <Illustrations />
+        <Collaborations />
         <About />
         <Contact />
       </main>

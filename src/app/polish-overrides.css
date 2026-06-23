@@ -84,7 +84,9 @@
     rgba(255, 74, 20, 0.2) 72%,
     rgba(255, 69, 0, 0) 84%
   );
-  filter: blur(6px);
+  /* --blob-hue: scroll-řízený posun odstínu (růžová→oranžová→modrá), nastavuje ScrollFX.
+     Fallback 0deg = původní oranžová (no-JS / reduced-motion beze změny). */
+  filter: blur(6px) hue-rotate(var(--blob-hue, 0deg));
   opacity: 0.92;
   animation: floatA 22s ease-in-out infinite;
 }
@@ -101,7 +103,7 @@
     rgba(76, 29, 149, 0.22) 60%,
     rgba(76, 29, 149, 0) 78%
   );
-  filter: blur(6px);
+  filter: blur(6px) hue-rotate(var(--blob-hue, 0deg));
   opacity: 0.52;
   animation: floatB 28s ease-in-out infinite;
 }
@@ -118,7 +120,7 @@
     rgba(225, 29, 72, 0.14) 64%,
     rgba(225, 29, 72, 0) 80%
   );
-  filter: blur(6px);
+  filter: blur(6px) hue-rotate(var(--blob-hue, 0deg));
   opacity: 0.42;
   animation: floatC 25s ease-in-out infinite;
 }
@@ -161,7 +163,8 @@
 
 .hero-label {
   margin-bottom: 24px;
-  color: rgb(138, 135, 130);
+  /* Client pass: nadtitulek „Brand & Marketing Studio — Brno" černě (jako ostatní nápisy). */
+  color: var(--ink);
   font-size: 11px;
   letter-spacing: 0;
 }
@@ -732,6 +735,13 @@ main {
   object-position: center;
   transform: scale(1.01);
   transition: opacity 220ms ease, transform 520ms ease, filter 220ms ease;
+}
+
+/* Client pass: houby dlaždice používá stejnou lifestyle fotku jako overlay
+   (chlápek s barevným kouřem). Portrét 1200×1500 v 4:3 výřezu → posun dolů,
+   aby logo na mikině (cca 69 % výšky) bylo blízko středu dlaždice. */
+.project-houby-space .project-card-image {
+  object-position: center 82%;
 }
 
 .project-card-hover-image {
@@ -1658,5 +1668,80 @@ main {
 
   .ill-controls {
     align-self: flex-end;
+  }
+}
+
+/* ============================================================
+   KURZOR — silnější + kontextový (client pass)
+   • default: malá tečka (beze změny)
+   • hover nad klikatelným (a/button) → výrazný prsten
+   • hover nad prvkem s data-cursor-image → brand logo
+   • stisk (pointerdown) → barevná koule, ladí s pozadím přes --blob-hue
+   Třídy přepíná public/site-interactions.js. Scoped jen na desktop
+   (fine pointer) — na touchi je .cursor stejně display:none.
+   ============================================================ */
+@media (hover: hover) and (pointer: fine) {
+  /* hladké přechody velikosti; transform (pozici) řídí JS — nesaháme naň */
+  .cursor {
+    transition: width 200ms cubic-bezier(0.16, 1, 0.3, 1),
+      height 200ms cubic-bezier(0.16, 1, 0.3, 1), background 180ms ease,
+      border-color 180ms ease, border-width 180ms ease, opacity 160ms ease;
+  }
+
+  .cursor-media {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 62px;
+    height: 62px;
+    object-fit: contain;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.55);
+    transition: opacity 160ms ease,
+      transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+  }
+
+  /* hover nad klikatelným bez loga → výrazný prsten (silnější než tečka) */
+  .cursor.is-active:not(.has-media):not(.is-ball) {
+    width: 42px;
+    height: 42px;
+    background: transparent;
+    border: 1.5px solid #fff;
+  }
+
+  /* hover nad prvkem s logem → ukáže logo, vypne difference (jinak by se invertovalo) */
+  .cursor.has-media {
+    width: 88px;
+    height: 88px;
+    background: transparent;
+    border: 0;
+    mix-blend-mode: normal;
+  }
+
+  .cursor.has-media .cursor-media {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  /* stisk myši → barevná koule (stejný hue jako pozadí přes --blob-hue) */
+  .cursor.is-ball {
+    width: 92px;
+    height: 92px;
+    border: 0;
+    background: radial-gradient(
+      circle at 42% 42%,
+      #ffe066 0%,
+      #ff9a24 30%,
+      #ff6a1f 54%,
+      rgba(255, 74, 20, 0) 78%
+    );
+    filter: hue-rotate(var(--blob-hue, 0deg));
+    mix-blend-mode: normal;
+    opacity: 0.95;
+  }
+
+  .cursor.is-ball .cursor-media {
+    opacity: 0;
   }
 }
