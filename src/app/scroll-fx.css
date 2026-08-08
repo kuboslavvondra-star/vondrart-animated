@@ -258,29 +258,16 @@ html.scroll-fx-ready .fx-tilt {
   animation: introOrbIn 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
 }
 
+/* Logotyp „VONDRART / .STUDIO" — vektor ve firemním písmu (/images/landing.svg).
+   Obě řádky jsou zarovnané odleva už v samotném SVG. */
 .intro-curtain .intro-brand {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: clamp(2.2rem, 8.5vw, 5.4rem);
-  letter-spacing: -0.02em;
-  line-height: 0.92;
-  color: var(--ink, #111110);
+  display: block;
+  width: min(340px, 54vw);
+  height: auto;
   opacity: 0;
   transform: translateY(16px);
   will-change: transform, opacity;
   animation: introBrandIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
-}
-
-/* „VONDRART" a „.STUDIO" pod sebou, oboje černě */
-.intro-curtain .intro-brand span,
-.intro-curtain .intro-brand em {
-  display: block;
-  font-style: normal;
-  color: var(--ink, #111110);
 }
 
 @keyframes introOrbIn {

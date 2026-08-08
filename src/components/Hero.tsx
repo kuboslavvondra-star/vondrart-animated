@@ -28,7 +28,7 @@ export function Hero() {
         </h1>
         <div className="hero-bottom">
           <p className="hero-desc">
-            Pracujeme na brandech, které mají co říct. Od první myšlenky po každý detail vizuální identity.
+            Pracujeme na brandech, které mají co říct. Od brand strategie po každý detail vizuální identity.
           </p>
         </div>
       </div>

@@ -7,14 +7,15 @@ export function About() {
       </div>
       <div className="about-copy">
         <p>
-          vondrart studio pomáhá značkám najít jasný směr a převést ho do funkční
-          vizuální komunikace. Stavíme identity, kampaně a obsah, které drží
-          pohromadě napříč každým výstupem.
+          vondrart studio je brand a grafické studio z Brna. Pomáháme značkám najít
+          jasný směr a převést ho do funkční vizuální komunikace. Stavíme identity,
+          kampaně a obsah, které drží pohromadě napříč každým výstupem.
         </p>
         <p>
-          Propojujeme strategii, design, copywriting a art direction. Výsledkem
-          nejsou jen hezké materiály, ale srozumitelný systém, který značce dává
-          vlastní jazyk a dlouhodobou konzistenci.
+          Propojujeme brand strategii, design, copywriting a art direction — od
+          tvorby loga po tone of voice. Výsledkem nejsou jen hezké materiály, ale
+          srozumitelný systém, který značce dává vlastní jazyk a dlouhodobou
+          konzistenci.
         </p>
       </div>
     </section>

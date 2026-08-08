@@ -1048,12 +1048,21 @@ img {
 }
 
 .service-item h3 {
-  margin: 62px 0 70px;
+  margin: 62px 0 26px;
   font-family: "Neue Haas Grotesk Display Pro", "Neue Haas Grotesk Text Pro", "Neue Haas Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 3.9rem;
   font-weight: 400;
   line-height: 0.9;
   text-transform: uppercase;
+}
+
+/* Český popisek pod anglickým názvem služby (čitelnost + lokální SEO) */
+.service-item .service-lead {
+  margin: 0 0 42px;
+  max-width: 22ch;
+  color: rgba(17, 17, 16, 0.72);
+  font-size: 1.02rem;
+  line-height: 1.35;
 }
 
 .service-item ul {

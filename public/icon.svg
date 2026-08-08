@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="vondrart.studio">
+  <!-- Stejný gradient jako .intro-orb / .blob-pink v scroll-fx.css -->
+  <defs>
+    <radialGradient id="orb" cx="50%" cy="42%" r="50%">
+      <stop offset="0%" stop-color="#ff147a"/>
+      <stop offset="18%" stop-color="#ff3d8a"/>
+      <stop offset="38%" stop-color="#ff6360"/>
+      <stop offset="54%" stop-color="#ff8a44"/>
+      <stop offset="66%" stop-color="#ffa23a"/>
+      <stop offset="82%" stop-color="#ffb978" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#ffcda5" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="64" height="64" fill="#f4f1eb"/>
+  <circle cx="32" cy="32" r="28" fill="url(#orb)"/>
+</svg>
