@@ -60,6 +60,10 @@ button {
 img {
   display: block;
   max-width: 100%;
+  /* Bez `height: auto` si obrázek vezme výšku z HTML atributu `height`, takže
+     ho `max-width` zúží, ale nezkrátí — a `object-fit: cover` ho pak ořízne.
+     Konkrétní pravidla s vlastní výškou tenhle základ přebijí specificitou. */
+  height: auto;
 }
 
 ::selection {

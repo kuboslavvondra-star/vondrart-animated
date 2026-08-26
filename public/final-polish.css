@@ -716,6 +716,11 @@
   opacity: 0.88 !important;
 }
 
+.project-card:not(.project-cotyploty) .project-logo,
+.project-card:not(.project-cotyploty):hover .project-logo {
+  opacity: 0 !important;
+}
+
 .project-dopamine-tour .project-card-image {
   object-position: center center !important;
 }
@@ -802,6 +807,11 @@
   opacity: 0.88 !important;
   transform: none !important;
   filter: brightness(0) invert(1) blur(2px) saturate(0.96) !important;
+}
+
+.project-card:not(.project-cotyploty) .project-logo,
+.project-card:not(.project-cotyploty):hover .project-logo {
+  opacity: 0 !important;
 }
 
 .project-syndikat-legal .project-card-image {
