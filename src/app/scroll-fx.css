@@ -135,9 +135,6 @@ html.scroll-fx-ready ::selection {
   max-width: 96px;
   max-height: 84px;
 }
-.collab-spolek .collab-logo-img {
-  max-height: 40px;
-}
 
 /* ------------------------- REVEAL ------------------------- */
 /* Jednotná, ucelená animace. Plynulý decelerující easing (expo-out),

@@ -1,4 +1,8 @@
 export type Project = {
+  logoHeight?: number;
+  logoWidth?: number;
+  cardImageHeight?: number;
+  cardImageWidth?: number;
   id: string;
   overlayId: string;
   name: string;
@@ -22,65 +26,6 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    id: "bonghemia",
-    overlayId: "bonghemia-vondrart-overlay",
-    name: "Bonghemia",
-    displayName: "Bonghemia",
-    year: "since 2018",
-    category: "Branding · Creative Direction",
-    description: "cannabis 420 life-style brand",
-    intro: [
-      "Bonghemia vznikla ze slov bong a Bohemia. Od začátku jsme ji stavěli jako značku, která propojuje komunitu, kvalitu, edukaci, přírodní původ produktů, udržitelnost a pohodový lifestyle přístup.",
-      "Nešlo jen o obchod. Šlo o vlastní jazyk, kulturu a směr, který se propisuje do identity, produktové grafiky, fotografií, merche i sociálních sítí."
-    ],
-    services: [
-      "Brand Strategy",
-      "Creative Direction",
-      "Copywriting",
-      "Product Graphics",
-      "Photography",
-      "Social Media"
-    ],
-    logo: "/images/bonghemia-logo.png",
-    hero: "/images/bonghemia-lifestyle-visual.webp",
-    cardImage: "/images/bonghemia-bongo.webp",
-    palette: ["#131410", "#4e755f", "#fbb040", "#f2efe5"],
-    gallery: [
-      {
-        src: "/images/bonghemia-kratom-packaging.webp",
-        alt: "Bonghemia kratom packaging",
-        caption: "Produktová grafika"
-      },
-      {
-        src: "/images/bonghemia-product-kit.webp",
-        alt: "Bonghemia product kit",
-        caption: "Product kit"
-      },
-      {
-        src: "/images/bonghemia-joint-us-merch.webp",
-        alt: "Bonghemia Joint Us merch",
-        caption: "JOINT US merch"
-      },
-      {
-        src: "/images/bonghemia-grow-lifestyle.webp",
-        alt: "Bonghemia grow lifestyle",
-        caption: "Lifestyle fotografie"
-      },
-      {
-        src: "/images/bonghemia-cbd-oil-packaging.webp",
-        alt: "Bonghemia CBD oil packaging",
-        caption: "Packaging"
-      },
-      {
-        src: "/images/bonghemia-beztravi.webp",
-        alt: "Bonghemia Bojujeme proti beztráví",
-        caption: "Komunitní komunikace"
-      }
-    ],
-    result:
-      "Dlouhodobě vedený brand systém s vlastním jazykem, komunitním přesahem a jasnou vizuální energií."
-  },
-  {
     id: "dopamine-tour",
     overlayId: "dopamine-vondrart-overlay",
     name: "Dopamine Tour",
@@ -94,8 +39,12 @@ export const projects: Project[] = [
     ],
     services: ["Brand Identity", "Logo System", "Visual System", "Social Media", "Web Design"],
     logo: "/images/dopamine-tour-logo.png",
+    logoWidth: 817,
+    logoHeight: 817,
     hero: "/images/dopamine-radnice.webp",
     cardImage: "/images/dopamine-tour-cover.webp",
+    cardImageWidth: 1400,
+    cardImageHeight: 984,
     palette: ["#fefaeb", "#73c9e6", "#5c5aa4", "#e84a94", "#0e101f"],
     gallery: [
       {
@@ -151,8 +100,12 @@ export const projects: Project[] = [
     ],
     services: ["Brand Identity", "Logo System", "Visual System", "Social Media", "Brand Applications"],
     logo: "/images/syndikat-legal-logo.png",
+    logoWidth: 437,
+    logoHeight: 143,
     hero: "/images/syndikat-legal-desky.webp",
     cardImage: "/images/syndikat-legal-desky.webp",
+    cardImageWidth: 1400,
+    cardImageHeight: 919,
     palette: ["#072924", "#b9dcc6", "#eef5f1"],
     gallery: [
       {
@@ -193,8 +146,12 @@ export const projects: Project[] = [
     ],
     services: ["Brand Identity", "Illustration", "Social Media"],
     logo: "/images/dvorek-logo.png",
+    logoWidth: 1496,
+    logoHeight: 421,
     hero: "/images/dvorek-brand.webp",
     cardImage: "/images/dvorek-card.webp",
+    cardImageWidth: 960,
+    cardImageHeight: 720,
     palette: ["#d2360f", "#fff4df", "#1d1d1b"],
     gallery: [
       {
@@ -227,58 +184,6 @@ export const projects: Project[] = [
       "Hravá a výrazná identita pro lokální podnik bez sterilního minimalismu, s vlastním rukopisem."
   },
   {
-    id: "houby-space",
-    overlayId: "houby-vondrart-overlay",
-    name: "houby.space",
-    displayName: "houby.space",
-    year: "2025",
-    category: "Branding · Campaigns",
-    description: "psychedelic lifestyle brand",
-    intro: [
-      "houby.space nestaví na sterilním wellness vzhledu. Místo toho vytváří barevný svět mezi přírodou, snem a digitální halucinací.",
-      "Cílem bylo propojit produktovou důvěryhodnost s kulturním přesahem, aby značka fungovala jako produkt, merch label i komunita."
-    ],
-    services: ["Brand Identity", "Product Design", "Photography", "Collage", "Campaigns", "Social Media"],
-    logo: "/images/houby-space-logo-v2.svg",
-    hero: "/images/houby-space-lifestyle.webp",
-    cardImage: "/images/houby-space-lifestyle.webp",
-    palette: ["#4a6c5d", "#febc30", "#f4ecc4", "#f48dad"],
-    gallery: [
-      {
-        src: "/images/houby-space-cloud.webp",
-        alt: "houby.space cloud visual",
-        caption: "Cloud visual"
-      },
-      {
-        src: "/images/houby-space-hoodie.webp",
-        alt: "houby.space hoodie visual",
-        caption: "Merch visual"
-      },
-      {
-        src: "/images/houby-space-city.webp",
-        alt: "houby.space city visual",
-        caption: "City visual"
-      },
-      {
-        src: "/images/houby-space-packaging.webp",
-        alt: "houby.space packaging redesign",
-        caption: "Packaging"
-      },
-      {
-        src: "/images/houby-space-shirt.webp",
-        alt: "houby.space t-shirt",
-        caption: "T-shirt"
-      },
-      {
-        src: "/images/houby-space-bottle.webp",
-        alt: "houby.space product bottle",
-        caption: "Product"
-      }
-    ],
-    result:
-      "Výrazný lifestyle svět propojující produkt, merch a komunikaci do jedné psychedelické značkové zkušenosti."
-  },
-  {
     id: "cafe-olbracht",
     overlayId: "olbracht-vondrart-overlay",
     name: "Café Olbracht",
@@ -292,8 +197,12 @@ export const projects: Project[] = [
     ],
     services: ["Brand Identity", "Illustration", "Social Media"],
     logo: "/images/cafe-olbracht-logo.png",
+    logoWidth: 264,
+    logoHeight: 324,
     hero: "/images/cafe-olbracht-main.webp",
     cardImage: "/images/cafe-olbracht-card.webp",
+    cardImageWidth: 960,
+    cardImageHeight: 720,
     palette: ["#fdf1d3", "#6a5652", "#cfdfbc", "#181818"],
     gallery: [
       {
@@ -334,8 +243,12 @@ export const projects: Project[] = [
     ],
     services: ["Brand Identity", "Logo System", "Color System", "Campaigns"],
     logo: "/images/co-ty-ploty-logo.png",
+    logoWidth: 836,
+    logoHeight: 458,
     hero: "/images/co-ty-ploty-banner.webp",
     cardImage: "/images/co-ty-ploty-symbol-logo.png",
+    cardImageWidth: 836,
+    cardImageHeight: 458,
     palette: ["#f0ede4", "#004643"],
     gallery: [
       {

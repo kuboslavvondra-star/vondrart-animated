@@ -20,8 +20,7 @@
   max-width: 100%;
 }
 
-.project-overlay-original [class$="-sheet"],
-.project-overlay-original .bng-wrap {
+.project-overlay-original [class$="-sheet"] {
   overflow-x: hidden !important;
 }
 
@@ -29,33 +28,17 @@
   text-decoration: none !important;
 }
 
-#bonghemia-vondrart-overlay.is-open,
-.project-overlay-original:target #bonghemia-vondrart-overlay {
-  opacity: 1 !important;
-  visibility: visible !important;
-  pointer-events: auto !important;
-}
-
-#bonghemia-vondrart-overlay.is-open .bng-wrap {
-  opacity: 1 !important;
-  transform: none !important;
-}
-
 @media (hover: hover) and (pointer: fine) {
   #dopamine-vondrart-overlay,
   #syndikat-vondrart-overlay,
   #dvorek-vondrart-overlay,
-  #houby-vondrart-overlay,
   #olbracht-vondrart-overlay,
   #cotyploty-vondrart-overlay,
-  #bonghemia-vondrart-overlay,
   #dopamine-vondrart-overlay *,
   #syndikat-vondrart-overlay *,
   #dvorek-vondrart-overlay *,
-  #houby-vondrart-overlay *,
   #olbracht-vondrart-overlay *,
-  #cotyploty-vondrart-overlay *,
-  #bonghemia-vondrart-overlay * {
+  #cotyploty-vondrart-overlay * {
     cursor: none !important;
   }
 
@@ -70,25 +53,20 @@
   #dopamine-vondrart-overlay,
   #syndikat-vondrart-overlay,
   #dvorek-vondrart-overlay,
-  #houby-vondrart-overlay,
   #olbracht-vondrart-overlay,
   #cotyploty-vondrart-overlay,
-  #bonghemia-vondrart-overlay,
   #dopamine-vondrart-overlay *,
   #syndikat-vondrart-overlay *,
   #dvorek-vondrart-overlay *,
-  #houby-vondrart-overlay *,
   #olbracht-vondrart-overlay *,
-  #cotyploty-vondrart-overlay *,
-  #bonghemia-vondrart-overlay * {
+  #cotyploty-vondrart-overlay * {
     cursor: auto !important;
   }
 }
 
 @media (max-width: 920px) {
   .project-overlay-original:target > [id$="-vondrart-overlay"],
-  .project-overlay-original:target [class$="-sheet"],
-  .project-overlay-original:target .bng-wrap {
+  .project-overlay-original:target [class$="-sheet"] {
     max-width: 100vw !important;
   }
 

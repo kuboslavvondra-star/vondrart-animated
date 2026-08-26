@@ -262,7 +262,8 @@ img {
   left: 24px;
   bottom: 72px;
   z-index: 2;
-  color: rgba(17, 17, 16, 0.38);
+  /* 0.38 dávalo kontrast 2,43:1 — pod WCAG AA (4,5:1). 0.60 dá 4,73:1. */
+  color: rgba(17, 17, 16, 0.6);
   font-size: 0.62rem;
   text-transform: uppercase;
   writing-mode: vertical-rl;
@@ -289,6 +290,21 @@ img {
   background: currentColor;
   transform-origin: top;
   animation: scrollLine 1.8s ease-in-out infinite;
+}
+
+/* Pravidlo výše cílí na oba spany uvnitř .scroll-cue, tedy i na ten se slovem
+   „Scroll“. Ten pak dostal šířku 1px, vlastní pozadí a pulzující scaleY —
+   vedle textu se proto vykreslovala druhá linka navíc a text ležel na vlastním
+   pozadí, což Lighthouse hlásil jako kontrast 2,29:1. Dekorativní má být jen
+   .scroll-line; text se vrací k normálnímu vykreslení. Barva zvednuta na
+   0.60 (4,73:1), linka si ponechává svůj původní odstín. */
+.scroll-cue .scroll-txt {
+  width: auto;
+  height: auto;
+  background: none;
+  transform: none;
+  animation: none;
+  color: rgba(17, 17, 16, 0.6);
 }
 
 .marquee {
@@ -394,19 +410,16 @@ img {
   transition: opacity 220ms ease, transform 220ms ease;
 }
 
-.project-bonghemia .project-card-image,
 .project-cotyploty .project-card-image {
   opacity: 0;
 }
 
-.project-bonghemia .project-logo,
 .project-cotyploty .project-logo {
   opacity: 0.88;
   filter: brightness(0) invert(1);
 }
 
 .project-dvorek .project-card-image,
-.project-houby-space .project-card-image,
 .project-cafe-olbracht .project-card-image {
   opacity: 0.88;
 }
@@ -583,7 +596,6 @@ img {
   margin: 0 0 42px;
 }
 
-.case-bonghemia .case-logo,
 .case-syndikat-legal .case-logo,
 .case-cotyploty .case-logo {
   filter: brightness(0) invert(1);
@@ -748,13 +760,6 @@ img {
   box-shadow: 0 24px 110px rgba(7, 9, 24, 0.28);
 }
 
-.detail-bonghemia {
-  --detail-paper: #111710;
-  --detail-ink: #f4f1eb;
-  --detail-muted: rgba(244, 241, 235, 0.66);
-  --detail-line: rgba(244, 241, 235, 0.16);
-}
-
 .detail-hero {
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.9fr);
@@ -843,12 +848,6 @@ img {
   border-color: var(--detail-line);
   color: var(--detail-ink);
   background: rgba(255, 255, 255, 0.22);
-}
-
-.detail-bonghemia .detail-tags span,
-.detail-bonghemia .tag-row span {
-  color: var(--detail-ink);
-  background: rgba(244, 241, 235, 0.06);
 }
 
 .detail-meta-grid {
@@ -1093,7 +1092,7 @@ img {
 .collabs-grid,
 .illustrations-track {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
@@ -1148,12 +1147,6 @@ img {
   border-radius: 999px;
   font-size: 1rem;
   text-transform: uppercase;
-}
-
-.collab-spolek .collab-logo {
-  font-family: Georgia, serif;
-  font-size: 2.8rem;
-  font-weight: 700;
 }
 
 .collab-mascotte .collab-logo {
@@ -1287,6 +1280,21 @@ img {
   border-top: 1px solid rgba(244, 241, 235, 0.12);
   background: var(--ink);
   color: rgba(244, 241, 235, 0.72);
+  /* Zalomení kvůli druhému řádku s fakturačními údaji; první řádek
+     (značka + copyright) zůstává rozložený přesně jako dřív. */
+  flex-wrap: wrap;
+}
+
+/* Fakturační a zákonné údaje (§ 435 občanského zákoníku). */
+.site-footer .footer-legal {
+  width: 100%;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(244, 241, 235, 0.12);
+  color: rgba(244, 241, 235, 0.48);
+  font-size: 0.76rem;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
 }
 
 @keyframes ticker {

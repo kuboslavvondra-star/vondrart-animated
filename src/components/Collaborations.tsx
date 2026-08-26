@@ -1,9 +1,16 @@
 const collaborations = [
-  { name: "TEDx Brno", scope: "Marketing · Event", variant: "tedx", logo: "/images/collab-tedx.svg" },
-  { name: "Festival Tlak", scope: "Social Media", variant: "tlak", logo: "/images/collab-tlak.svg" },
-  { name: "Crosskeys Towing", scope: "Redesign loga · USA", variant: "crosskeys", logo: "/images/collab-crosskeys.png" },
-  { name: "Kavárna Spolek", scope: "Socials · Grafika", variant: "spolek", logo: "/images/collab-spolek.svg" },
-  { name: "Mascotte", scope: "Foto služby", variant: "mascotte", logo: "/images/collab-mascotte.svg" }
+  { name: "TEDx Brno", scope: "Marketing · Event", variant: "tedx", logo: "/images/collab-tedx.svg",
+    width: 400,
+    height: 65 },
+  { name: "Festival Tlak", scope: "Social Media", variant: "tlak", logo: "/images/collab-tlak.svg",
+    width: 1744,
+    height: 894 },
+  { name: "Crosskeys Towing", scope: "Redesign loga · USA", variant: "crosskeys", logo: "/images/collab-crosskeys.png",
+    width: 1280,
+    height: 946 },
+  { name: "Mascotte", scope: "Foto služby", variant: "mascotte", logo: "/images/collab-mascotte.svg",
+    width: 1400,
+    height: 200 }
 ];
 
 export function Collaborations() {
@@ -23,6 +30,8 @@ export function Collaborations() {
                 className="collab-logo-img"
                 src={collaboration.logo}
                 alt={`${collaboration.name} logo`}
+                width={collaboration.width}
+                height={collaboration.height}
                 loading="lazy"
                 decoding="async"
               />

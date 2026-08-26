@@ -1,27 +1,33 @@
 const illustrations = [
   {
     caption: "Punkt — omalovánka",
-    image: "/images/illustration-punkt.webp"
-  },
-  {
-    caption: "Bonghemia — ilustrace",
-    image: "/images/illustration-bonghemia.webp"
-  },
-  {
-    caption: "Vltavská",
-    image: "/images/illustration-vltavska.webp"
+    image: "/images/illustration-punkt.webp",
+    width: 1423,
+    height: 2048
   },
   {
     caption: "Swap & Sip",
-    image: "/images/illustration-swap-sip.webp"
+    image: "/images/illustration-swap-sip.webp",
+    width: 1414,
+    height: 2000
+  },
+  {
+    caption: "Vltavská",
+    image: "/images/illustration-vltavska.webp",
+    width: 2048,
+    height: 1423
   },
   {
     caption: "Barvy & Beaty",
-    image: "/images/illustration-barvy-beaty.webp"
+    image: "/images/illustration-barvy-beaty.webp",
+    width: 1414,
+    height: 2000
   },
   {
     caption: "Five Elephant Takeover",
-    image: "/images/illustration-five-elephant.webp"
+    image: "/images/illustration-five-elephant.webp",
+    width: 1080,
+    height: 1440
   }
 ];
 
@@ -52,7 +58,14 @@ export function Illustrations() {
         <div className="ill-track">
           {illustrations.map((item) => (
             <figure className="ill-card" key={item.caption} data-cursor-label={item.caption}>
-              <img src={item.image} alt={item.caption} decoding="async" loading="lazy" />
+              <img
+                src={item.image}
+                alt={item.caption}
+                width={item.width}
+                height={item.height}
+                decoding="async"
+                loading="lazy"
+              />
               <figcaption>{item.caption}</figcaption>
             </figure>
           ))}

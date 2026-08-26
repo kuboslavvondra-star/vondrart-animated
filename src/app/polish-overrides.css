@@ -760,13 +760,6 @@ main {
   transition: opacity 220ms ease, transform 520ms ease, filter 220ms ease;
 }
 
-/* Client pass: houby dlaždice používá stejnou lifestyle fotku jako overlay
-   (chlápek s barevným kouřem). Portrét 1200×1500 v 4:3 výřezu → posun dolů,
-   aby logo na mikině (cca 69 % výšky) bylo blízko středu dlaždice. */
-.project-houby-space .project-card-image {
-  object-position: center 82%;
-}
-
 .project-card-hover-image {
   z-index: 1;
   opacity: 0;
@@ -799,7 +792,6 @@ main {
   font-size: 10px;
 }
 
-.project-bonghemia:hover .project-card-image,
 .project-cotyploty:hover .project-card-image {
   opacity: 0.08;
 }
@@ -960,27 +952,6 @@ main {
   margin-top: 50px;
 }
 
-.detail-houby-space .detail-hero {
-  grid-template-columns: minmax(0, 1fr) 620px;
-  min-height: 650px;
-  padding-top: 96px;
-}
-
-.detail-houby-space .detail-copy {
-  padding-top: 214px;
-  max-width: 850px;
-}
-
-.detail-houby-space .detail-copy h2 {
-  font-size: clamp(5.8rem, 7.2vw, 8.4rem);
-}
-
-.detail-houby-space .detail-hero-media {
-  width: 620px;
-  height: 514px;
-  margin-top: 51px;
-}
-
 .detail-cafe-olbracht .detail-hero {
   grid-template-columns: minmax(0, 0.92fr) 730px;
   min-height: 700px;
@@ -1025,35 +996,12 @@ main {
   margin-top: 107px;
 }
 
-.detail-bonghemia .detail-hero {
-  grid-template-columns: minmax(0, 0.92fr) minmax(620px, 0.94fr);
-  min-height: 820px;
-  padding-top: 86px;
-}
-
-.detail-bonghemia .detail-copy {
-  padding-top: 70px;
-}
-
-.detail-bonghemia .detail-hero-media {
-  width: min(760px, 100%);
-  height: 690px;
-  margin-top: 48px;
-  border-radius: 28px;
-}
-
-.detail-bonghemia .detail-copy h2 {
-  font-size: clamp(5.6rem, 7.5vw, 8.8rem);
-}
-
 @media (max-width: 1180px) {
   .detail-dopamine-tour .detail-hero,
   .detail-syndikat-legal .detail-hero,
   .detail-dvorek .detail-hero,
-  .detail-houby-space .detail-hero,
   .detail-cafe-olbracht .detail-hero,
-  .detail-cotyploty .detail-hero,
-  .detail-bonghemia .detail-hero {
+  .detail-cotyploty .detail-hero {
     grid-template-columns: 1fr;
     min-height: 0;
     padding: 64px 34px 48px;
@@ -1061,20 +1009,16 @@ main {
 
   .detail-dopamine-tour .detail-copy,
   .detail-dvorek .detail-copy,
-  .detail-houby-space .detail-copy,
   .detail-cafe-olbracht .detail-copy,
-  .detail-cotyploty .detail-copy,
-  .detail-bonghemia .detail-copy {
+  .detail-cotyploty .detail-copy {
     padding-top: 0;
   }
 
   .detail-dopamine-tour .detail-hero-media,
   .detail-syndikat-legal .detail-hero-media,
   .detail-dvorek .detail-hero-media,
-  .detail-houby-space .detail-hero-media,
   .detail-cafe-olbracht .detail-hero-media,
-  .detail-cotyploty .detail-hero-media,
-  .detail-bonghemia .detail-hero-media {
+  .detail-cotyploty .detail-hero-media {
     width: 100%;
     height: auto;
     min-height: 340px;
@@ -1215,29 +1159,6 @@ main {
   line-height: 1.58;
 }
 
-.detail-bonghemia .detail-hero {
-  grid-template-columns: minmax(0, 0.72fr) minmax(560px, 0.88fr);
-  min-height: 760px;
-}
-
-.detail-bonghemia .detail-copy {
-  max-width: 640px;
-  padding-top: 72px;
-}
-
-.detail-bonghemia .detail-copy h2 {
-  font-size: clamp(4.7rem, 5.95vw, 7rem);
-}
-
-.detail-bonghemia .detail-hero-media {
-  width: min(780px, 100%);
-  height: clamp(560px, 49vw, 700px);
-}
-
-.detail-bonghemia .detail-hero-media img {
-  object-position: center 48%;
-}
-
 .detail-dopamine-tour .detail-copy h2 {
   max-width: 640px;
   font-size: clamp(4.75rem, 5.9vw, 7rem);
@@ -1255,38 +1176,22 @@ main {
   font-size: clamp(4.8rem, 6vw, 7rem);
 }
 
-.detail-houby-space .detail-copy {
-  max-width: 640px;
-}
-
-.detail-houby-space .detail-copy h2 {
-  font-size: clamp(4.8rem, 5.75vw, 6.9rem);
-}
-
-.detail-houby-space .detail-hero-media img {
-  object-position: center 44%;
-}
-
 .detail-cotyploty .detail-copy h2,
 .detail-dvorek .detail-copy h2 {
   font-size: clamp(4.8rem, 6vw, 7.2rem);
 }
 
 @media (max-width: 1380px) {
-  .detail-bonghemia .detail-hero,
   .detail-syndikat-legal .detail-hero,
   .detail-dvorek .detail-hero,
-  .detail-houby-space .detail-hero,
   .detail-cafe-olbracht .detail-hero,
   .detail-cotyploty .detail-hero,
   .detail-dopamine-tour .detail-hero {
     grid-template-columns: minmax(0, 1fr) minmax(460px, 0.86fr);
   }
 
-  .detail-bonghemia .detail-copy,
   .detail-syndikat-legal .detail-copy,
   .detail-dvorek .detail-copy,
-  .detail-houby-space .detail-copy,
   .detail-cafe-olbracht .detail-copy,
   .detail-cotyploty .detail-copy,
   .detail-dopamine-tour .detail-copy {
@@ -1295,11 +1200,9 @@ main {
   }
 
   .detail-copy h2,
-  .detail-bonghemia .detail-copy h2,
   .detail-dopamine-tour .detail-copy h2,
   .detail-syndikat-legal .detail-copy h2,
   .detail-dvorek .detail-copy h2,
-  .detail-houby-space .detail-copy h2,
   .detail-cafe-olbracht .detail-copy h2,
   .detail-cotyploty .detail-copy h2 {
     font-size: clamp(4rem, 5.35vw, 6.35rem);
@@ -1327,14 +1230,6 @@ main {
   hyphens: none;
 }
 
-.detail-bonghemia .detail-copy {
-  max-width: 860px;
-}
-
-.detail-bonghemia .detail-copy h2 {
-  font-size: clamp(4.7rem, 5.4vw, 6.45rem);
-}
-
 .detail-dopamine-tour .detail-copy {
   max-width: 920px;
 }
@@ -1342,14 +1237,6 @@ main {
 .detail-dopamine-tour .detail-copy h2 {
   max-width: 920px;
   font-size: clamp(4.65rem, 5.55vw, 6.75rem);
-}
-
-.detail-houby-space .detail-copy {
-  max-width: 860px;
-}
-
-.detail-houby-space .detail-copy h2 {
-  font-size: clamp(4.6rem, 5.25vw, 6.2rem);
 }
 
 .detail-syndikat-legal .detail-copy {
@@ -1371,10 +1258,8 @@ main {
     white-space: nowrap;
   }
 
-  .detail-bonghemia .detail-copy h2,
   .detail-dopamine-tour .detail-copy h2,
   .detail-dvorek .detail-copy h2,
-  .detail-houby-space .detail-copy h2,
   .detail-cafe-olbracht .detail-copy h2,
   .detail-cotyploty .detail-copy h2 {
     font-size: clamp(4.2rem, 4.9vw, 5.95rem);
@@ -1391,10 +1276,8 @@ main {
 
 @media (max-width: 1180px) {
   .detail-copy h2,
-  .detail-bonghemia .detail-copy h2,
   .detail-dopamine-tour .detail-copy h2,
   .detail-dvorek .detail-copy h2,
-  .detail-houby-space .detail-copy h2,
   .detail-cafe-olbracht .detail-copy h2,
   .detail-cotyploty .detail-copy h2,
   .detail-syndikat-legal .detail-copy h2 {
@@ -1416,10 +1299,8 @@ main {
   }
 
   .detail-hero,
-  .detail-bonghemia .detail-hero,
   .detail-dopamine-tour .detail-hero,
   .detail-dvorek .detail-hero,
-  .detail-houby-space .detail-hero,
   .detail-cafe-olbracht .detail-hero,
   .detail-cotyploty .detail-hero,
   .detail-syndikat-legal .detail-hero {
@@ -1430,10 +1311,8 @@ main {
   }
 
   .detail-copy,
-  .detail-bonghemia .detail-copy,
   .detail-dopamine-tour .detail-copy,
   .detail-dvorek .detail-copy,
-  .detail-houby-space .detail-copy,
   .detail-cafe-olbracht .detail-copy,
   .detail-cotyploty .detail-copy,
   .detail-syndikat-legal .detail-copy {
@@ -1443,10 +1322,8 @@ main {
   }
 
   .detail-copy h2,
-  .detail-bonghemia .detail-copy h2,
   .detail-dopamine-tour .detail-copy h2,
   .detail-dvorek .detail-copy h2,
-  .detail-houby-space .detail-copy h2,
   .detail-cafe-olbracht .detail-copy h2,
   .detail-cotyploty .detail-copy h2,
   .detail-syndikat-legal .detail-copy h2 {
@@ -1469,10 +1346,8 @@ main {
   }
 
   .detail-hero-media,
-  .detail-bonghemia .detail-hero-media,
   .detail-dopamine-tour .detail-hero-media,
   .detail-dvorek .detail-hero-media,
-  .detail-houby-space .detail-hero-media,
   .detail-cafe-olbracht .detail-hero-media,
   .detail-cotyploty .detail-hero-media,
   .detail-syndikat-legal .detail-hero-media {
@@ -1552,10 +1427,8 @@ main {
 
 @media (max-width: 760px) {
   .detail-hero,
-  .detail-bonghemia .detail-hero,
   .detail-dopamine-tour .detail-hero,
   .detail-dvorek .detail-hero,
-  .detail-houby-space .detail-hero,
   .detail-cafe-olbracht .detail-hero,
   .detail-cotyploty .detail-hero,
   .detail-syndikat-legal .detail-hero,
@@ -1567,10 +1440,8 @@ main {
   }
 
   .detail-copy h2,
-  .detail-bonghemia .detail-copy h2,
   .detail-dopamine-tour .detail-copy h2,
   .detail-dvorek .detail-copy h2,
-  .detail-houby-space .detail-copy h2,
   .detail-cafe-olbracht .detail-copy h2,
   .detail-cotyploty .detail-copy h2,
   .detail-syndikat-legal .detail-copy h2 {
@@ -1601,10 +1472,8 @@ main {
 
 @media (max-width: 460px) {
   .detail-copy h2,
-  .detail-bonghemia .detail-copy h2,
   .detail-dopamine-tour .detail-copy h2,
   .detail-dvorek .detail-copy h2,
-  .detail-houby-space .detail-copy h2,
   .detail-cafe-olbracht .detail-copy h2,
   .detail-cotyploty .detail-copy h2,
   .detail-syndikat-legal .detail-copy h2 {

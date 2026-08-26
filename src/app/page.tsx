@@ -29,6 +29,10 @@ export default function Home() {
           <span>vond</span>rart
         </span>
         <span>© 2026 vondrart studio</span>
+        <small className="footer-legal">
+          vondrart.studio s.r.o. · Lidická 700/19, Veveří, 602 00 Brno · IČO 29869650 ·
+          Zapsáno v obchodním rejstříku vedeném Krajským soudem v Brně, oddíl C, vložka 153257
+        </small>
       </footer>
     </>
   );

@@ -34,10 +34,8 @@
   }
 
   .detail-hero,
-  .detail-bonghemia .detail-hero,
   .detail-dopamine-tour .detail-hero,
   .detail-dvorek .detail-hero,
-  .detail-houby-space .detail-hero,
   .detail-cafe-olbracht .detail-hero,
   .detail-cotyploty .detail-hero,
   .detail-syndikat-legal .detail-hero {
@@ -53,10 +51,8 @@
   }
 
   .detail-copy,
-  .detail-bonghemia .detail-copy,
   .detail-dopamine-tour .detail-copy,
   .detail-dvorek .detail-copy,
-  .detail-houby-space .detail-copy,
   .detail-cafe-olbracht .detail-copy,
   .detail-cotyploty .detail-copy,
   .detail-syndikat-legal .detail-copy {
@@ -66,10 +62,8 @@
   }
 
   .detail-copy h2,
-  .detail-bonghemia .detail-copy h2,
   .detail-dopamine-tour .detail-copy h2,
   .detail-dvorek .detail-copy h2,
-  .detail-houby-space .detail-copy h2,
   .detail-cafe-olbracht .detail-copy h2,
   .detail-cotyploty .detail-copy h2,
   .detail-syndikat-legal .detail-copy h2 {
@@ -92,10 +86,8 @@
   }
 
   .detail-hero-media,
-  .detail-bonghemia .detail-hero-media,
   .detail-dopamine-tour .detail-hero-media,
   .detail-dvorek .detail-hero-media,
-  .detail-houby-space .detail-hero-media,
   .detail-cafe-olbracht .detail-hero-media,
   .detail-cotyploty .detail-hero-media,
   .detail-syndikat-legal .detail-hero-media {
@@ -183,10 +175,8 @@
 
 @media (max-width: 760px) {
   .detail-hero,
-  .detail-bonghemia .detail-hero,
   .detail-dopamine-tour .detail-hero,
   .detail-dvorek .detail-hero,
-  .detail-houby-space .detail-hero,
   .detail-cafe-olbracht .detail-hero,
   .detail-cotyploty .detail-hero,
   .detail-syndikat-legal .detail-hero,
@@ -198,10 +188,8 @@
   }
 
   .detail-copy h2,
-  .detail-bonghemia .detail-copy h2,
   .detail-dopamine-tour .detail-copy h2,
   .detail-dvorek .detail-copy h2,
-  .detail-houby-space .detail-copy h2,
   .detail-cafe-olbracht .detail-copy h2,
   .detail-cotyploty .detail-copy h2,
   .detail-syndikat-legal .detail-copy h2 {
@@ -238,10 +226,8 @@
 
 @media (max-width: 460px) {
   .detail-copy h2,
-  .detail-bonghemia .detail-copy h2,
   .detail-dopamine-tour .detail-copy h2,
   .detail-dvorek .detail-copy h2,
-  .detail-houby-space .detail-copy h2,
   .detail-cafe-olbracht .detail-copy h2,
   .detail-cotyploty .detail-copy h2,
   .detail-syndikat-legal .detail-copy h2 {
@@ -389,10 +375,8 @@
   }
 
   .detail-hero,
-  .detail-bonghemia .detail-hero,
   .detail-dopamine-tour .detail-hero,
   .detail-dvorek .detail-hero,
-  .detail-houby-space .detail-hero,
   .detail-cafe-olbracht .detail-hero,
   .detail-cotyploty .detail-hero,
   .detail-syndikat-legal .detail-hero {
@@ -408,10 +392,8 @@
   }
 
   .detail-copy,
-  .detail-bonghemia .detail-copy,
   .detail-dopamine-tour .detail-copy,
   .detail-dvorek .detail-copy,
-  .detail-houby-space .detail-copy,
   .detail-cafe-olbracht .detail-copy,
   .detail-cotyploty .detail-copy,
   .detail-syndikat-legal .detail-copy {
@@ -423,10 +405,8 @@
   }
 
   .detail-copy h2,
-  .detail-bonghemia .detail-copy h2,
   .detail-dopamine-tour .detail-copy h2,
   .detail-dvorek .detail-copy h2,
-  .detail-houby-space .detail-copy h2,
   .detail-cafe-olbracht .detail-copy h2,
   .detail-cotyploty .detail-copy h2 {
     width: 100% !important;
@@ -436,12 +416,6 @@
     line-height: 0.9 !important;
   }
 
-  .detail-bonghemia .detail-copy h2 {
-    white-space: nowrap !important;
-    font-size: clamp(4.45rem, 5.55vw, 7.15rem) !important;
-  }
-
-  .detail-houby-space .detail-copy h2,
   .detail-cotyploty .detail-copy h2,
   .detail-dvorek .detail-copy h2 {
     font-size: clamp(4rem, 5.1vw, 6.55rem) !important;
@@ -466,10 +440,8 @@
   }
 
   .detail-hero-media,
-  .detail-bonghemia .detail-hero-media,
   .detail-dopamine-tour .detail-hero-media,
   .detail-dvorek .detail-hero-media,
-  .detail-houby-space .detail-hero-media,
   .detail-cafe-olbracht .detail-hero-media,
   .detail-cotyploty .detail-hero-media,
   .detail-syndikat-legal .detail-hero-media {
@@ -484,11 +456,6 @@
     aspect-ratio: 1.34 !important;
   }
 
-  .detail-bonghemia .detail-hero-media {
-    max-width: 820px !important;
-    aspect-ratio: 1.08 !important;
-  }
-
   .detail-dopamine-tour .detail-hero-media {
     max-width: 580px !important;
     aspect-ratio: 1.34 !important;
@@ -500,11 +467,6 @@
   .detail-cotyploty .detail-hero-media {
     max-width: 760px !important;
     aspect-ratio: 1.58 !important;
-  }
-
-  .detail-houby-space .detail-hero-media {
-    max-width: 620px !important;
-    aspect-ratio: 0.78 !important;
   }
 
   .detail-hero-media img,
@@ -531,10 +493,8 @@
 
 @media (min-width: 761px) and (max-width: 1180px) {
   .detail-copy h2,
-  .detail-bonghemia .detail-copy h2,
   .detail-dopamine-tour .detail-copy h2,
   .detail-dvorek .detail-copy h2,
-  .detail-houby-space .detail-copy h2,
   .detail-cafe-olbracht .detail-copy h2,
   .detail-cotyploty .detail-copy h2,
   .detail-syndikat-legal .detail-copy h2 {
@@ -564,10 +524,8 @@
   }
 
   .detail-hero,
-  .detail-bonghemia .detail-hero,
   .detail-dopamine-tour .detail-hero,
   .detail-dvorek .detail-hero,
-  .detail-houby-space .detail-hero,
   .detail-cafe-olbracht .detail-hero,
   .detail-cotyploty .detail-hero,
   .detail-syndikat-legal .detail-hero {
@@ -597,10 +555,8 @@
   }
 
   .detail-copy h2,
-  .detail-bonghemia .detail-copy h2,
   .detail-dopamine-tour .detail-copy h2,
   .detail-dvorek .detail-copy h2,
-  .detail-houby-space .detail-copy h2,
   .detail-cafe-olbracht .detail-copy h2,
   .detail-cotyploty .detail-copy h2,
   .detail-syndikat-legal .detail-copy h2 {
@@ -610,8 +566,7 @@
     line-height: 0.93 !important;
   }
 
-  .detail-syndikat-legal .detail-copy h2,
-  .detail-houby-space .detail-copy h2 {
+  .detail-syndikat-legal .detail-copy h2 {
     font-size: clamp(2rem, 9.5vw, 3.1rem) !important;
   }
 
@@ -751,23 +706,14 @@
   transform: none !important;
 }
 
-.project-bonghemia .project-card-image,
-.project-bonghemia:hover .project-card-image,
 .project-cotyploty .project-card-image,
 .project-cotyploty:hover .project-card-image {
   opacity: 0 !important;
 }
 
-.project-bonghemia .project-logo,
-.project-bonghemia:hover .project-logo,
 .project-cotyploty .project-logo,
 .project-cotyploty:hover .project-logo {
   opacity: 0.88 !important;
-}
-
-.project-card:not(.project-bonghemia):not(.project-cotyploty) .project-logo,
-.project-card:not(.project-bonghemia):not(.project-cotyploty):hover .project-logo {
-  opacity: 0 !important;
 }
 
 .project-dopamine-tour .project-card-image {
@@ -841,30 +787,21 @@
   will-change: filter !important;
 }
 
-.project-bonghemia .project-card-image,
-.project-bonghemia:hover .project-card-image,
 .project-cotyploty .project-card-image,
 .project-cotyploty:hover .project-card-image {
   opacity: 0 !important;
 }
 
-.project-bonghemia .project-logo,
 .project-cotyploty .project-logo {
   opacity: 0.88 !important;
   filter: brightness(0) invert(1) !important;
   transition: filter 160ms ease !important;
 }
 
-.project-bonghemia:hover .project-logo,
 .project-cotyploty:hover .project-logo {
   opacity: 0.88 !important;
   transform: none !important;
   filter: brightness(0) invert(1) blur(2px) saturate(0.96) !important;
-}
-
-.project-card:not(.project-bonghemia):not(.project-cotyploty) .project-logo,
-.project-card:not(.project-bonghemia):not(.project-cotyploty):hover .project-logo {
-  opacity: 0 !important;
 }
 
 .project-syndikat-legal .project-card-image {

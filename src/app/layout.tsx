@@ -9,7 +9,7 @@ import { ScrollFX } from "@/components/ScrollFX";
 const SITE_URL = "https://vondrart.studio";
 const TITLE = "vondrart studio — Branding a vizuální identita | Brno";
 const DESCRIPTION =
-  "Brand & marketing studio z Brna. Navrhujeme vizuální identity, loga a brand strategie pro značky jako Bonghemia, Dopamine Tour nebo syndikat.legal — od strategie po každý detail komunikace.";
+  "Brand & marketing studio z Brna. Navrhujeme vizuální identity, loga a brand strategie pro značky jako Dopamine Tour, syndikat.legal nebo Café Olbracht — od strategie po každý detail komunikace.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -113,7 +113,7 @@ export default function RootLayout({
         <div className="intro-curtain" aria-hidden="true">
           <div className="intro-orb" />
           {/* Logotyp ve firemním písmu (vektor) — nahrazuje dřívější HTML text. */}
-          <img className="intro-brand" src="/images/landing.svg" alt="" />
+          <img className="intro-brand" src="/images/landing.svg" alt="" width={761} height={260} />
         </div>
         <ScrollFX />
         {children}
