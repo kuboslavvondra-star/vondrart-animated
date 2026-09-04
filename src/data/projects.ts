@@ -26,6 +26,69 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: "bonghemia",
+    overlayId: "bonghemia-vondrart-overlay",
+    name: "Bonghemia",
+    displayName: "Bonghemia",
+    year: "since 2018",
+    category: "Branding · Creative Direction",
+    description: "cannabis 420 life-style brand",
+    intro: [
+      "Bonghemia vznikla ze slov bong a Bohemia. Od začátku jsme ji stavěli jako značku, která propojuje komunitu, kvalitu, edukaci, přírodní původ produktů, udržitelnost a pohodový lifestyle přístup.",
+      "Nešlo jen o obchod. Šlo o vlastní jazyk, kulturu a směr, který se propisuje do identity, produktové grafiky, fotografií, merche i sociálních sítí."
+    ],
+    services: [
+      "Brand Strategy",
+      "Creative Direction",
+      "Copywriting",
+      "Product Graphics",
+      "Photography",
+      "Social Media"
+    ],
+    logo: "/images/bonghemia-logo.png",
+    logoWidth: 600,
+    logoHeight: 600,
+    hero: "/images/bonghemia-lifestyle-visual.webp",
+    cardImage: "/images/bonghemia-bongo.webp",
+    cardImageWidth: 1260,
+    cardImageHeight: 1888,
+    palette: ["#131410", "#4e755f", "#fbb040", "#f2efe5"],
+    gallery: [
+      {
+        src: "/images/bonghemia-kratom-packaging.webp",
+        alt: "Bonghemia kratom packaging",
+        caption: "Produktová grafika"
+      },
+      {
+        src: "/images/bonghemia-product-kit.webp",
+        alt: "Bonghemia product kit",
+        caption: "Product kit"
+      },
+      {
+        src: "/images/bonghemia-joint-us-merch.webp",
+        alt: "Bonghemia Joint Us merch",
+        caption: "JOINT US merch"
+      },
+      {
+        src: "/images/bonghemia-grow-lifestyle.webp",
+        alt: "Bonghemia grow lifestyle",
+        caption: "Lifestyle fotografie"
+      },
+      {
+        src: "/images/bonghemia-cbd-oil-packaging-v2.webp",
+        alt: "Bonghemia CBD oil packaging",
+        caption: "Packaging"
+      },
+      {
+        src: "/images/bonghemia-beztravi.webp",
+        alt: "Bonghemia Bojujeme proti beztráví",
+        caption: "Komunitní komunikace"
+      }
+    ],
+    result:
+      "Dlouhodobě vedený brand systém s vlastním jazykem, komunitním přesahem a jasnou vizuální energií."
+  },
+  {
     id: "dopamine-tour",
     overlayId: "dopamine-vondrart-overlay",
     name: "Dopamine Tour",
@@ -182,6 +245,62 @@ export const projects: Project[] = [
     ],
     result:
       "Hravá a výrazná identita pro lokální podnik bez sterilního minimalismu, s vlastním rukopisem."
+  },
+  {
+    id: "houby-space",
+    overlayId: "houby-vondrart-overlay",
+    name: "houby.space",
+    displayName: "houby.space",
+    year: "2025",
+    category: "Branding · Campaigns",
+    description: "psychedelic lifestyle brand",
+    intro: [
+      "houby.space nestaví na sterilním wellness vzhledu. Místo toho vytváří barevný svět mezi přírodou, snem a digitální halucinací.",
+      "Cílem bylo propojit produktovou důvěryhodnost s kulturním přesahem, aby značka fungovala jako produkt, merch label i komunita."
+    ],
+    services: ["Brand Identity", "Product Design", "Photography", "Collage", "Campaigns", "Social Media"],
+    logo: "/images/houby-space-logo-v2.svg",
+    logoWidth: 295,
+    logoHeight: 163,
+    hero: "/images/houby-space-lifestyle.webp",
+    cardImage: "/images/houby-space-lifestyle.webp",
+    cardImageWidth: 1200,
+    cardImageHeight: 1500,
+    palette: ["#4a6c5d", "#febc30", "#f4ecc4", "#f48dad"],
+    gallery: [
+      {
+        src: "/images/houby-space-cloud.webp",
+        alt: "houby.space cloud visual",
+        caption: "Cloud visual"
+      },
+      {
+        src: "/images/houby-space-hoodie.webp",
+        alt: "houby.space hoodie visual",
+        caption: "Merch visual"
+      },
+      {
+        src: "/images/houby-space-city.webp",
+        alt: "houby.space city visual",
+        caption: "City visual"
+      },
+      {
+        src: "/images/houby-space-packaging-v2.webp",
+        alt: "houby.space packaging redesign",
+        caption: "Packaging"
+      },
+      {
+        src: "/images/houby-space-shirt.webp",
+        alt: "houby.space t-shirt",
+        caption: "T-shirt"
+      },
+      {
+        src: "/images/houby-space-bottle.webp",
+        alt: "houby.space product bottle",
+        caption: "Product"
+      }
+    ],
+    result:
+      "Výrazný lifestyle svět propojující produkt, merch a komunikaci do jedné psychedelické značkové zkušenosti."
   },
   {
     id: "cafe-olbracht",

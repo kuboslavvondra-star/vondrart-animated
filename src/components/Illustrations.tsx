@@ -6,16 +6,28 @@ const illustrations = [
     height: 2048
   },
   {
-    caption: "Swap & Sip",
-    image: "/images/illustration-swap-sip.webp",
-    width: 1414,
-    height: 2000
+    caption: "Bonghemia — ilustrace",
+    image: "/images/illustration-bonghemia.webp",
+    width: 1423,
+    height: 2048
   },
   {
     caption: "Vltavská",
     image: "/images/illustration-vltavska.webp",
     width: 2048,
     height: 1423
+  },
+  {
+    caption: "Swap & Sip",
+    image: "/images/illustration-swap-sip.webp",
+    width: 1414,
+    height: 2000
+  },
+  {
+    caption: "Swap & Sip — Espresso.bar",
+    image: "/images/illustration-swap-sip-espresso.webp",
+    width: 1080,
+    height: 1350
   },
   {
     caption: "Barvy & Beaty",

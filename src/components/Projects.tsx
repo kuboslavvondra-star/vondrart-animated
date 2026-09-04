@@ -17,6 +17,15 @@ type Theme = {
 };
 
 const projectThemes: Record<string, Theme> = {
+  bonghemia: {
+    bg: "#0d120f",
+    fg: "#f4f1eb",
+    muted: "rgba(244, 241, 235, 0.66)",
+    accent: "#fbb040",
+    panel: "rgba(255, 255, 255, 0.06)",
+    tileBg: "#16271f",
+    tileFg: "#f4f1eb"
+  },
   "dopamine-tour": {
     bg: "#07102a",
     fg: "#fefaeb",
@@ -43,6 +52,15 @@ const projectThemes: Record<string, Theme> = {
     panel: "rgba(255, 244, 223, 0.12)",
     tileBg: "#d2360f",
     tileFg: "#fff4df"
+  },
+  "houby-space": {
+    bg: "#3f6b58",
+    fg: "#f4ecc4",
+    muted: "rgba(244, 236, 196, 0.76)",
+    accent: "#f48dad",
+    panel: "rgba(255, 255, 255, 0.1)",
+    tileBg: "#f4ecc4",
+    tileFg: "#2d4437"
   },
   "cafe-olbracht": {
     bg: "#fdf1d3",
@@ -108,7 +126,7 @@ export function Projects() {
       <div className="project-grid">
         {projects.map((project, index) => {
           const isFirstRow = index < 3;
-          const isLogoOnlyTile = project.id === "cotyploty";
+          const isLogoOnlyTile = project.id === "bonghemia" || project.id === "cotyploty";
 
           return (
             <a
@@ -168,9 +186,11 @@ export function Projects() {
 function ProjectOverlay({ project }: { project: Project }) {
   return (
     <div className="project-overlay project-overlay-original" id={project.id} data-overlay-id={project.overlayId}>
+      {project.id === "bonghemia" ? <BonghemiaDetail /> : null}
       {project.id === "dopamine-tour" ? <DopamineDetail /> : null}
       {project.id === "syndikat-legal" ? <SyndikatDetail /> : null}
       {project.id === "dvorek" ? <DvorekDetail /> : null}
+      {project.id === "houby-space" ? <HoubyDetail /> : null}
       {project.id === "cafe-olbracht" ? <OlbrachtDetail /> : null}
       {project.id === "cotyploty" ? <CotyplotyDetail /> : null}
     </div>
@@ -608,6 +628,142 @@ function DvorekDetail() {
     </div>
   );
 }
+
+function HoubyDetail() {
+  return (
+    <div id="houby-vondrart-overlay" className="is-open">
+      <CloseLink className="hb-close" />
+      <div aria-label="houby.space projekt" aria-modal="true" className="hb-sheet" role="dialog">
+        <section className="hb-hero">
+          <div>
+            <div className="hb-kicker">01 — Lifestyle Brand</div>
+            <h2 className="hb-title">
+              Houby
+              <br />
+              <span>.space</span>
+            </h2>
+            <p className="hb-claim">Lifestyle značka inspirovaná psychedelickou kulturou, vizuálními tripy a světem vitálních hub.</p>
+            <div className="hb-tags">
+              <span className="hb-tag">Brand Identity</span>
+              <span className="hb-tag">Product Design</span>
+              <span className="hb-tag">Photography</span>
+              <span className="hb-tag">Collage</span>
+              <span className="hb-tag">Campaigns</span>
+              <span className="hb-tag">Social Media</span>
+            </div>
+          </div>
+          <div>
+            <div className="hb-hero-card">
+              <img width={1200} height={1500} alt="houby.space lifestyle vizuál" src="/images/houby-space-lifestyle.webp" {...deferredImageProps} />
+            </div>
+            <div className="hb-meta">
+              <div>
+                <span>Studio</span>
+                <strong>vondrart</strong>
+              </div>
+              <div>
+                <span>Rok</span>
+                <strong>2025</strong>
+              </div>
+              <div>
+                <span>Kategorie</span>
+                <strong>Lifestyle brand</strong>
+              </div>
+            </div>
+          </div>
+        </section>
+        <hr className="hb-rule" />
+        <section>
+          <div className="hb-num">02</div>
+          <h3 className="hb-heading">Logo &amp; barevný systém</h3>
+          <div className="hb-logo-panel">
+            <img width={295} height={163} className="hb-logo-v2" alt="Houby.space logo" src="/images/houby-space-logo-v2.svg" {...deferredImageProps} />
+          </div>
+          <div className="hb-palette">
+            <div className="hb-swatch" style={{ background: "#FEBC30", color: "#4A6C5D" }}>
+              <small>yellow</small>
+              <b>#FEBC30</b>
+              <span>Energy</span>
+            </div>
+            <div className="hb-swatch" style={{ background: "#F4ECC4", color: "#4A6C5D" }}>
+              <small>cream</small>
+              <b>#F4ECC4</b>
+              <span>Base</span>
+            </div>
+            <div className="hb-swatch" style={{ background: "#4A6C5D", color: "#F4ECC4" }}>
+              <small>green</small>
+              <b>#4A6C5D</b>
+              <span>Earth</span>
+            </div>
+            <div className="hb-swatch" style={{ background: "#F48DAD", color: "#4A6C5D" }}>
+              <small>pink</small>
+              <b>#F48DAD</b>
+              <span>Dream</span>
+            </div>
+          </div>
+        </section>
+        <hr className="hb-rule" />
+        <section className="hb-grid">
+          <div>
+            <div className="hb-num">03</div>
+            <h3 className="hb-heading">O projektu</h3>
+          </div>
+          <div className="hb-copy">
+            <p>houby.space je lifestyle značka inspirovaná psychedelickou kulturou a zaměřená na vitální houby. Nestaví na sterilním wellness vzhledu ani na medicínské estetice — místo toho vytváří vlastní vizuální svět plný barev, nadsázky, snových krajin a lehce tripové atmosféry.</p>
+            <p>Naší rolí bylo dát značce podobu, která dokáže propojit produktovou důvěryhodnost s kulturním přesahem. Cílem nebylo udělat další čistý supplement brand, ale značku, která působí jako komunita, merch label a produktový svět zároveň.</p>
+            <div className="hb-role-list">
+              <span>brand concept</span>
+              <span>visual identity</span>
+              <span>packaging</span>
+              <span>merch design</span>
+              <span>photo direction</span>
+              <span>social visuals</span>
+            </div>
+          </div>
+        </section>
+        <hr className="hb-rule" />
+        <section className="hb-grid">
+          <div>
+            <div className="hb-num">04</div>
+            <h3 className="hb-heading">Vizuální svět</h3>
+          </div>
+          <div className="hb-copy">
+            <p>Značka pracuje s kolážemi, oblačnými efekty, měsíci, krajinami a přepálenou barevností. Výsledkem je vizuální svět, který se pohybuje mezi přírodou, snem a digitální halucinací.</p>
+          </div>
+        </section>
+        <div className="hb-photo-grid">
+          <img width={1200} height={1500} alt="houby.space cloud visual" src="/images/houby-space-cloud.webp" {...deferredImageProps} />
+          <img width={1200} height={1600} alt="houby.space hoodie visual" src="/images/houby-space-hoodie.webp" {...deferredImageProps} />
+          <img width={1200} height={1500} alt="houby.space city visual" src="/images/houby-space-city.webp" {...deferredImageProps} />
+          <img width={1200} height={1618} alt="houby.space palm visual" src="/images/houby-space-palm.webp" {...deferredImageProps} />
+        </div>
+        <hr className="hb-rule" />
+        <section>
+          <div className="hb-num">05</div>
+          <h3 className="hb-heading">Merch &amp; obaly</h3>
+          <div className="hb-pack-grid">
+            <img width={1200} height={1558} alt="houby.space packaging redesign" src="/images/houby-space-packaging-v2.webp" {...deferredImageProps} />
+            <img width={1024} height={1280} alt="houby.space t-shirt" src="/images/houby-space-shirt.webp" {...deferredImageProps} />
+            <img width={1012} height={1012} alt="houby.space product bottle" src="/images/houby-space-bottle.webp" {...deferredImageProps} />
+          </div>
+        </section>
+        <hr className="hb-rule" />
+        <section className="hb-closing">
+          <div>
+            <h3>
+              Not just a brand.
+              <br />
+              <span>A trip.</span>
+            </h3>
+            <p>Výsledkem je výrazný lifestyle svět, který propojuje produkt, merch a vizuální komunikaci do jedné psychedelické značkové zkušenosti.</p>
+          </div>
+          <img width={295} height={163} alt="houby.space logo" src="/images/houby-space-logo-v2.svg" {...deferredImageProps} />
+        </section>
+      </div>
+    </div>
+  );
+}
+
 function OlbrachtDetail() {
   return (
     <div id="olbracht-vondrart-overlay" className="is-open">
@@ -855,5 +1011,202 @@ function CotyplotyDetail() {
         </section>
       </div>
     </div>
+  );
+}
+
+function BonghemiaDetail() {
+  return (
+    <main aria-label="Bonghemia project overlay" className="bng-overlay is-open" id="bonghemia-vondrart-overlay">
+      <div className="bng-noise" />
+      <CloseLink className="bng-close" label="Zavřít" />
+      <div className="bng-wrap">
+        <div className="bng-top">
+          <span>vondrart studio</span>
+          <span>Bonghemia.cz / since 2018</span>
+        </div>
+        <section className="bng-hero">
+          <div>
+            <p className="bng-kicker">Branding · Creative Direction</p>
+            <div className="bng-hero-logo-wrap">
+              <img width={600} height={600} alt="Bonghemia logo" className="bng-hero-logo bng-hero-logo--pdf" src="/images/bonghemia-logo.png" {...deferredImageProps} />
+            </div>
+            <p className="bng-lead">Dali jsme život a duši značce, která měla spojovat konopnou komunitu, bourat stereotypy a ukázat, že komunikace kolem konopí může být chytrá, vtipná, otevřená, ale na úrovni.</p>
+            <div className="bng-tags">
+              <span>Brand Strategy</span>
+              <span>Creative Direction</span>
+              <span>Copywriting</span>
+              <span>Product Graphics</span>
+              <span>Photography</span>
+              <span>Social Media</span>
+            </div>
+          </div>
+          <aside className="bng-visual">
+            <div className="bng-image">
+              <img width={1638} height={2048} alt="Bonghemia lifestyle visual" src="/images/bonghemia-lifestyle-visual.webp" {...deferredImageProps} />
+            </div>
+          </aside>
+        </section>
+        <section className="bng-section">
+          <div className="bng-num">01</div>
+          <div>
+            <h2 className="bng-h2">Od nápadu ke značce</h2>
+            <p className="bng-text">
+              Bonghemia vznikla ze slov <strong>bong</strong> a <strong>Bohemia</strong>. Od začátku jsme ji stavěli jako značku, která propojuje komunitu, kvalitu, edukaci, přírodní původ produktů, udržitelnost a pohodový lifestyle přístup. Nešlo jen o obchod — šlo o vlastní jazyk, kulturu a směr.
+            </p>
+            <div className="bng-grid">
+              <div className="bng-card">
+                <h3>Role vondrart</h3>
+                <p>Jsme spoluzakladatelé značky a dlouhodobě určujeme její kreativní směr, komunikaci a vizuální výstupy.</p>
+              </div>
+              <div className="bng-card bng-logo-credit-card">
+                <h3>Logo credit</h3>
+                <p>Logo vytvořil Dan Krajčovič. Princip stojí na propojení českého lva a bongu — symbolu názvu i českého původu značky.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="bng-section">
+          <div className="bng-num">02</div>
+          <div>
+            <h2 className="bng-h2">Desatero jako brand strategy</h2>
+            <p className="bng-text">Vytvořili jsme desatero hodnot Bonghemia — jednoduchý, ale silný základ, podle kterého se značka rozhoduje, jak komunikuje a kam dlouhodobě směřuje.</p>
+            <div className="bng-values">
+              <div className="bng-value">Česká produkce</div>
+              <div className="bng-value">Přírodní původ</div>
+              <div className="bng-value">Kvalita</div>
+              <div className="bng-value">Komunita</div>
+              <div className="bng-value">Lifestyle</div>
+              <div className="bng-value">Otevřenost</div>
+              <div className="bng-value">Udržitelnost</div>
+              <div className="bng-value">Edukace</div>
+              <div className="bng-value">Srdíčko</div>
+              <div className="bng-value">Seberealizace</div>
+            </div>
+          </div>
+        </section>
+        <section className="bng-section">
+          <div className="bng-num">03</div>
+          <div>
+            <h2 className="bng-h2">Kreativní komunikace místo klasické reklamy</h2>
+            <p className="bng-text">Propagace konopných produktů je striktně omezená, proto Bonghemia nestojí jen na přímé reklamě. Stavíme ji na humoru, slovních hříčkách, edukaci, komunitě a projektech, které mají přesah. Tón je přátelský, trochu drzý, ale pořád informativní a fér.</p>
+            <div className="bng-slogans bng-slogans--with-photo">
+              <div className="bng-slogan">JOINT US!</div>
+              <div className="bng-slogan">Bojujeme proti beztráví</div>
+              <figure className="bng-shot bng-shot--slogan-photo">
+                <img width={973} height={1297} alt="JOINT US merch" src="/images/bonghemia-joint-us-merch.webp" {...deferredImageProps} />
+                <figcaption>JOINT US merch</figcaption>
+              </figure>
+              <div className="bng-slogan">Naše palivo nezdražuje</div>
+              <div className="bng-slogan">Pod lampou bejvá největší kytka</div>
+            </div>
+          </div>
+        </section>
+        <section className="bng-section">
+          <div className="bng-num">04</div>
+          <div>
+            <h2 className="bng-h2">Projekty s přesahem</h2>
+            <p className="bng-text">Komunikace značky se opírá o projekty, které rozšiřují Bonghemii za hranici produktů. Pomáhají budovat komunitu, podporovat kulturu a ukazovat hodnoty značky v praxi.</p>
+            <div className="bng-projects bng-projects--with-bongo">
+              <div className="bng-project bng-project--pomaha">
+                <small>Srdíčko</small>
+                <strong>Bonghemia Pomáhá</strong>
+                <span>Charitativní projekt navázaný na hodnotu srdíčko. Aktuálně Bonghemia adoptovala bongo horského v Safari Parku Dvůr Králové.</span>
+              </div>
+              <figure className="bng-bongo-figure">
+                <img width={1260} height={1888} alt="Bonghemia Pomáhá — bongo horský" src="/images/bonghemia-bongo.webp" {...deferredImageProps} />
+                <figcaption>Bongo horský · Safari Park Dvůr Králové</figcaption>
+              </figure>
+              <div className="bng-project bng-project--label">
+                <small>Seberealizace</small>
+                <strong>Bonghemia Label</strong>
+                <span>Hudební label podporující mladé umělce a komunitní kulturu kolem značky.</span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="bng-section">
+          <div className="bng-num">05</div>
+          <div>
+            <h2 className="bng-h2">Každodenní kreativní výstupy</h2>
+            <p className="bng-text">Vedle strategie a dlouhodobého směřování řešíme pro Bonghemii produktovou grafiku, copywriting, focení, art direction, sociální sítě a vizuální komunikaci. Značka tak zůstává konzistentní napříč produktem, obsahem i komunitními projekty.</p>
+            <div className="bng-grid">
+              <div className="bng-card">
+                <h3>Product Graphics</h3>
+                <p>Produktové vizuály, obaly, merch a grafické výstupy navázané na jazyk značky.</p>
+              </div>
+              <div className="bng-card">
+                <h3>Photography &amp; Social</h3>
+                <p>Lifestyle a produktové focení, art direction, obsah na sociální sítě a komunikace s komunitou.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="bng-photo-section">
+          <div className="bng-product-intro">
+            <div className="bng-num">06</div>
+            <div>
+              <h2>Od obalu po atmosféru značky.</h2>
+              <p>Produktová grafika Bonghemia pracuje s jasným systémem: výrazná typografie, přírodní feeling, produktová čitelnost a rozpoznatelný brand symbol. Velkou oporou je i skvělý brand manuál, který vytvořil Dan Krajčovič — díky němu má značka pevný vizuální základ, na který můžeme navazovat v produktové grafice, focení, merchi i komunitních výstupech. Bonghemia tak nepůsobí jako sterilní produkt, ale jako živá kultura.</p>
+            </div>
+          </div>
+          <div className="bng-system-grid">
+            <figure className="bng-shot bng-product-main">
+              <img width={1758} height={1173} alt="Kratom packaging" src="/images/bonghemia-kratom-packaging.webp" {...deferredImageProps} />
+              <figcaption>Kratom packaging</figcaption>
+            </figure>
+            <figure className="bng-shot bng-product-side">
+              <img width={1680} height={1260} alt="Product kit" src="/images/bonghemia-product-kit.webp" {...deferredImageProps} />
+              <figcaption>Product kit</figcaption>
+            </figure>
+            <figure className="bng-shot bng-product-small">
+              <img width={1590} height={1192} alt="Cartridge packaging" src="/images/bonghemia-cartridge-packaging.jpg" {...deferredImageProps} />
+              <figcaption>Cartridge packaging</figcaption>
+            </figure>
+            <figure className="bng-shot bng-product-small">
+              <img width={1600} height={1200} alt="Gummies packaging" src="/images/bonghemia-gummies-packaging-v2.webp" {...deferredImageProps} />
+              <figcaption>Gummies packaging</figcaption>
+            </figure>
+            <figure className="bng-shot bng-product-small">
+              <img width={1600} height={1200} alt="CBD oil packaging" src="/images/bonghemia-cbd-oil-packaging-v2.webp" {...deferredImageProps} />
+              <figcaption>CBD oil packaging</figcaption>
+            </figure>
+            <div className="bng-lifestyle-title">
+              <div />
+              <div>
+                <h3>Lifestyle, merch &amp; komunita.</h3>
+                <p>Focení stavíme na atmosféře, lidech a prostředí. Produkt je součástí života značky — ne samostatný objekt bez kontextu.</p>
+              </div>
+            </div>
+            <figure className="bng-shot bng-life-wide">
+              <img width={1888} height={1260} alt="Grow lifestyle" src="/images/bonghemia-grow-lifestyle.webp" {...deferredImageProps} />
+              <figcaption>Grow lifestyle</figcaption>
+            </figure>
+            <figure className="bng-shot bng-life-tall">
+              <img width={1801} height={1202} alt="Lifestyle photography" src="/images/bonghemia-lifestyle-photography.jpg" {...deferredImageProps} />
+              <figcaption>Lifestyle photography</figcaption>
+            </figure>
+            <figure className="bng-shot bng-life-half">
+              <img width={1811} height={1208} alt="Bojujeme proti beztráví" src="/images/bonghemia-beztravi.webp" {...deferredImageProps} />
+              <figcaption>Bojujeme proti beztráví</figcaption>
+            </figure>
+            <figure className="bng-shot bng-life-third">
+              <img width={973} height={1297} alt="JOINT US merch" src="/images/bonghemia-joint-us-merch.webp" {...deferredImageProps} />
+              <figcaption>JOINT US merch</figcaption>
+            </figure>
+          </div>
+        </section>
+        <footer className="bng-footer">
+          <div>
+            <b>
+              JOINT
+              <br />
+              US!
+            </b>
+            <img width={2048} height={516} alt="Bonghemia vertical logo" className="bng-footer-logo" src="/images/bonghemia-vertical-logo.png" {...deferredImageProps} />
+          </div>
+          <p>Bonghemia je dlouhodobě vedený brand systém — od hodnot a tónu komunikace až po každodenní kreativní exekuci.</p>
+        </footer>
+      </div>
+    </main>
   );
 }

@@ -365,6 +365,232 @@ a[data-vondrart-project="dvorek"] .tile-hover{display:none!important}
   #dvorek-vondrart-overlay .dv-icons{grid-template-columns:repeat(2,1fr)}
 }
 
+/* houby-overlay-css */
+#houby-vondrart-overlay{
+  position:fixed;inset:0;z-index:2147482997;background:rgba(17,17,16,.52);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  opacity:0;pointer-events:none;transition:opacity .32s ease;cursor:auto!important;
+}
+#houby-vondrart-overlay.is-open{opacity:1;pointer-events:auto}
+#houby-vondrart-overlay,#houby-vondrart-overlay *{cursor:auto!important}
+#houby-vondrart-overlay button,#houby-vondrart-overlay a,#houby-vondrart-overlay .hb-close{cursor:pointer!important}
+body.hb-project-open{overflow:hidden;cursor:auto!important}
+body.hb-project-open .cursor,body.hb-project-open .custom-cursor,body.hb-project-open [class*="cursor"]{
+  opacity:0!important;visibility:hidden!important;pointer-events:none!important;
+}
+#houby-vondrart-overlay .hb-sheet{
+  position:absolute;inset:clamp(8px,2vw,24px);overflow:auto;border-radius:clamp(20px,3vw,34px);
+  background:#f6f0e4;color:#4A6C5D;padding:clamp(30px,5vw,70px);
+  transform:translateY(20px) scale(.986);transition:transform .32s ease;
+  box-shadow:0 28px 100px rgba(0,0,0,.30);font-family:"DM Sans",sans-serif;
+}
+#houby-vondrart-overlay.is-open .hb-sheet{transform:translateY(0) scale(1)}
+#houby-vondrart-overlay .hb-close{
+  position:fixed;top:clamp(20px,4vw,44px);right:clamp(20px,4vw,50px);z-index:5;
+  width:54px;height:54px;border-radius:999px;border:1px solid rgba(74,108,93,.20);
+  background:rgba(244,236,196,.82);color:#4A6C5D;font-size:34px;line-height:1;
+  display:flex;align-items:center;justify-content:center;
+}
+#houby-vondrart-overlay .hb-hero{
+  display:grid;grid-template-columns:1fr .82fr;gap:clamp(30px,6vw,86px);align-items:end;
+  padding-top:clamp(20px,4vw,52px);
+}
+#houby-vondrart-overlay .hb-kicker{
+  color:#F48DAD;font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;margin-bottom:24px;
+}
+#houby-vondrart-overlay .hb-title{
+  font-family:"Montserrat","DM Sans",system-ui,sans-serif;font-size:clamp(58px,8.8vw,134px);line-height:.88;
+  letter-spacing:-.07em;text-transform:uppercase;font-weight:900;margin:0;
+}
+#houby-vondrart-overlay .hb-title span{color:#FEBC30}
+#houby-vondrart-overlay .hb-claim{
+  margin-top:28px;max-width:570px;color:rgba(74,108,93,.78);
+  font-size:clamp(18px,2vw,25px);line-height:1.35;font-weight:400;
+}
+#houby-vondrart-overlay .hb-tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px}
+#houby-vondrart-overlay .hb-tag{
+  border:1px solid rgba(74,108,93,.22);border-radius:999px;padding:9px 14px;
+  font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+}
+#houby-vondrart-overlay .hb-hero-card{
+  background:transparent;border-radius:18px;min-height:auto;overflow:hidden;padding:0;
+  max-width:620px;margin-left:auto;
+}
+#houby-vondrart-overlay .hb-hero-card img{
+  width:100%;height:auto;max-height:520px;object-fit:cover;border-radius:18px;display:block;
+}
+#houby-vondrart-overlay .hb-meta{
+  margin-top:20px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+}
+#houby-vondrart-overlay .hb-meta span{
+  display:block;color:rgba(74,108,93,.52);font-size:10px;font-weight:800;letter-spacing:.16em;
+  text-transform:uppercase;margin-bottom:8px;
+}
+#houby-vondrart-overlay .hb-meta strong{font-size:15px;line-height:1.25;color:#4A6C5D}
+#houby-vondrart-overlay .hb-rule{border:0;border-top:1px solid rgba(74,108,93,.18);margin:clamp(48px,7vw,78px) 0}
+#houby-vondrart-overlay .hb-grid{display:grid;grid-template-columns:.35fr .65fr;gap:clamp(30px,7vw,86px);align-items:start}
+#houby-vondrart-overlay .hb-num{color:rgba(74,108,93,.45);font-size:13px;font-weight:800;letter-spacing:.12em;margin-bottom:22px}
+#houby-vondrart-overlay .hb-heading{
+  font-family:"Montserrat","DM Sans",system-ui,sans-serif;font-size:clamp(34px,5vw,62px);line-height:.96;
+  letter-spacing:-.055em;text-transform:uppercase;font-weight:900;margin:0;
+}
+#houby-vondrart-overlay .hb-copy{color:rgba(74,108,93,.78);font-size:clamp(16px,1.4vw,20px);line-height:1.58;font-weight:400}
+#houby-vondrart-overlay .hb-copy p+p{margin-top:16px}
+#houby-vondrart-overlay .hb-role-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+#houby-vondrart-overlay .hb-role-list span{
+  border:1px solid rgba(74,108,93,.22);border-radius:999px;padding:8px 13px;
+  font-size:10px;letter-spacing:.11em;text-transform:uppercase;font-weight:800;
+}
+#houby-vondrart-overlay .hb-logo-panel{
+  background:#4A6C5D;border-radius:18px;padding:clamp(30px,6vw,72px);display:flex;align-items:center;justify-content:center;
+}
+#houby-vondrart-overlay .hb-logo-panel img{width:min(72%,520px);height:auto;display:block}
+#houby-vondrart-overlay .hb-palette{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px;
+}
+#houby-vondrart-overlay .hb-swatch{
+  min-height:170px;border-radius:16px;padding:16px;display:flex;flex-direction:column;justify-content:flex-end;
+}
+#houby-vondrart-overlay .hb-swatch small{
+  font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;opacity:.72;margin-bottom:10px;
+}
+#houby-vondrart-overlay .hb-swatch b{font-size:17px}
+#houby-vondrart-overlay .hb-swatch span{font:400 11px/1.4 monospace;opacity:.66;margin-top:7px}
+#houby-vondrart-overlay .hb-product-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px;align-items:stretch;
+}
+#houby-vondrart-overlay .hb-product-grid img{
+  width:100%;height:100%;min-height:420px;object-fit:contain;border-radius:18px;background:#F7F0CF;display:block;
+}
+#houby-vondrart-overlay .hb-photo-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px;
+}
+#houby-vondrart-overlay .hb-photo-grid img{
+  width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:16px;display:block;background:#4A6C5D;
+}
+#houby-vondrart-overlay .hb-pack-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px;
+}
+#houby-vondrart-overlay .hb-pack-grid img{
+  width:100%;aspect-ratio:4/5;object-fit:contain;border-radius:16px;background:#F7F0CF;display:block;
+}
+#houby-vondrart-overlay .hb-closing{
+  background:#4A6C5D;color:#F4ECC4;border-radius:20px;padding:clamp(32px,6vw,72px);
+  display:grid;grid-template-columns:1fr .46fr;gap:32px;align-items:end;
+}
+#houby-vondrart-overlay .hb-closing h3{
+  font-family:"Montserrat","DM Sans",system-ui,sans-serif;font-size:clamp(44px,6.5vw,94px);line-height:.92;
+  letter-spacing:-.06em;font-weight:900;margin:0;text-transform:uppercase;
+}
+#houby-vondrart-overlay .hb-closing h3 span{color:#F48DAD}
+#houby-vondrart-overlay .hb-closing p{
+  color:rgba(244,236,196,.82);font-size:clamp(16px,1.45vw,20px);line-height:1.55;margin-top:24px;
+}
+#houby-vondrart-overlay .hb-closing img{width:100%;border-radius:16px;justify-self:end}
+a[data-vondrart-project="houby-space"] .tile-hover{display:none!important}
+@media(max-width:920px){
+  #houby-vondrart-overlay .hb-sheet{inset:0;border-radius:0;padding:82px 22px 42px}
+  #houby-vondrart-overlay .hb-close{top:18px;right:18px}
+  #houby-vondrart-overlay .hb-hero,#houby-vondrart-overlay .hb-grid,#houby-vondrart-overlay .hb-closing,#houby-vondrart-overlay .hb-product-grid{grid-template-columns:1fr}
+  #houby-vondrart-overlay .hb-meta{grid-template-columns:1fr}
+  #houby-vondrart-overlay .hb-palette,#houby-vondrart-overlay .hb-photo-grid,#houby-vondrart-overlay .hb-pack-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+#houby-vondrart-overlay .hb-sheet{background:#f6f0e4!important;}
+#houby-vondrart-overlay .hb-hero{grid-template-columns:1fr .82fr!important;}
+#houby-vondrart-overlay .hb-hero-card{
+  background:transparent!important;
+  min-height:auto!important;
+  max-width:620px!important;
+  margin-left:auto!important;
+}
+#houby-vondrart-overlay .hb-hero-card img{
+  height:auto!important;
+  min-height:0!important;
+  max-height:520px!important;
+  object-fit:cover!important;
+}
+
+/* houby-fonts-css — @font-face pro CASaygon odstraněn.
+   Byl vložený jako base64 data URI (109 kB), ale CSP `font-src 'self'`
+   data URI nepovoluje, takže ho prohlížeč stejně blokoval.
+   Identická deklarace (CASaygon, weight 300) se načítá ze souboru
+   /fonts/CASaygon-300.otf v globals.css — vzorník níže funguje dál. */
+#houby-vondrart-overlay .hb-brand-logo-text {
+  font-family: "cooper-black-std", "Cooper Black", Georgia, serif;
+  font-weight: 400;
+  line-height: .82;
+  letter-spacing: -.045em;
+  text-align: center;
+  text-shadow: 0 2px 0 #4A6C5D;
+}
+#houby-vondrart-overlay .hb-brand-logo-text .top {
+  display:block;
+  color:#FEBC30;
+  font-size:clamp(64px,10vw,150px);
+}
+#houby-vondrart-overlay .hb-brand-logo-text .bottom {
+  display:block;
+  color:#F48DAD;
+  font-size:clamp(64px,10vw,150px);
+}
+#houby-vondrart-overlay .hb-logo-panel {
+  background:#4A6C5D!important;
+  min-height:360px;
+}
+#houby-vondrart-overlay .hb-type-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  margin-top:24px;
+}
+#houby-vondrart-overlay .hb-type-card {
+  border-radius:18px;
+  padding:clamp(24px,4vw,48px);
+  background:#F7F0CF;
+  color:#4A6C5D;
+  border:1px solid rgba(74,108,93,.12);
+}
+#houby-vondrart-overlay .hb-type-card.dark {
+  background:#4A6C5D;
+  color:#F4ECC4;
+}
+#houby-vondrart-overlay .hb-type-name {
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  opacity:.7;
+  margin-bottom:24px;
+}
+#houby-vondrart-overlay .hb-type-sample-cooper {
+  font-family:"cooper-black-std","Cooper Black",Georgia,serif;
+  font-size:clamp(42px,5vw,78px);
+  line-height:.95;
+  color:#F48DAD;
+}
+#houby-vondrart-overlay .hb-type-sample-casaygon {
+  font-family:"CASaygon","Montserrat",system-ui,sans-serif;
+  font-size:clamp(42px,5vw,78px);
+  line-height:.95;
+  color:#FEBC30;
+}
+#houby-vondrart-overlay .hb-charset {
+  margin-top:24px;
+  font-size:clamp(18px,2vw,30px);
+  line-height:1.55;
+  word-spacing:.35em;
+}
+#houby-vondrart-overlay .hb-charset.cooper {
+  font-family:"cooper-black-std","Cooper Black",Georgia,serif;
+}
+#houby-vondrart-overlay .hb-charset.casaygon {
+  font-family:"CASaygon","Montserrat",system-ui,sans-serif;
+}
+@media(max-width:920px){
+  #houby-vondrart-overlay .hb-type-grid{grid-template-columns:1fr}
+}
+
 /* dvorek-logo-fix */
 #dvorek-vondrart-overlay .dv-logo-panel{
   min-height:360px!important;
@@ -393,6 +619,7 @@ a[data-vondrart-project="dvorek"] .tile-hover{display:none!important}
 #dopamine-vondrart-overlay,
 #syndikat-vondrart-overlay,
 #dvorek-vondrart-overlay,
+#houby-vondrart-overlay,
 #olbracht-vondrart-overlay,
 #cotyploty-vondrart-overlay {
   z-index: 2147483000 !important;
@@ -400,6 +627,7 @@ a[data-vondrart-project="dvorek"] .tile-hover{display:none!important}
 #dopamine-vondrart-overlay.is-open,
 #syndikat-vondrart-overlay.is-open,
 #dvorek-vondrart-overlay.is-open,
+#houby-vondrart-overlay.is-open,
 #olbracht-vondrart-overlay.is-open,
 #cotyploty-vondrart-overlay.is-open {
   opacity: 1 !important;
@@ -830,14 +1058,1281 @@ body.vondrart-project-open [class*="cursor"] {
   }
 }
 
-/* Globální základ, který se sem historicky dostal spolu s overlayi */
+/* bonghemia-integrated-overlay-css */
+:root{
+  --bng-black:#111110;
+  --bng-cream:#f4f0e7;
+  --bng-green:#4e755f;
+  --bng-yellow:#fbb040;
+  --bng-line:rgba(244,240,231,.16);
+  --bng-muted:rgba(244,240,231,.68);
+}
 *{box-sizing:border-box}
+.bng-overlay{
+  position:relative;
+  min-height:100vh;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 78% 10%, rgba(251,176,64,.30), transparent 36%),
+    radial-gradient(circle at 8% 28%, rgba(78,117,95,.52), transparent 36%),
+    linear-gradient(135deg,#111110 0%,#171813 48%,#0f120e 100%);
+}
+.bng-noise{
+  position:fixed;inset:0;pointer-events:none;opacity:.12;mix-blend-mode:screen;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");
+}
+.bng-close{
+  position:fixed;right:28px;top:24px;z-index:20;
+  width:48px;height:48px;border-radius:50%;
+  border:1px solid var(--bng-line);background:rgba(17,17,16,.55);
+  color:var(--bng-cream);font-size:28px;line-height:1;cursor:pointer;
+  backdrop-filter:blur(18px);
+}
+.bng-wrap{position:relative;z-index:2;width:min(1440px,100%);margin:0 auto;padding:32px clamp(22px,4vw,64px) 80px}
+.bng-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:56px;color:var(--bng-muted);font-size:12px;text-transform:uppercase;letter-spacing:.16em}
+.bng-hero{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(360px,.92fr);gap:clamp(28px,5vw,78px);align-items:end;min-height:72vh}
+.bng-kicker{font-size:12px;text-transform:uppercase;letter-spacing:.18em;color:var(--bng-yellow);margin:0 0 22px}
+.bng-title{font-family:Georgia, "Times New Roman", serif;font-weight:400;font-size:clamp(72px,10.8vw,178px);letter-spacing:-.075em;line-height:.82;margin:0 0 32px}
+.bng-title em{font-style:italic;color:transparent;-webkit-text-stroke:1.15px var(--bng-cream)}
+.bng-lead{font-size:clamp(18px,1.55vw,25px);line-height:1.42;max-width:760px;margin:0;color:rgba(244,240,231,.90)}
+.bng-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:34px}
+.bng-tags span{border:1px solid var(--bng-line);border-radius:999px;padding:8px 12px;font-size:11px;text-transform:uppercase;letter-spacing:.11em;color:var(--bng-muted)}
+.bng-visual{border:1px solid var(--bng-line);border-radius:32px;overflow:hidden;background:#171813;min-height:560px;display:grid;grid-template-rows:1fr auto;box-shadow:0 30px 90px rgba(0,0,0,.36)}
+.bng-image{position:relative;min-height:420px;background:#111}
+.bng-image img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;filter:saturate(.94) contrast(1.04)}
+.bng-image:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(17,17,16,.55),transparent 54%)}
+.bng-logo-card{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px;background:rgba(244,240,231,.95);color:#111110}
+.bng-logo-card img{max-width:220px;max-height:74px;object-fit:contain}
+.bng-logo-card p{margin:0;font-size:13px;line-height:1.45;max-width:250px;color:rgba(17,17,16,.72)}
+.bng-section{border-top:1px solid var(--bng-line);padding:clamp(44px,6vw,86px) 0;display:grid;grid-template-columns:180px 1fr;gap:clamp(24px,5vw,80px)}
+.bng-num{font-family:Georgia,serif;font-size:42px;color:var(--bng-yellow);line-height:1}
+.bng-h2{font-family:Georgia,serif;font-size:clamp(34px,5vw,84px);font-weight:400;letter-spacing:-.05em;line-height:.94;margin:0 0 26px}
+.bng-text{font-size:clamp(16px,1.25vw,20px);line-height:1.7;color:rgba(244,240,231,.80);max-width:920px;margin:0}
+.bng-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:30px}
+.bng-card{border:1px solid var(--bng-line);border-radius:22px;padding:24px;background:rgba(244,240,231,.055)}
+.bng-card h3{margin:0 0 10px;font-size:13px;text-transform:uppercase;letter-spacing:.13em;color:var(--bng-yellow)}
+.bng-card p{margin:0;color:var(--bng-muted);line-height:1.62;font-size:15px}
+.bng-values{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-top:32px}
+.bng-value{border:1px solid var(--bng-line);border-radius:999px;padding:12px 14px;text-align:center;font-size:12px;text-transform:uppercase;letter-spacing:.10em;color:rgba(244,240,231,.80);background:rgba(244,240,231,.045)}
+.bng-slogans{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:30px}
+.bng-slogan{min-height:130px;border-radius:24px;border:1px solid rgba(251,176,64,.28);background:linear-gradient(135deg,rgba(251,176,64,.16),rgba(78,117,95,.12));display:flex;align-items:center;padding:28px;font-family:Georgia,serif;font-size:clamp(28px,3.2vw,54px);letter-spacing:-.045em;line-height:.96}
+.bng-projects{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:30px}
+.bng-project{border-radius:24px;padding:24px;min-height:210px;background:var(--bng-cream);color:#111110;display:flex;flex-direction:column;justify-content:space-between}
+.bng-project small{text-transform:uppercase;letter-spacing:.12em;color:rgba(17,17,16,.54)}
+.bng-project strong{font-family:Georgia,serif;font-weight:400;font-size:clamp(28px,3vw,48px);letter-spacing:-.05em;line-height:.95}
+.bng-footer{padding:70px 0 20px;display:flex;justify-content:space-between;gap:30px;align-items:end;color:var(--bng-muted)}
+.bng-footer b{display:block;font-family:Georgia,serif;font-weight:400;color:var(--bng-cream);font-size:clamp(40px,6vw,110px);letter-spacing:-.06em;line-height:.86}
+@media(max-width:980px){
+  .bng-hero,.bng-section{grid-template-columns:1fr}
+  .bng-visual{min-height:0}
+  .bng-grid,.bng-slogans,.bng-projects{grid-template-columns:1fr}
+  .bng-values{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .bng-title{font-size:clamp(64px,18vw,110px)}
+}
+
+
 
 :root{
-  --font-grotesk:"Neue Haas Grotesk Text Pro","Neue Haas Grotesk Display Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --bng-font-grotesk:"Neue Haas Grotesk Text Pro","Neue Haas Grotesk Display Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
-body{
-  font-family:var(--font-grotesk)!important;
+body,
+.bng-overlay,
+.bng-kicker,
+.bng-lead,
+.bng-tags span,
+.bng-text,
+.bng-card,
+.bng-value,
+.bng-project,
+.bng-top,
+.bng-logo-card,
+.bng-footer{
+  font-family:var(--bng-font-grotesk)!important;
+}
+.bng-title,
+.bng-h2,
+.bng-slogan,
+.bng-project strong,
+.bng-footer b,
+.bng-num{
+  font-family:var(--bng-font-grotesk)!important;
+  font-weight:500!important;
+  letter-spacing:-.075em;
+}
+.bng-title em{
+  font-family:var(--bng-font-grotesk)!important;
+  font-style:normal!important;
+  font-weight:500!important;
+}
+
+
+
+/* HTML photo layout — product design + lifestyle photography */
+.bng-photo-section{
+  border-top:1px solid var(--bng-line);
+  padding:clamp(48px,7vw,100px) 0;
+}
+.bng-photo-head{
+  display:grid;
+  grid-template-columns:180px 1fr;
+  gap:clamp(24px,5vw,80px);
+  margin-bottom:34px;
+}
+.bng-photo-head h2{
+  margin:0;
+  font-family:var(--bng-font-grotesk, "Helvetica Neue", Helvetica, Arial, sans-serif);
+  font-size:clamp(42px,6vw,108px);
+  line-height:.88;
+  letter-spacing:-.075em;
+  font-weight:500;
+}
+.bng-photo-head p{
+  margin:0;
+  max-width:780px;
+  color:rgba(244,240,231,.78);
+  font-size:clamp(16px,1.25vw,20px);
+  line-height:1.65;
+}
+.bng-masonry{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  gap:14px;
+}
+.bng-shot{
+  position:relative;
+  overflow:hidden;
+  border-radius:24px;
+  border:1px solid var(--bng-line);
+  background:#1a1b16;
+  min-height:240px;
+}
+.bng-shot img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  filter:saturate(.94) contrast(1.03);
+}
+.bng-shot:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,rgba(17,17,16,.42),transparent 52%);
+  pointer-events:none;
+}
+.bng-shot figcaption{
+  position:absolute;
+  left:18px;
+  bottom:16px;
+  z-index:2;
+  color:#f4f0e7;
+  font-size:11px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  opacity:.86;
+}
+.bng-shot--wide{grid-column:span 7;min-height:420px}
+.bng-shot--tall{grid-column:span 5;grid-row:span 2;min-height:640px}
+.bng-shot--half{grid-column:span 6;min-height:360px}
+.bng-shot--third{grid-column:span 4;min-height:300px}
+.bng-shot--small{grid-column:span 3;min-height:280px}
+.bng-photo-callout{
+  grid-column:span 5;
+  min-height:360px;
+  border-radius:24px;
+  border:1px solid rgba(251,176,64,.28);
+  background:
+    radial-gradient(circle at 80% 20%, rgba(251,176,64,.22), transparent 38%),
+    linear-gradient(135deg, rgba(78,117,95,.32), rgba(244,240,231,.06));
+  padding:clamp(24px,3vw,44px);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.bng-photo-callout small{
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  color:var(--bng-yellow);
+  font-size:11px;
+}
+.bng-photo-callout strong{
+  display:block;
+  font-size:clamp(34px,4vw,68px);
+  line-height:.92;
+  letter-spacing:-.07em;
+  font-weight:500;
+  color:var(--bng-cream);
+  max-width:520px;
+}
+.bng-photo-callout p{
+  margin:20px 0 0;
+  color:rgba(244,240,231,.74);
+  line-height:1.6;
+  max-width:520px;
+}
+.bng-product-strip{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:14px;
+  margin-top:14px;
+}
+.bng-product-strip .bng-shot{min-height:420px}
+@media(max-width:980px){
+  .bng-photo-head{grid-template-columns:1fr}
+  .bng-masonry,.bng-product-strip{grid-template-columns:1fr}
+  .bng-shot,
+  .bng-shot--wide,
+  .bng-shot--tall,
+  .bng-shot--half,
+  .bng-shot--third,
+  .bng-shot--small,
+  .bng-photo-callout{
+    grid-column:1!important;
+    min-height:320px;
+  }
+  .bng-shot--tall{min-height:520px}
+}
+
+
+
+/* V3: real logo in hero, scattered photos, no iframe */
+.bng-hero-logo-wrap{
+  width:min(650px, 88vw);
+  margin:0 0 34px;
+}
+.bng-hero-logo{
+  display:block;
+  width:100%;
+  height:auto;
+  object-fit:contain;
+  filter:brightness(0) invert(1);
+  opacity:.96;
+}
+.bng-title{display:none!important;}
+.bng-visual{
+  grid-template-rows:1fr!important;
+  min-height:520px!important;
+}
+.bng-image{
+  min-height:520px!important;
+}
+.bng-logo-card{display:none!important;}
+.bng-logo-credit-card{
+  background:rgba(244,240,231,.09)!important;
+  border-color:rgba(251,176,64,.28)!important;
+}
+
+.bng-photo-section{
+  border-top:1px solid var(--bng-line);
+  padding:clamp(48px,7vw,100px) 0;
+}
+.bng-photo-head{
+  display:grid;
+  grid-template-columns:180px 1fr;
+  gap:clamp(24px,5vw,80px);
+  margin-bottom:34px;
+}
+.bng-photo-head h2{
+  margin:0;
+  font-family:var(--bng-font-grotesk, "Helvetica Neue", Helvetica, Arial, sans-serif);
+  font-size:clamp(42px,6vw,108px);
+  line-height:.88;
+  letter-spacing:-.075em;
+  font-weight:500;
+}
+.bng-photo-head p{
+  margin:0;
+  max-width:790px;
+  color:rgba(244,240,231,.78);
+  font-size:clamp(16px,1.25vw,20px);
+  line-height:1.65;
+}
+.bng-editorial-grid{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  gap:14px;
+  align-items:stretch;
+}
+.bng-shot{
+  position:relative;
+  margin:0;
+  overflow:hidden;
+  border-radius:24px;
+  border:1px solid var(--bng-line);
+  background:#1a1b16;
+  min-height:260px;
+}
+.bng-shot img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  filter:saturate(.94) contrast(1.03);
+}
+.bng-shot:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,rgba(17,17,16,.42),transparent 54%);
+  pointer-events:none;
+}
+.bng-shot figcaption{
+  position:absolute;
+  left:18px;
+  bottom:16px;
+  z-index:2;
+  color:#f4f0e7;
+  font-size:11px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  opacity:.86;
+}
+.bng-shot--product-hero{grid-column:1 / span 5; min-height:620px;}
+.bng-shot--package{grid-column:7 / span 6; min-height:360px;}
+.bng-shot--small{grid-column:span 4; min-height:310px;}
+.bng-shot--wide{grid-column:span 7; min-height:420px;}
+.bng-shot--portrait{grid-column:span 5; min-height:560px;}
+.bng-shot--slogan-photo{grid-column:span 1; min-height:220px; border-radius:22px;}
+.bng-shot--bongo{width:100%; min-height:210px; margin-top:18px; border-radius:18px;}
+.bng-photo-copy{
+  grid-column:6 / span 7;
+  min-height:245px;
+  border-radius:24px;
+  border:1px solid rgba(251,176,64,.28);
+  background:
+    radial-gradient(circle at 80% 20%, rgba(251,176,64,.22), transparent 38%),
+    linear-gradient(135deg, rgba(78,117,95,.32), rgba(244,240,231,.06));
+  padding:clamp(24px,3vw,42px);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.bng-photo-copy--green{
+  grid-column:6 / span 7;
+}
+.bng-photo-copy small{
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  color:var(--bng-yellow);
+  font-size:11px;
+}
+.bng-photo-copy strong{
+  display:block;
+  font-size:clamp(32px,4vw,66px);
+  line-height:.92;
+  letter-spacing:-.07em;
+  font-weight:500;
+  color:var(--bng-cream);
+  max-width:640px;
+}
+.bng-photo-copy p{
+  margin:20px 0 0;
+  color:rgba(244,240,231,.74);
+  line-height:1.6;
+  max-width:620px;
+}
+
+/* Slogany: Joint Us fotka přímo u sloganů */
+.bng-slogans--with-photo{
+  display:grid!important;
+  grid-template-columns:1.1fr 1.1fr .85fr;
+  gap:14px;
+  align-items:stretch;
+}
+.bng-slogans--with-photo .bng-slogan{
+  min-height:180px;
+}
+.bng-slogans--with-photo .bng-shot--slogan-photo{
+  grid-row:span 2;
+  min-height:374px;
+}
+
+/* Bongo photo inside Bonghemia Pomáhá */
+.bng-project--with-image{
+  overflow:hidden;
+}
+.bng-project--with-image .bng-project-img{
+  margin-top:18px;
+  border-radius:18px;
+  overflow:hidden;
+  min-height:220px;
+}
+.bng-project--with-image .bng-project-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+@media(max-width:980px){
+  .bng-photo-head{grid-template-columns:1fr}
+  .bng-editorial-grid,
+  .bng-slogans--with-photo{
+    grid-template-columns:1fr!important;
+  }
+  .bng-shot,
+  .bng-shot--product-hero,
+  .bng-shot--package,
+  .bng-shot--small,
+  .bng-shot--wide,
+  .bng-shot--portrait,
+  .bng-photo-copy,
+  .bng-photo-copy--green,
+  .bng-shot--slogan-photo{
+    grid-column:1!important;
+    grid-row:auto!important;
+    min-height:320px;
+  }
+  .bng-shot--portrait{min-height:520px}
+  .bng-hero-logo-wrap{width:100%;max-width:520px}
+}
+
+
+
+.bng-footer-logo{
+  display:block;
+  width:min(360px,42vw);
+  height:auto;
+  margin-top:28px;
+  filter:brightness(0) invert(1);
+  opacity:.16;
+}
+
+
+
+.bng-hero-logo-wrap{
+  width:min(620px, 82vw)!important;
+  margin-bottom:38px!important;
+}
+.bng-hero-logo--pdf{
+  width:100%!important;
+  height:auto!important;
+  object-fit:contain!important;
+  filter:brightness(0) invert(1)!important;
+  opacity:.96!important;
+}
+.bng-image img{
+  object-position:center center!important;
+}
+@media(max-width:980px){
+  .bng-hero-logo-wrap{
+    width:min(520px, 100%)!important;
+  }
+}
+
+
+
+/* V5 úpravy podle zadání */
+.bng-visual{
+  min-height:680px!important;
+  border-radius:34px!important;
+}
+.bng-image{
+  min-height:680px!important;
+}
+.bng-image img{
+  object-fit:cover!important;
+  object-position:center 42%!important;
+}
+@media(max-width:980px){
+  .bng-visual,.bng-image{
+    min-height:560px!important;
+  }
+}
+
+/* Produktová sekce jako systém, ne random koláž */
+.bng-photo-section{
+  border-top:1px solid var(--bng-line);
+  padding:clamp(56px,7vw,108px) 0;
+}
+.bng-product-intro{
+  display:grid;
+  grid-template-columns:180px 1fr;
+  gap:clamp(24px,5vw,80px);
+  margin-bottom:36px;
+}
+.bng-product-intro h2{
+  margin:0 0 18px;
+  font-family:var(--bng-font-grotesk, "Helvetica Neue", Helvetica, Arial, sans-serif);
+  font-size:clamp(42px,6vw,108px);
+  line-height:.88;
+  letter-spacing:-.075em;
+  font-weight:500;
+  max-width:980px;
+}
+.bng-product-intro p{
+  margin:0;
+  max-width:800px;
+  color:rgba(244,240,231,.78);
+  font-size:clamp(16px,1.25vw,20px);
+  line-height:1.65;
+}
+.bng-system-grid{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  gap:14px;
+}
+.bng-shot{
+  position:relative;
+  margin:0;
+  overflow:hidden;
+  border-radius:22px;
+  border:1px solid var(--bng-line);
+  background:#1a1b16;
+}
+.bng-shot img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  filter:saturate(.94) contrast(1.03);
+}
+.bng-shot:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,rgba(17,17,16,.34),transparent 55%);
+  pointer-events:none;
+}
+.bng-shot figcaption{
+  position:absolute;
+  left:16px;
+  bottom:14px;
+  z-index:2;
+  color:#f4f0e7;
+  font-size:10px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  opacity:.86;
+}
+.bng-product-main{grid-column:span 6; min-height:520px;}
+.bng-product-side{grid-column:span 6; min-height:520px;}
+.bng-product-small{grid-column:span 4; min-height:330px;}
+.bng-lifestyle-title{
+  grid-column:1 / -1;
+  margin:clamp(34px,5vw,64px) 0 4px;
+  display:grid;
+  grid-template-columns:180px 1fr;
+  gap:clamp(24px,5vw,80px);
+}
+.bng-lifestyle-title h3{
+  margin:0;
+  font-size:clamp(32px,4.4vw,76px);
+  line-height:.92;
+  letter-spacing:-.07em;
+  font-weight:500;
+}
+.bng-lifestyle-title p{
+  margin:0;
+  max-width:760px;
+  color:rgba(244,240,231,.74);
+  line-height:1.65;
+  font-size:clamp(15px,1.15vw,18px);
+}
+.bng-life-wide{grid-column:span 7; min-height:440px;}
+.bng-life-tall{grid-column:span 5; min-height:620px;}
+.bng-life-half{grid-column:span 6; min-height:380px;}
+.bng-life-third{grid-column:span 4; min-height:330px;}
+
+/* Slogany */
+.bng-slogans--with-photo{
+  display:grid!important;
+  grid-template-columns:1fr 1fr .85fr;
+  gap:14px;
+  align-items:stretch;
+}
+.bng-slogans--with-photo .bng-slogan{
+  min-height:180px;
+}
+.bng-slogans--with-photo .bng-shot--slogan-photo{
+  grid-row:span 2;
+  min-height:374px;
+}
+
+/* Projekty s přesahem: bongo jako fotka, ne dlaždice */
+.bng-projects--with-bongo{
+  display:grid!important;
+  grid-template-columns:1fr 1fr 1.18fr;
+  gap:16px;
+  align-items:stretch;
+}
+.bng-projects--with-bongo .bng-project{
+  min-height:260px;
+}
+.bng-bongo-figure{
+  margin:0;
+  min-height:430px;
+  border-radius:24px;
+  overflow:hidden;
+  border:1px solid var(--bng-line);
+  background:#111;
+}
+.bng-bongo-figure img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.bng-bongo-figure figcaption{
+  padding:14px 16px;
+  background:rgba(244,240,231,.92);
+  color:#111110;
+  font-size:11px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.bng-project--with-image .bng-project-img{display:none!important;}
+
+@media(max-width:980px){
+  .bng-product-intro,
+  .bng-lifestyle-title{
+    grid-template-columns:1fr;
+  }
+  .bng-system-grid,
+  .bng-projects--with-bongo,
+  .bng-slogans--with-photo{
+    grid-template-columns:1fr!important;
+  }
+  .bng-product-main,
+  .bng-product-side,
+  .bng-product-small,
+  .bng-life-wide,
+  .bng-life-tall,
+  .bng-life-half,
+  .bng-life-third,
+  .bng-slogans--with-photo .bng-shot--slogan-photo{
+    grid-column:1!important;
+    grid-row:auto!important;
+    min-height:330px;
+  }
+  .bng-life-tall{min-height:520px;}
+}
+
+
+
+/* Projekty s přesahem — pořadí: bongo dlaždice / fotka / label dlaždice */
+.bng-projects--with-bongo{
+  grid-template-columns:.9fr 1.25fr .9fr!important;
+  align-items:stretch!important;
+}
+
+.bng-projects--with-bongo .bng-project{
+  min-height:430px!important;
+  border:none!important;
+  border-radius:24px!important;
+  padding:clamp(24px,3vw,34px)!important;
+}
+
+.bng-projects--with-bongo .bng-project--pomaha{
+  background:#d7e6dc!important;
+  color:#111110!important;
+}
+
+.bng-projects--with-bongo .bng-project--label{
+  background:#f1b247!important;
+  color:#111110!important;
+}
+
+.bng-projects--with-bongo .bng-project small,
+.bng-projects--with-bongo .bng-project span{
+  color:rgba(17,17,16,.66)!important;
+}
+
+.bng-projects--with-bongo .bng-project strong{
+  color:#111110!important;
+}
+
+.bng-bongo-figure{
+  min-height:430px!important;
+  align-self:stretch!important;
+}
+
+.bng-bongo-figure img{
+  object-position:center center!important;
+}
+
+@media(max-width:980px){
+  .bng-projects--with-bongo{
+    grid-template-columns:1fr!important;
+  }
+  .bng-projects--with-bongo .bng-project,
+  .bng-bongo-figure{
+    min-height:320px!important;
+  }
+}
+
+/* bonghemia-integrated-overlay-mount-css */
+/* Bonghemia integrated overlay mount — no iframe */
+#bonghemia-vondrart-overlay{
+  display:none;
+  position:fixed!important;
+  inset:0!important;
+  width:100vw!important;
+  height:100vh!important;
+  overflow-y:auto!important;
+  overflow-x:hidden!important;
+  z-index:99990!important;
+  overscroll-behavior:contain;
+}
+body.bng-project-open #bonghemia-vondrart-overlay{
+  display:block!important;
+}
+body.bng-project-open{
+  overflow:hidden!important;
+}
+#bonghemia-vondrart-overlay .bng-close{
+  position:fixed!important;
+  z-index:100020!important;
+}
+
+/* bonghemia-overlay-frame-cursor-fix */
+/* Bonghemia overlay sjednocený s ostatními: backdrop + vnitřní sheet s ohraničením */
+#bonghemia-vondrart-overlay{
+  display:none;
+  position:fixed!important;
+  inset:0!important;
+  width:100vw!important;
+  height:100vh!important;
+  overflow:hidden!important;
+  z-index:2147483000!important;
+  background:rgba(17,17,16,.52)!important;
+  backdrop-filter:blur(18px)!important;
+  -webkit-backdrop-filter:blur(18px)!important;
+  cursor:auto!important;
+}
+
+body.bng-project-open #bonghemia-vondrart-overlay{
+  display:block!important;
+}
+
+body.bng-project-open{
+  overflow:hidden!important;
+  cursor:auto!important;
+}
+
+body.bng-project-open .cursor,
+body.bng-project-open .custom-cursor,
+body.bng-project-open [class*="cursor"]{
+  opacity:0!important;
+  visibility:hidden!important;
+  pointer-events:none!important;
+}
+
+#bonghemia-vondrart-overlay,
+#bonghemia-vondrart-overlay *{
+  cursor:auto!important;
+}
+
+#bonghemia-vondrart-overlay button,
+#bonghemia-vondrart-overlay a,
+#bonghemia-vondrart-overlay .bng-close{
+  cursor:pointer!important;
+}
+
+#bonghemia-vondrart-overlay .bng-wrap{
+  position:absolute!important;
+  inset:clamp(8px,2vw,24px)!important;
+  width:auto!important;
+  max-width:none!important;
+  margin:0!important;
+  height:auto!important;
+  overflow-y:auto!important;
+  overflow-x:hidden!important;
+  border-radius:clamp(20px,3vw,34px)!important;
+  border:1px solid rgba(244,240,231,.20)!important;
+  box-shadow:0 28px 100px rgba(0,0,0,.34)!important;
+  background:
+    radial-gradient(circle at 78% 10%, rgba(251,176,64,.30), transparent 36%),
+    radial-gradient(circle at 8% 28%, rgba(78,117,95,.52), transparent 36%),
+    linear-gradient(135deg,#111110 0%,#171813 48%,#0f120e 100%)!important;
+  padding:32px clamp(22px,4vw,64px) 80px!important;
+}
+
+#bonghemia-vondrart-overlay.bng-overlay{
+  background:rgba(17,17,16,.52)!important;
+}
+
+#bonghemia-vondrart-overlay .bng-noise{
+  position:absolute!important;
+  inset:0!important;
+  border-radius:inherit!important;
+}
+
+#bonghemia-vondrart-overlay .bng-close{
+  position:fixed!important;
+  top:clamp(20px,4vw,44px)!important;
+  right:clamp(20px,4vw,50px)!important;
+  z-index:2147483100!important;
+  background:rgba(244,240,231,.78)!important;
+  color:#111110!important;
+  border-color:rgba(17,17,16,.16)!important;
+}
+
+@media(max-width:700px){
+  #bonghemia-vondrart-overlay .bng-wrap{
+    inset:8px!important;
+    border-radius:20px!important;
+  }
+}
+
+/* bonghemia-typography-footer-visual-fix */
+/* Oprava tmavých nadpisů a patičky v integrovaném Bonghemia overlayi */
+#bonghemia-vondrart-overlay .bng-lifestyle-title h3,
+#bonghemia-vondrart-overlay .bng-product-intro h2,
+#bonghemia-vondrart-overlay .bng-photo-head h2{
+  color:var(--bng-cream)!important;
+  opacity:1!important;
+}
+
+#bonghemia-vondrart-overlay .bng-lifestyle-title{
+  align-items:start!important;
+  margin-top:clamp(56px,7vw,92px)!important;
+  margin-bottom:22px!important;
+}
+
+#bonghemia-vondrart-overlay .bng-lifestyle-title h3{
+  max-width:980px!important;
+}
+
+#bonghemia-vondrart-overlay .bng-lifestyle-title p{
+  color:rgba(244,240,231,.78)!important;
+  margin-top:clamp(22px,2.4vw,38px)!important;
+  max-width:820px!important;
+  position:relative!important;
+  z-index:2!important;
+}
+
+#bonghemia-vondrart-overlay .bng-product-intro p,
+#bonghemia-vondrart-overlay .bng-photo-head p{
+  margin-top:clamp(20px,2vw,34px)!important;
+}
+
+/* Footer zpět jako čistý závěr, ne černý box */
+#bonghemia-vondrart-overlay .bng-footer{
+  background:transparent!important;
+  border-top:1px solid var(--bng-line)!important;
+  margin-top:clamp(48px,7vw,86px)!important;
+  padding:clamp(46px,6vw,78px) 0 24px!important;
+  display:grid!important;
+  grid-template-columns:minmax(260px,.55fr) minmax(320px,.45fr)!important;
+  align-items:end!important;
+  gap:clamp(28px,5vw,72px)!important;
+  color:rgba(244,240,231,.68)!important;
+}
+
+#bonghemia-vondrart-overlay .bng-footer b{
+  color:var(--bng-cream)!important;
+  opacity:1!important;
+  font-size:clamp(54px,8vw,132px)!important;
+  line-height:.86!important;
+}
+
+#bonghemia-vondrart-overlay .bng-footer p{
+  color:rgba(244,240,231,.72)!important;
+  max-width:620px!important;
+  margin:0!important;
+  font-size:clamp(14px,1.05vw,17px)!important;
+  line-height:1.65!important;
+}
+
+/* schovat vložené spodní logo, které dělalo těžký černý blok */
+#bonghemia-vondrart-overlay .bng-footer-logo{
+  display:none!important;
+}
+
+/* pro jistotu žádné černé pozadí v závěru */
+#bonghemia-vondrart-overlay .bng-footer *,
+#bonghemia-vondrart-overlay .bng-lifestyle-title *{
+  text-shadow:none!important;
+}
+
+@media(max-width:980px){
+  #bonghemia-vondrart-overlay .bng-footer{
+    grid-template-columns:1fr!important;
+  }
+}
+
+/* bonghemia-hard-color-and-hero-photo-fix */
+/* Tvrdá oprava po integraci do celkového webu: barvy textů + vyšší úvodní fotka */
+#bonghemia-vondrart-overlay{
+  color:#f4f0e7!important;
+}
+
+#bonghemia-vondrart-overlay .bng-wrap,
+#bonghemia-vondrart-overlay .bng-overlay{
+  color:#f4f0e7!important;
+}
+
+/* Všechny běžné texty v overlayi zpět do světlé */
+#bonghemia-vondrart-overlay .bng-kicker,
+#bonghemia-vondrart-overlay .bng-lead,
+#bonghemia-vondrart-overlay .bng-text,
+#bonghemia-vondrart-overlay .bng-h2,
+#bonghemia-vondrart-overlay .bng-num,
+#bonghemia-vondrart-overlay .bng-photo-head h2,
+#bonghemia-vondrart-overlay .bng-photo-head p,
+#bonghemia-vondrart-overlay .bng-product-intro h2,
+#bonghemia-vondrart-overlay .bng-product-intro p,
+#bonghemia-vondrart-overlay .bng-lifestyle-title h3,
+#bonghemia-vondrart-overlay .bng-lifestyle-title p,
+#bonghemia-vondrart-overlay .bng-footer,
+#bonghemia-vondrart-overlay .bng-footer p,
+#bonghemia-vondrart-overlay .bng-footer b{
+  color:#f4f0e7!important;
+  opacity:1!important;
+}
+
+/* Sekundární texty jemně, ale ne černě */
+#bonghemia-vondrart-overlay .bng-lead,
+#bonghemia-vondrart-overlay .bng-text,
+#bonghemia-vondrart-overlay .bng-photo-head p,
+#bonghemia-vondrart-overlay .bng-product-intro p,
+#bonghemia-vondrart-overlay .bng-lifestyle-title p,
+#bonghemia-vondrart-overlay .bng-footer p{
+  color:rgba(244,240,231,.78)!important;
+}
+
+/* Nechat tmavý text jen ve světlých kartách/projektových dlaždicích */
+#bonghemia-vondrart-overlay .bng-project,
+#bonghemia-vondrart-overlay .bng-project *,
+#bonghemia-vondrart-overlay .bng-bongo-figure figcaption{
+  color:#111110!important;
+}
+
+/* Úvodní fotka vyšší a čitelnější */
+#bonghemia-vondrart-overlay .bng-hero{
+  align-items:stretch!important;
+  min-height:clamp(760px, 82vh, 980px)!important;
+}
+
+#bonghemia-vondrart-overlay .bng-visual{
+  min-height:clamp(720px, 78vh, 940px)!important;
+  height:100%!important;
+  align-self:stretch!important;
+}
+
+#bonghemia-vondrart-overlay .bng-image{
+  min-height:clamp(720px, 78vh, 940px)!important;
+  height:100%!important;
+}
+
+#bonghemia-vondrart-overlay .bng-image img{
+  object-fit:cover!important;
+  object-position:center 36%!important;
+}
+
+/* větší odstup textu od nadpisu v lifestyle sekci */
+#bonghemia-vondrart-overlay .bng-lifestyle-title{
+  row-gap:clamp(28px,3.2vw,52px)!important;
+  margin-bottom:clamp(26px,3vw,42px)!important;
+}
+
+#bonghemia-vondrart-overlay .bng-lifestyle-title p{
+  margin-top:clamp(26px,3vw,48px)!important;
+}
+
+@media(max-width:980px){
+  #bonghemia-vondrart-overlay .bng-hero{
+    min-height:auto!important;
+  }
+  #bonghemia-vondrart-overlay .bng-visual,
+  #bonghemia-vondrart-overlay .bng-image{
+    min-height:640px!important;
+  }
+}
+
+/* bonghemia-standard-overlay-layout-fix */
+/* Bonghemia overlay zpět na stejný princip jako ostatní projekty */
+#bonghemia-vondrart-overlay{
+  display:none;
+  position:fixed!important;
+  inset:0!important;
+  width:100vw!important;
+  height:100vh!important;
+  overflow:hidden!important;
+  z-index:2147483000!important;
+  background:rgba(17,17,16,.52)!important;
+  backdrop-filter:blur(18px)!important;
+  -webkit-backdrop-filter:blur(18px)!important;
+  cursor:auto!important;
+}
+
+body.bng-project-open #bonghemia-vondrart-overlay{
+  display:block!important;
+}
+
+body.bng-project-open{
+  overflow:hidden!important;
+  cursor:auto!important;
+}
+
+body.bng-project-open .cursor,
+body.bng-project-open .custom-cursor,
+body.bng-project-open [class*="cursor"]{
+  opacity:0!important;
+  visibility:hidden!important;
+  pointer-events:none!important;
+}
+
+#bonghemia-vondrart-overlay,
+#bonghemia-vondrart-overlay *{
+  cursor:auto!important;
+}
+
+#bonghemia-vondrart-overlay button,
+#bonghemia-vondrart-overlay a,
+#bonghemia-vondrart-overlay .bng-close{
+  cursor:pointer!important;
+}
+
+/* Stejný sheet jako ostatní: inset, rounded frame, scroll uvnitř */
+#bonghemia-vondrart-overlay .bng-wrap{
+  position:absolute!important;
+  inset:clamp(8px,2vw,24px)!important;
+  left:clamp(8px,2vw,24px)!important;
+  right:clamp(8px,2vw,24px)!important;
+  top:clamp(8px,2vw,24px)!important;
+  bottom:clamp(8px,2vw,24px)!important;
+  width:auto!important;
+  max-width:none!important;
+  min-width:0!important;
+  height:auto!important;
+  margin:0!important;
+  transform:none!important;
+  overflow-y:auto!important;
+  overflow-x:hidden!important;
+  border-radius:clamp(20px,3vw,34px)!important;
+  border:1px solid rgba(244,240,231,.20)!important;
+  box-shadow:0 28px 100px rgba(0,0,0,.34)!important;
+  background:
+    radial-gradient(circle at 78% 10%, rgba(251,176,64,.30), transparent 36%),
+    radial-gradient(circle at 8% 28%, rgba(78,117,95,.52), transparent 36%),
+    linear-gradient(135deg,#111110 0%,#171813 48%,#0f120e 100%)!important;
+  padding:32px clamp(22px,4vw,64px) 80px!important;
+}
+
+/* Samotný main je jen backdrop, gradient je na sheetu */
+#bonghemia-vondrart-overlay.bng-overlay{
+  background:rgba(17,17,16,.52)!important;
+}
+
+#bonghemia-vondrart-overlay .bng-noise{
+  position:absolute!important;
+  inset:0!important;
+  pointer-events:none!important;
+  border-radius:inherit!important;
+}
+
+#bonghemia-vondrart-overlay .bng-close{
+  position:fixed!important;
+  top:clamp(20px,4vw,44px)!important;
+  right:clamp(20px,4vw,50px)!important;
+  z-index:2147483100!important;
+  background:rgba(244,240,231,.78)!important;
+  color:#111110!important;
+  border-color:rgba(17,17,16,.16)!important;
+}
+
+/* Mobil: žádný horizontální posun, žádná pevná šířka */
+@media(max-width:700px){
+  #bonghemia-vondrart-overlay .bng-wrap{
+    inset:8px!important;
+    left:8px!important;
+    right:8px!important;
+    top:8px!important;
+    bottom:8px!important;
+    width:auto!important;
+    max-width:none!important;
+    min-width:0!important;
+    transform:none!important;
+    border-radius:20px!important;
+    padding:26px 18px 58px!important;
+  }
+
+  #bonghemia-vondrart-overlay .bng-hero,
+  #bonghemia-vondrart-overlay .bng-section,
+  #bonghemia-vondrart-overlay .bng-product-intro,
+  #bonghemia-vondrart-overlay .bng-lifestyle-title{
+    grid-template-columns:1fr!important;
+  }
+
+  #bonghemia-vondrart-overlay .bng-top{
+    gap:12px!important;
+    flex-wrap:wrap!important;
+    font-size:10px!important;
+  }
+
+  #bonghemia-vondrart-overlay .bng-hero-logo-wrap{
+    width:100%!important;
+    max-width:420px!important;
+  }
+
+  #bonghemia-vondrart-overlay .bng-visual,
+  #bonghemia-vondrart-overlay .bng-image{
+    min-height:580px!important;
+  }
+}
+
+/* bonghemia-projects-height-crop-fix */
+/* Bod 04 / Projekty s přesahem — nižší dlaždice i nižší výřez fotky */
+#bonghemia-vondrart-overlay .bng-projects--with-bongo{
+  align-items:stretch!important;
+}
+
+#bonghemia-vondrart-overlay .bng-projects--with-bongo .bng-project{
+  min-height:240px!important;
+  padding:clamp(20px,2.2vw,28px)!important;
+  justify-content:space-between!important;
+}
+
+#bonghemia-vondrart-overlay .bng-projects--with-bongo .bng-project strong{
+  font-size:clamp(24px,2.5vw,38px)!important;
+  line-height:.96!important;
+}
+
+#bonghemia-vondrart-overlay .bng-projects--with-bongo .bng-project span{
+  font-size:14px!important;
+  line-height:1.5!important;
+}
+
+#bonghemia-vondrart-overlay .bng-bongo-figure{
+  min-height:240px!important;
+  max-height:300px!important;
+}
+
+#bonghemia-vondrart-overlay .bng-bongo-figure img{
+  object-fit:cover!important;
+  object-position:center 43%!important;
+}
+
+#bonghemia-vondrart-overlay .bng-bongo-figure figcaption{
+  padding:10px 14px!important;
+  font-size:10px!important;
+}
+
+@media(max-width:980px){
+  #bonghemia-vondrart-overlay .bng-projects--with-bongo .bng-project,
+  #bonghemia-vondrart-overlay .bng-bongo-figure{
+    min-height:220px!important;
+    max-height:none!important;
+  }
+}
+
+/* bonghemia-projects-square-fix */
+/* Bod 04 / Projekty s přesahem — čtvercové dlaždice i čtvercová fotka */
+#bonghemia-vondrart-overlay .bng-projects--with-bongo{
+  align-items:stretch!important;
+}
+
+#bonghemia-vondrart-overlay .bng-projects--with-bongo .bng-project,
+#bonghemia-vondrart-overlay .bng-bongo-figure{
+  aspect-ratio:1 / 1!important;
+  min-height:0!important;
+  max-height:none!important;
+  height:auto!important;
+}
+
+#bonghemia-vondrart-overlay .bng-projects--with-bongo .bng-project{
+  padding:clamp(20px,2.2vw,30px)!important;
+}
+
+#bonghemia-vondrart-overlay .bng-bongo-figure{
+  display:flex!important;
+  flex-direction:column!important;
+}
+
+#bonghemia-vondrart-overlay .bng-bongo-figure img{
+  flex:1 1 auto!important;
+  min-height:0!important;
+  height:auto!important;
+  object-fit:cover!important;
+  object-position:center 43%!important;
+}
+
+#bonghemia-vondrart-overlay .bng-bongo-figure figcaption{
+  flex:0 0 auto!important;
+}
+
+@media(max-width:980px){
+  #bonghemia-vondrart-overlay .bng-projects--with-bongo .bng-project,
+  #bonghemia-vondrart-overlay .bng-bongo-figure{
+    aspect-ratio:1 / 1!important;
+  }
+}
+
+/* bonghemia-projects-three-equal-squares-fix */
+/* Bod 04 — tři čisté čtverce vedle sebe, bez překryvu */
+#bonghemia-vondrart-overlay .bng-projects--with-bongo{
+  display:grid!important;
+  grid-template-columns:repeat(3, minmax(0, 1fr))!important;
+  gap:16px!important;
+  align-items:stretch!important;
+}
+
+#bonghemia-vondrart-overlay .bng-projects--with-bongo .bng-project,
+#bonghemia-vondrart-overlay .bng-bongo-figure{
+  grid-column:auto!important;
+  grid-row:auto!important;
+  width:100%!important;
+  aspect-ratio:1 / 1!important;
+  min-width:0!important;
+  min-height:0!important;
+  max-height:none!important;
+  height:auto!important;
+  margin:0!important;
+  border-radius:24px!important;
+  overflow:hidden!important;
+}
+
+#bonghemia-vondrart-overlay .bng-projects--with-bongo .bng-project{
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:space-between!important;
+  padding:clamp(20px,2.2vw,30px)!important;
+}
+
+#bonghemia-vondrart-overlay .bng-bongo-figure{
+  display:block!important;
+  position:relative!important;
+  background:#111!important;
+}
+
+#bonghemia-vondrart-overlay .bng-bongo-figure img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center center!important;
+}
+
+#bonghemia-vondrart-overlay .bng-bongo-figure figcaption{
+  position:absolute!important;
+  left:0!important;
+  right:0!important;
+  bottom:0!important;
+  z-index:2!important;
+  padding:10px 14px!important;
+  background:rgba(244,240,231,.92)!important;
+  color:#111110!important;
+  font-size:10px!important;
+  letter-spacing:.12em!important;
+  text-transform:uppercase!important;
+}
+
+/* zruší starší pravidla, která fotku nebo dlaždice natahovala */
+#bonghemia-vondrart-overlay .bng-projects--with-bongo .bng-project--pomaha,
+#bonghemia-vondrart-overlay .bng-projects--with-bongo .bng-project--label{
+  min-height:0!important;
+}
+
+@media(max-width:980px){
+  #bonghemia-vondrart-overlay .bng-projects--with-bongo{
+    grid-template-columns:1fr!important;
+  }
+  #bonghemia-vondrart-overlay .bng-projects--with-bongo .bng-project,
+  #bonghemia-vondrart-overlay .bng-bongo-figure{
+    aspect-ratio:1 / 1!important;
+  }
 }
 
 /* olbracht-logo-photos-fix */
@@ -1115,8 +2610,10 @@ body{
 #dopamine-vondrart-overlay .dt-close,
 #syndikat-vondrart-overlay .sl-close,
 #dvorek-vondrart-overlay .dv-close,
+#houby-vondrart-overlay .hb-close,
 #olbracht-vondrart-overlay .ob-close,
-#cotyploty-vondrart-overlay .cp-close{
+#cotyploty-vondrart-overlay .cp-close,
+#bonghemia-vondrart-overlay .bng-close{
   position:fixed!important;
   top:clamp(18px,3vw,42px)!important;
   right:clamp(18px,3vw,48px)!important;
@@ -1136,8 +2633,10 @@ body{
 #dopamine-vondrart-overlay > .dt-close,
 #syndikat-vondrart-overlay > .sl-close,
 #dvorek-vondrart-overlay > .dv-close,
+#houby-vondrart-overlay > .hb-close,
 #olbracht-vondrart-overlay > .ob-close,
-#cotyploty-vondrart-overlay > .cp-close{
+#cotyploty-vondrart-overlay > .cp-close,
+#bonghemia-vondrart-overlay > .bng-close{
   position:fixed!important;
   top:clamp(18px,3vw,42px)!important;
   right:clamp(18px,3vw,48px)!important;
@@ -1150,6 +2649,7 @@ body{
 #dopamine-vondrart-overlay > .dt-close,
 #syndikat-vondrart-overlay > .sl-close,
 #dvorek-vondrart-overlay > .dv-close,
+#houby-vondrart-overlay > .hb-close,
 #olbracht-vondrart-overlay > .ob-close,
 #cotyploty-vondrart-overlay > .cp-close{
   margin:0!important;
@@ -1171,6 +2671,47 @@ body{
   -webkit-backdrop-filter:blur(16px)!important;
 }
 
+#bonghemia-vondrart-overlay > .bng-close{
+  background:rgba(244,240,231,.82)!important;
+  color:#111110!important;
+}
+
+/* bonghemia-close-centering-final */
+#bonghemia-vondrart-overlay > .bng-close{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  width:54px!important;
+  height:54px!important;
+  padding:0!important;
+  border-radius:999px!important;
+  font-family:Arial, Helvetica, sans-serif!important;
+  font-size:30px!important;
+  font-weight:400!important;
+  line-height:1!important;
+  text-align:center!important;
+  text-decoration:none!important;
+}
+
+/* houby-space-vector-logo-final */
+#houby-vondrart-overlay .hb-logo-v2{
+  width:min(78%,540px)!important;
+  max-height:260px!important;
+  height:auto!important;
+  object-fit:contain!important;
+  display:block!important;
+}
+
+#houby-vondrart-overlay .hb-closing img[src*="houby-space-logo-v2"]{
+  width:min(100%,360px)!important;
+  max-height:220px!important;
+  object-fit:contain!important;
+  justify-self:end!important;
+  align-self:center!important;
+  padding:clamp(16px,2vw,28px)!important;
+  background:#4A6C5D!important;
+}
+
 /* final-heading-capslock */
 #dopamine-vondrart-overlay .dt-title,
 #dopamine-vondrart-overlay .dt-heading,
@@ -1181,11 +2722,20 @@ body{
 #dvorek-vondrart-overlay .dv-title,
 #dvorek-vondrart-overlay .dv-heading,
 #dvorek-vondrart-overlay .dv-closing h3,
+#houby-vondrart-overlay .hb-title,
+#houby-vondrart-overlay .hb-heading,
+#houby-vondrart-overlay .hb-closing h3,
 #olbracht-vondrart-overlay .ob-title,
 #olbracht-vondrart-overlay .ob-heading,
 #cotyploty-vondrart-overlay .cp-title,
 #cotyploty-vondrart-overlay .cp-heading,
-#cotyploty-vondrart-overlay .cp-closing h3{
+#cotyploty-vondrart-overlay .cp-closing h3,
+#bonghemia-vondrart-overlay .bng-title,
+#bonghemia-vondrart-overlay .bng-h2,
+#bonghemia-vondrart-overlay .bng-photo-head h2,
+#bonghemia-vondrart-overlay .bng-product-intro h2,
+#bonghemia-vondrart-overlay .bng-lifestyle-title h3,
+#bonghemia-vondrart-overlay .bng-footer b{
   text-transform:uppercase!important;
 }
 

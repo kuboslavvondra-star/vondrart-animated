@@ -414,16 +414,19 @@ img {
   transition: opacity 220ms ease, transform 220ms ease;
 }
 
+.project-bonghemia .project-card-image,
 .project-cotyploty .project-card-image {
   opacity: 0;
 }
 
+.project-bonghemia .project-logo,
 .project-cotyploty .project-logo {
   opacity: 0.88;
   filter: brightness(0) invert(1);
 }
 
 .project-dvorek .project-card-image,
+.project-houby-space .project-card-image,
 .project-cafe-olbracht .project-card-image {
   opacity: 0.88;
 }
@@ -600,6 +603,7 @@ img {
   margin: 0 0 42px;
 }
 
+.case-bonghemia .case-logo,
 .case-syndikat-legal .case-logo,
 .case-cotyploty .case-logo {
   filter: brightness(0) invert(1);
@@ -764,6 +768,13 @@ img {
   box-shadow: 0 24px 110px rgba(7, 9, 24, 0.28);
 }
 
+.detail-bonghemia {
+  --detail-paper: #111710;
+  --detail-ink: #f4f1eb;
+  --detail-muted: rgba(244, 241, 235, 0.66);
+  --detail-line: rgba(244, 241, 235, 0.16);
+}
+
 .detail-hero {
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.9fr);
@@ -852,6 +863,12 @@ img {
   border-color: var(--detail-line);
   color: var(--detail-ink);
   background: rgba(255, 255, 255, 0.22);
+}
+
+.detail-bonghemia .detail-tags span,
+.detail-bonghemia .tag-row span {
+  color: var(--detail-ink);
+  background: rgba(244, 241, 235, 0.06);
 }
 
 .detail-meta-grid {
