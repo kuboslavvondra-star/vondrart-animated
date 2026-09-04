@@ -101,9 +101,9 @@ export default function RootLayout({
   return (
     <html lang="cs">
       <head>
-        <link rel="stylesheet" href="/final-polish.css?v=20260622c" />
-        <link rel="stylesheet" href="/original-project-overlays.css?v=20260616c" />
-        <link rel="stylesheet" href="/original-project-overlays-local.css?v=20260615g" />
+        <link rel="stylesheet" href="/final-polish.css?v=20260904a" />
+        <link rel="stylesheet" href="/original-project-overlays.css?v=20260904a" />
+        <link rel="stylesheet" href="/original-project-overlays-local.css?v=20260904a" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
